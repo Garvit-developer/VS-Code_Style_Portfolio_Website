@@ -165,7 +165,7 @@ import React, { useEffect, useState, Suspense, lazy } from "react";
 import styles from "./Layout.module.css";
 import { SideSecondPanel } from "./SeondPanel/SideSecondPanel";
 
-import countapi from "countapi-js";
+// import countapi from "countapi-js";
 import { numberTOWords } from "../Helper/utility";
 import { SideMainPanel } from "./SideMainPanel/SideMainPanel";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -178,7 +178,7 @@ const Layout = ({ children }) => {
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 943px)" });
 
     const [VisitorCount, setVisitorCount] = useState("");
-    const [openSideMenu, setOpenSideMenu] = useState(false);
+    const [openSideMenu, setOpenSideMenu] = useState(true);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -209,12 +209,12 @@ const Layout = ({ children }) => {
         setOpenSideMenu(!openSideMenu);
     };
 
-    // Visitor Counter
-    useEffect(() => {
-        countapi.visits("global").then((result) => {
-            setVisitorCount(numberTOWords(result.value));
-        });
-    }, []);
+    // Visitor Counter (Disabled)
+    // useEffect(() => {
+    //     countapi.visits("global").then((result) => {
+    //         setVisitorCount(numberTOWords(result.value));
+    //     });
+    // }, []);
 
     return (
         <>

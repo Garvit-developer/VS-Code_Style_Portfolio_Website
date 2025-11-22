@@ -150,7 +150,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const [index, setIndex] = useState(0);
@@ -177,7 +177,7 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Your Name | Software Development Engineer</title>
+                <title>Garvit Dani | Software Development && Full Stack Devloper</title>
                 <meta name="description" content="VS code style developer portfolio" />
                 <link rel="icon" href="/favicon.ico" />
 
@@ -296,12 +296,12 @@ const Home = () => {
                                     {
                                         icon: "https://img.icons8.com/color/28/null/javascript--v1.png",
                                         text: "Full Stack Engineer",
-                                          link: "https://twitter.com/s_r_x_9",
+                                        link: "https://twitter.com/s_r_x_9",
                                     },
                                     {
                                         icon: "https://img.icons8.com/ios-filled/20/ffffff/learn-more.png",
                                         text: "Constant Learner",
-                                          link: "https://twitter.com/s_r_x_9",
+                                        link: "https://twitter.com/s_r_x_9",
                                     },
                                 ].map((item, i) => (
                                     <a
@@ -321,7 +321,7 @@ const Home = () => {
                                     </a>
                                 ))}
 
-                               
+
                             </div>
                         </div>
 
