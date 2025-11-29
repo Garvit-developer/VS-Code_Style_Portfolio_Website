@@ -11,6 +11,8 @@
     },
     "dependencies": {
         "aws-sdk": "^2.1264.0",
+        "lucide-react": "^0.555.0",
+        "marked": "^17.0.1",
         "moment": "^2.30.1",
         "moment-timezone": "^0.5.43",
         "react": "^18.3.0",
