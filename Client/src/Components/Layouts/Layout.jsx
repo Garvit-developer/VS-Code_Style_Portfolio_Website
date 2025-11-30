@@ -330,7 +330,7 @@ const Layout = ({ children }) => {
                 <div className="bottom-header pb-6 relative z-50 bg-blue-400">
                     <ul className="right pt-1" style={{ fontSize: "12px" }}>
                         <li>Made in</li>
-                        <li>NEXT.JS</li>
+                        <li>React.JS</li>
                         <li>TypeScript</li>
                         <li>Tailwind</li>
                         <li>React</li>

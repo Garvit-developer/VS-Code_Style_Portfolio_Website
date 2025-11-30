@@ -38,7 +38,7 @@ ${context}
   ];
 
   const response = await axios.post(
-    " process.env.GROQ_API_URL",
+    GROQ_API_URL,
     {
       model: MODEL_NAME,
       messages,
@@ -87,7 +87,7 @@ Return 4 short topics only (one per line).
   ];
 
   const response = await axios.post(
-    " process.env.GROQ_API_URL",
+    GROQ_API_URL,
     {
       model: MODEL_NAME,
       messages,

@@ -1,3 +1,6 @@
+
+
+
 import React, { useState, useRef, useEffect } from "react";
 import { marked } from "marked";
 import { X, Send, Bot, MessageCircle, Minus, Maximize2, Move } from "lucide-react";
@@ -156,13 +159,9 @@ const Chatbot = () => {
         body: JSON.stringify({ input: userMsg, history: [] }),
       });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Server Error: ${response.status} ${response.statusText} - ${errorText}`);
-      }
+      if (!response.ok) throw new Error("Server Error");
 
       const data = await response.json();
-      console.log("🤖 Bot response:", data);
       const botResponse = data.reply || "No reply received from server.";
 
       setMessages((prev) => [
@@ -177,11 +176,11 @@ const Chatbot = () => {
         ]);
       }
     } catch (error) {
-      console.error("❌ Chatbot Error:", error);
       setMessages((prev) => [
         ...prev,
         { type: "incoming", text: " Error connecting to server." },
       ]);
+      console.error(error);
     }
   };
 
@@ -211,11 +210,11 @@ const Chatbot = () => {
     if (isMobile && isOpen) {
       document.body.style.overflow = "hidden"; // Disable background scroll
     } else {
-      document.body.style.overflow = "auto"; // Re-enable
+      document.body.style.overflow = ""; // Revert to default (CSS)
     }
 
     return () => {
-      document.body.style.overflow = "auto"; // Cleanup on unmount
+      document.body.style.overflow = ""; // Cleanup on unmount
     };
   }, [isOpen, isMobile]);
 
@@ -237,7 +236,7 @@ const Chatbot = () => {
       {(!isOpen || !isMobile) && (
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`fixed z-50 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-red-500/25 hover:rotate-12 active:scale-95 ${isMobile ? "bottom-16 right-5 w-14 h-14" : "bottom-20 right-4 w-16 h-16"
+          className={`fixed z-[10000] bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-red-500/25 hover:rotate-12 active:scale-95 ${isMobile ? "bottom-16 right-5 w-14 h-14" : "bottom-20 right-4 w-16 h-16"
             }`}
           style={{
             transform: isOpen && !isMobile ? "rotate(180deg)" : "rotate(0deg)",
