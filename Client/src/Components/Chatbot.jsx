@@ -99,9 +99,9 @@ const Chatbot = () => {
     const newY = e.clientY - dragOffset.y;
 
     const maxX =
-      window.innerWidth - (isMinimized ? 400 : chatWindowRef.current?.offsetWidth || 400);
+      window.innerWidth - (isMinimized ? 64 : chatWindowRef.current?.offsetWidth || 400);
     const maxY =
-      window.innerHeight - (isMinimized ? 60 : chatWindowRef.current?.offsetHeight || 600);
+      window.innerHeight - (isMinimized ? 64 : chatWindowRef.current?.offsetHeight || 600);
 
     setPosition({
       x: Math.max(0, Math.min(newX, maxX)),
@@ -261,9 +261,11 @@ const Chatbot = () => {
       {isOpen && (
         <div
           ref={chatWindowRef}
-          className={`fixed bg-white flex flex-col z-[100] transition-all duration-300 ${isMobile
-            ? "rounded-none"
-            : `w-[400px] ${isMinimized ? "h-[60px]" : "h-[500px]"} rounded-2xl shadow-2xl`
+          className={`fixed z-[100] transition-all duration-300 ${isMobile
+            ? "rounded-none bg-white flex flex-col"
+            : isMinimized
+              ? "w-16 h-16 rounded-full bg-gradient-to-r from-red-500 to-red-600 shadow-2xl flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-110"
+              : "w-[400px] h-[500px] rounded-2xl shadow-2xl bg-white flex flex-col"
             } ${isDragging ? "shadow-red-500/20" : ""}`}
           style={
             isMobile
@@ -271,89 +273,100 @@ const Chatbot = () => {
               : {
                 left: `${position.x}px`,
                 top: `${position.y}px`,
-                cursor: isDragging ? "grabbing" : "default",
+                cursor: isDragging ? "grabbing" : (isMinimized ? "grab" : "default"),
                 boxShadow: isDragging
                   ? "0 25px 50px -12px rgba(239, 68, 68, 0.25)"
                   : "",
               }
           }
+          onMouseDown={isMinimized && !isMobile ? handleMouseDown : undefined}
+          onClick={isMinimized && !isMobile && !isDragging ? () => setIsMinimized(false) : undefined}
         >
-          {/* Mobile Header */}
-          {isMobile ? (
-            <>
-              <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-gray-500 to-gray-900 text-white p-4 flex items-center justify-between z-50 shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 backdrop-blur rounded-full flex items-center justify-center">
-                    <img
-                      src="/GeekTheoryIcon.webp"
-                      alt="logo"
-                      className="p-[1px]"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Geek Theory Assistant</h3>
-                    <p className="text-xs text-white/80">Always Here to Help</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                >
-                  <X size={20} />
-                </button>
-              </header>
-
-              {/* Add top padding to avoid content being hidden under fixed header */}
-              <div className="pt-24">{/* Your mobile content goes here */}</div>
-            </>
+          {/* Minimized Bubble Content */}
+          {isMinimized && !isMobile ? (
+            <div className="relative w-full h-full flex items-center justify-center text-white">
+              <Bot size={32} className="animate-pulse-slow" />
+              {/* Optional: Notification Badge could go here */}
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
+              </div>
+            </div>
           ) : (
-            /* Desktop Header */
-            <header
-              className={`bg-gradient-to-r from-gray-700 to-black text-white px-4 py-[15px] rounded-t-2xl flex items-center justify-between cursor-grab active:cursor-grabbing hover:from-gray-800 hover:to-gray-900 transition-all duration-300 ${isDragging ? "opacity-90" : ""
-                }`}
-              onMouseDown={handleMouseDown}
-              onMouseEnter={() =>
-                !isDragging &&
-                chatWindowRef.current &&
-                (chatWindowRef.current.style.transform = "translateY(-2px)")
-              }
-              onMouseLeave={() =>
-                !isDragging &&
-                chatWindowRef.current &&
-                (chatWindowRef.current.style.transform = "translateY(0)")
-              }
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-14 h-10 bg-whi rounded-full flex items-center justify-center shadow-lg">
-                  <img src="/GeekTheoryIcon.webp" alt="logo" className="p-[1px]" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg">Geek Theory Assistant</h3>
-                  <p className="text-xs text-gray-300">Always here to help</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {isDragging && (
-                  <Move size={16} className="text-blue-400 animate-pulse" />
-                )}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsMinimized(!isMinimized);
-                  }}
-                  className="w-8 h-8 hover:bg-white/10 rounded flex items-center justify-center transition-colors"
-                >
-                  {isMinimized ? <Maximize2 size={14} /> : <Minus size={14} />}
-                </button>
-              </div>
-            </header>
-          )}
-
-
-          {/* Chat Content */}
-          {!isMinimized && (
+            /* Full Window Content */
             <>
-              {/* Chatbox */}
+              {/* Mobile Header */}
+              {isMobile ? (
+                <>
+                  <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-gray-500 to-gray-900 text-white p-4 flex items-center justify-between z-50 shadow-lg">
+                    <div className="flex items-center gap-3">
+                      <div className="w-14 h-14 backdrop-blur rounded-full flex items-center justify-center">
+                        <img
+                          src="/GeekTheoryIcon.webp"
+                          alt="logo"
+                          className="p-[1px]"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg">Geek Theory Assistant</h3>
+                        <p className="text-xs text-white/80">Always Here to Help</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                    >
+                      <X size={20} />
+                    </button>
+                  </header>
+
+                  {/* Add top padding to avoid content being hidden under fixed header */}
+                  <div className="pt-24">{/* Your mobile content goes here */}</div>
+                </>
+              ) : (
+                /* Desktop Header */
+                <header
+                  className={`bg-gradient-to-r from-gray-700 to-black text-white px-4 py-[15px] rounded-t-2xl flex items-center justify-between cursor-grab active:cursor-grabbing hover:from-gray-800 hover:to-gray-900 transition-all duration-300 ${isDragging ? "opacity-90" : ""
+                    }`}
+                  onMouseDown={handleMouseDown}
+                  onMouseEnter={() =>
+                    !isDragging &&
+                    chatWindowRef.current &&
+                    (chatWindowRef.current.style.transform = "translateY(-2px)")
+                  }
+                  onMouseLeave={() =>
+                    !isDragging &&
+                    chatWindowRef.current &&
+                    (chatWindowRef.current.style.transform = "translateY(0)")
+                  }
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-14 h-10 bg-whi rounded-full flex items-center justify-center shadow-lg">
+                      <img src="/GeekTheoryIcon.webp" alt="logo" className="p-[1px]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg">Geek Theory Assistant</h3>
+                      <p className="text-xs text-gray-300">Always here to help</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {isDragging && (
+                      <Move size={16} className="text-blue-400 animate-pulse" />
+                    )}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsMinimized(!isMinimized);
+                      }}
+                      className="w-8 h-8 hover:bg-white/10 rounded flex items-center justify-center transition-colors"
+                    >
+                      {isMinimized ? <Maximize2 size={14} /> : <Minus size={14} />}
+                    </button>
+                  </div>
+                </header>
+              )}
+
+
+              {/* Chat Content */}
               <ul
                 ref={chatboxRef}
                 className={`flex-1 overflow-y-auto p-4 space-y-4 ${isMobile
