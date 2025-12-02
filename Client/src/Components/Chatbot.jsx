@@ -25,6 +25,7 @@ const Chatbot = () => {
 
   const chatboxRef = useRef(null);
   const chatWindowRef = useRef(null);
+  const hasDraggedRef = useRef(false);
 
   // Handle responsive behavior
   useEffect(() => {
@@ -90,6 +91,8 @@ const Chatbot = () => {
 
     chatWindowRef.current.style.transform = "scale(1.02)";
     chatWindowRef.current.style.transition = "transform 0.2s ease";
+
+    hasDraggedRef.current = false;
   };
 
   const handleMouseMove = (e) => {
@@ -97,6 +100,8 @@ const Chatbot = () => {
 
     const newX = e.clientX - dragOffset.x;
     const newY = e.clientY - dragOffset.y;
+
+    hasDraggedRef.current = true;
 
     const maxX =
       window.innerWidth - (isMinimized ? 64 : chatWindowRef.current?.offsetWidth || 400);
@@ -280,7 +285,16 @@ const Chatbot = () => {
               }
           }
           onMouseDown={isMinimized && !isMobile ? handleMouseDown : undefined}
-          onClick={isMinimized && !isMobile && !isDragging ? () => setIsMinimized(false) : undefined}
+          onClick={isMinimized && !isMobile ? () => {
+            if (!hasDraggedRef.current) {
+              setIsMinimized(false);
+              // Ensure window stays on screen when expanding
+              setPosition(prev => ({
+                x: Math.min(prev.x, window.innerWidth - 400),
+                y: Math.min(prev.y, window.innerHeight - 500)
+              }));
+            }
+          } : undefined}
         >
           {/* Minimized Bubble Content */}
           {isMinimized && !isMobile ? (
@@ -355,6 +369,12 @@ const Chatbot = () => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
+                        // Calculate position to center bubble on the minimize button
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        setPosition({
+                          x: rect.left - 16, // Offset to center 64px bubble on 32px button
+                          y: rect.top - 16
+                        });
                         setIsMinimized(!isMinimized);
                       }}
                       className="w-8 h-8 hover:bg-white/10 rounded flex items-center justify-center transition-colors"
