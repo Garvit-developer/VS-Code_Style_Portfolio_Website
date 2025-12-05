@@ -20,6 +20,12 @@
   margin-left: -8px;
   display: inline-flex;
   justify-content: center;
+  transition: width 0.3s ease;
+}
+
+.mainside.withRightPanel {
+  width: calc(100vw - 320px - 320px);
+  /* Left sidebar + Right sidebar */
 }
 
 .navsidecollapse {
@@ -39,4 +45,24 @@
   left: 60px;
   position: absolute;
   display: inline-flex;
+  transition: width 0.3s ease;
+}
+
+.mainsidecollapse.withRightPanel {
+  width: calc(100vw - 57px - 320px);
+  /* Collapsed left + Right sidebar */
+}
+
+.rightSidePanel {
+  width: 320px;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 25px;
+  /* Below header */
+  background-color: #252526;
+  border-left: 1px solid #3e3e42;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
 }

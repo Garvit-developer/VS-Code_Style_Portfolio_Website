@@ -170,6 +170,7 @@ import { numberTOWords } from "../Helper/utility";
 import { SideMainPanel } from "./SideMainPanel/SideMainPanel";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import Chatbot from "../Chatbot";
 
 // Lazy Clock
 const Clock = lazy(() => import("../Clock"));
@@ -179,6 +180,7 @@ const Layout = ({ children }) => {
 
     const [VisitorCount, setVisitorCount] = useState("");
     const [openSideMenu, setOpenSideMenu] = useState(true);
+    const [showChatbot, setShowChatbot] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -207,6 +209,13 @@ const Layout = ({ children }) => {
     // Toggle side menu
     const toggleSideMainMenu = () => {
         setOpenSideMenu(!openSideMenu);
+    };
+
+    const toggleChatbot = () => {
+        setShowChatbot(!showChatbot);
+        if (!showChatbot) {
+            setOpenSideMenu(false); // Close other side menu if opening chatbot, optional preference
+        }
     };
 
     // Visitor Counter (Disabled)
@@ -303,13 +312,15 @@ const Layout = ({ children }) => {
             </div>
 
             {/* MAIN WRAPPER */}
-            <div className="scrollbar w-full">
+            <div className="scrollbar w-full flex">
 
                 {/* SIDE NAVIGATION */}
                 <nav className={`${openSideMenu ? styles.navside : styles.navsidecollapse}`}>
                     <SideMainPanel
                         toggleSideMainMenu={toggleSideMainMenu}
                         mainActiveSideButton={openSideMenu}
+                        toggleChatbot={toggleChatbot}
+                        showChatbot={showChatbot}
                     />
 
                     {openSideMenu && (
@@ -319,10 +330,17 @@ const Layout = ({ children }) => {
 
                 {/* PAGE CONTENT */}
                 <main
-                    className={`${openSideMenu ? styles.mainside : styles.mainsidecollapse} scrollbar`}
+                    className={`${openSideMenu ? styles.mainside : styles.mainsidecollapse} ${showChatbot ? styles.withRightPanel : ''} scrollbar`}
                 >
                     {children}
                 </main>
+
+                {/* RIGHT SIDEBAR (CHATBOT) */}
+                {showChatbot && (
+                    <div className={styles.rightSidePanel}>
+                        <Chatbot isOpen={showChatbot} onClose={() => setShowChatbot(false)} />
+                    </div>
+                )}
             </div>
 
             {/* FOOTER */}
