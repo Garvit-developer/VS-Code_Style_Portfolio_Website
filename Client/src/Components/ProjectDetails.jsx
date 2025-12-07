@@ -77,7 +77,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                     {projectDetails?.link && (
                                         <div
                                             className="float-right butto pr-4 inline-block pt-3 text-xl font-bold text-blue-400"
-                                            style={{ marginRight: "-55px" }}
+                                            
                                         >
                                             <a
                                                 href={projectDetails.link}
