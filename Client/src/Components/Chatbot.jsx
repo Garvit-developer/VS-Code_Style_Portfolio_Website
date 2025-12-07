@@ -92,7 +92,7 @@ const Chatbot = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="flex flex-col h-full w-full bg-[#252526] text-[#cccccc] font-sans text-sm">
+    <div className="flex flex-col h-full w-full bg-[#252526] text-[#cccccc] text-sm">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-[#3e3e42] select-none">
         <span className="font-semibold text-xs uppercase tracking-wider text-[#bbbbbb]">Chat</span>

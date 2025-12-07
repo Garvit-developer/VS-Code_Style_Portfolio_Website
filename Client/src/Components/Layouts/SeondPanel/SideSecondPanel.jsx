@@ -32,8 +32,8 @@ const menuData = [
         title: "About",
         items: [
             { name: "index.html", link: "/", icon: "icons8-html-5" },
-            { name: "experience.css", link: "/Experience", icon: "icons8-css3" },
-            { name: "skills.js", link: "/Skills", icon: "icons8-javascript" },
+            { name: "skills.css", link: "/Skills", icon: "icons8-css3" },
+            { name: "experience.js", link: "/Experience", icon:"icons8-javascript"  },
             { name: "projects.ts", link: "/Projects", icon: "icons8-typescript" },
         ],
     },
@@ -41,12 +41,12 @@ const menuData = [
         key: "projects",
         title: "Side Projects",
         items: [
-            { id: "1", name: "Ayedot.js", link: "/Projects/1", icon: "icons8-nodejs" },
-            { id: "2", name: "Ayefan.js", link: "/Projects/2", icon: "icons8-react" },
-            { id: "3", name: "Onwos.ts", link: "/Projects/3", icon: "icons8-angularjs" },
-            { id: "4", name: "fireflow.js", link: "/Projects/4", icon: "icons8-react" },
-            { id: "5", name: "Shortlit.js", link: "/Projects/5", icon: "icons8-nodejs" },
-            { id: "6", name: "Xport.js", link: "/Projects/6", icon: "icons8-react" },
+            { id: "1", name: "Geektheo.js", link: "/Projects/1", icon: "icons8-nodejs" },
+            { id: "2", name: "Skilledu.js", link: "/Projects/2", icon: "icons8-react" },
+            { id: "3", name: "Taskly-Pro.ts", link: "/Projects/3", icon: "icons8-angularjs" },
+            { id: "4", name: "Bhasha-Setu.js", link: "/Projects/4", icon: "icons8-react" },
+            { id: "5", name: "Secure-Stack.js", link: "/Projects/5", icon: "icons8-nodejs" },
+            { id: "6", name: "SimonSaysGame.js", link: "/Projects/6", icon: "icons8-react" },
         ],
     },
     {
@@ -93,9 +93,8 @@ const MenuSection = ({ section, isOpen, onToggle, navigate, activeCurrentSubLink
                                     <li
                                         key={i}
                                         onClick={() => navigate(item.link)}
-                                        className={`smallSide ${
-                                            activeCurrentSubLink === currentKey ? "active" : ""
-                                        }`}
+                                        className={`smallSide ${activeCurrentSubLink === currentKey ? "active" : ""
+                                            }`}
                                     >
                                         <SidePanelSubLink
                                             name={item.name}

@@ -213,9 +213,6 @@ const Layout = ({ children }) => {
 
     const toggleChatbot = () => {
         setShowChatbot(!showChatbot);
-        if (!showChatbot) {
-            setOpenSideMenu(false); // Close other side menu if opening chatbot, optional preference
-        }
     };
 
     // Visitor Counter (Disabled)
