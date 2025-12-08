@@ -56,8 +56,8 @@ export const projectsdata = () => [
         ],
     },
     {
-        title: "IT solutions and software devlopment Website",
-        name: "Geek Theory Website",
+        title: "Dought solver",
+        name: "Skilledu",
         banner: "/xporthumb.png",
         skills: [
             "JavaScript",
