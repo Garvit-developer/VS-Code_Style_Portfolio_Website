@@ -10,7 +10,7 @@ export const projectsdata = () => [
             "Node.js",
             "React.js",
             "Express",
-            "MongoDB",   
+            "MongoDB",
             "Tailwind CSS",
         ],
         description: `GeekTheo is an IT solutions company that delivers modern, scalable, and performance-driven digital services. The company specializes in web development, application design, and custom business solutions for clients. GeekTheo focuses on building secure, reliable, and user-focused systems using latest technologies. The website represents the company’s services, portfolio, and digital identity.`,
