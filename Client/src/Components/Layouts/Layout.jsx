@@ -342,7 +342,7 @@ const Layout = ({ children }) => {
 
             {/* FOOTER */}
             {!isTabletOrMobile ? (
-                <div className="bottom-header pb-6 relative z-50 bg-blue-400">
+                <div className="bottom-header pb-5 relative z-50 bg-blue-400">
                     <ul className="right pt-1" style={{ fontSize: "12px" }}>
                         <li>Made in</li>
                         <li>React.JS</li>
@@ -351,7 +351,7 @@ const Layout = ({ children }) => {
                         <li>React</li>
                     </ul>
 
-                    <ul className="left">
+                    <ul className="left flex items-center justify-end">
                         <li>{VisitorCount} Total Visits</li>
 
                         <li>
@@ -370,9 +370,9 @@ const Layout = ({ children }) => {
                     </ul>
                 </div>
             ) : (
-                <div className="bottom-header fixed pb-6 relative z-50 bg-blue-400">
+                <div className="bottom-header fixed pb-5  relative z-50 bg-blue-400">
                     <ul className="right pt-1" style={{ fontSize: "12px" }}>
-                        <li>NEXT.JS</li>
+                        <li>React.JS</li>
                         <li>JavaScript</li>
                         <li>Tailwind</li>
                     </ul>

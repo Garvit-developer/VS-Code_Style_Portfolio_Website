@@ -33,7 +33,7 @@ const menuData = [
         items: [
             { name: "index.html", link: "/", icon: "icons8-html-5" },
             { name: "skills.css", link: "/Skills", icon: "icons8-css3" },
-            { name: "experience.js", link: "/Experience", icon:"icons8-javascript"  },
+            { name: "experience.js", link: "/Experience", icon: "icons8-javascript" },
             { name: "projects.ts", link: "/Projects", icon: "icons8-typescript" },
         ],
     },
@@ -149,7 +149,7 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
     };
 
     return (
-        <div className="menu-option overflow-hidden">
+        <div className="menu-option  overflow-hidden">
             <h5 className="myweight">EXPLORER</h5>
 
             <div className="mb-5 pb-5 z-1 scrollbar" style={{ height: "84%", overflowY: "scroll" }}>
@@ -168,10 +168,10 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
             {!isTabletOrMobile && (
                 <ul className="bottom-links pl-2">
                     <li className="border-b border-gray-500">
-                        <span className="text-gray-400">All Rights Reserved.</span>
+                        <span className="text-gray-400 hover:text-gray-200">All Rights Reserved.</span>
                     </li>
                     <li>
-                        <span className="text-gray-400">Ⓒ Copyright 2023.</span>
+                        <span className="text-gray-400 hover:text-gray-200">Ⓒ Copyright 2023.</span>
                     </li>
                 </ul>
             )}

@@ -214,7 +214,7 @@ ul.header-menu li.header-menu-link {
   top: 25px;
   left: 0;
   width: 47px;
-  height: calc(100% - 50px);
+  height: calc(100% - 45px);
 }
 
 .bottom-header {

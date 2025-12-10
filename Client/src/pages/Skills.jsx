@@ -35,7 +35,7 @@ const Deployment = [
 
 const tools = [{ name: "Git", icon: "https://img.icons8.com/color/144/000000/git.png" },
 { name: "GitHub", icon: "https://img.icons8.com/fluency/144/000000/github.png" },
-{ name: "Visual Studio Code", icon: "https://img.icons8.com/fluency/144/000000/visual-studio-code-2019.png" },
+{ name: "VS Code", icon: "https://img.icons8.com/fluency/144/000000/visual-studio-code-2019.png" },
 { name: "Antigravity", icon: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/google-antigravity-logo-icon.png" },
 { name: "Postman", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTILwHh21Dky51ePyPy2V_qsPeQWd5n136Sa8PQuhIMmOGLpprK6Zt7qWn9cRL21LE3RzM&usqp=CAU" },
 { name: "Figma", icon: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" },
@@ -50,20 +50,20 @@ const SkillSection = ({ title, skills }) => (
                 <div
                     key={skill.name}
                     className="
-                        flex items-center gap-3 p-3 
+                        flex items-center gap-3 p-2.5 text-base
                         rounded-lg bg-white/5 backdrop-blur-sm
                         hover:bg-white/10 transition-all duration-200 
                         hover:scale-[1.03]
                     "
                 >
-                    <div className="h-10 w-10 flex items-center justify-center bg-white rounded-md overflow-hidden">
+                    <div className="h-9 w-9 flex items-center justify-center bg-white rounded-md overflow-hidden">
                         <img
                             src={skill.icon}
                             alt={skill.name}
                             className="h-8 w-8 object-contain"
                         />
                     </div>
-                    <p className="text-base font-medium text-gray-100">{skill.name}</p>
+                    <p className="text-medium font-medium text-gray-100">{skill.name}</p>
                 </div>
             ))}
         </dl>
@@ -73,15 +73,15 @@ const SkillSection = ({ title, skills }) => (
 // 📌 Main Page — Small UI
 const Skills = () => {
     useEffect(() => {
-        document.title = "Skills";
+        document.title = "Skill Section | Garvit Dani";
     }, []);
 
     return (
         <Scrollbars autoHide autoHideTimeout={1000} autoHideDuration={200} universal={true}>
             <div className="w-full p-5 pb-40">
-                <h2 className="text-3xl lg:text-4xl font-bold text-indigo-500">Skills</h2>
+                <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-indigo-500">Skills</h2>
 
-                <p className="mt-3 text-base max-w-2xl text-gray-300">
+                <p className="mt-3 text-base font-medium max-w-2xl  text-gray-400">
                     Frontend & Backend Development, Database Handling, AI Integration, Cloud Deployment and prompt engineering.
                 </p>
 
