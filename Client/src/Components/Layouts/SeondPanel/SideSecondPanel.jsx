@@ -12,6 +12,7 @@ const routeMap = {
     Hobbies: "Hobbies",
     Blogs: "Blogs",
     Email: "Email",
+    contact: "Email.tsx",
     Gaming: "Gaming",
     Learning: "Learning",
     Startup: "Startup",
@@ -53,7 +54,7 @@ const menuData = [
         key: "contact",
         title: "Contact",
         items: [
-            { id: "Email", name: "Email.tsx", link: "/Email", icon: "icons8-gmail" },
+            { id: "Email", name: "Email.tsx", link: "/contact", icon: "icons8-gmail" },
         ],
     },
     {

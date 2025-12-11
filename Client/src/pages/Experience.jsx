@@ -53,12 +53,12 @@ const MyWork = () => {
             <div className="w-full p-5 pb-40 text-left">
                 {/* Header matching Projects/Skills pages */}
                 <div className="flex items-center gap-2">
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                    Work
-                </h2>
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-indigo-500">
-                    Experience
-                </h2>
+                    <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
+                        Work
+                    </h2>
+                    <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-indigo-500">
+                        Experience
+                    </h2>
                 </div>
 
                 <p className="mt-3 text-base font-medium max-w-2xl text-gray-400">

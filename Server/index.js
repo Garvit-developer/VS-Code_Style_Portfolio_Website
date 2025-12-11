@@ -1,7 +1,7 @@
 
 import express from "express";
 import cors from "cors";
-import AWS from "aws-sdk";
+import nodemailer from "nodemailer";
 import { callGroq, callGroqSuggestions } from "./groq.js";
 import { scrapeGeekTheo } from "./geekScraper.js";
 import findRelevantContext from "./tfidf.js";
@@ -62,12 +62,13 @@ app.post("/api/chat", async (req, res) => {
     }
 });
 
-// AWS SES Configuration
-const ses = new AWS.SES({
-    apiVersion: "2010-12-01",
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION || "ap-south-1",
+// Nodemailer SMTP Configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER || 'garvitdani@gmail.com',
+        pass: process.env.EMAIL_PASSWORD // App Password from Gmail
+    }
 });
 
 // Routes
@@ -91,38 +92,93 @@ app.post("/api/sendEmail", async (req, res) => {
         });
     }
 
-    const params = {
-        Destination: {
-            CcAddresses: [],
-            ToAddresses: [process.env.TO_EMAIL || "toemail@tomail.com"],
-        },
-        Message: {
-            Body: {
-                Html: {
-                    Charset: "UTF-8",
-                    Data: `<div>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Message:</strong></p>
-              <p>${message}</p>
-            </div>`,
-                },
-            },
-            Subject: {
-                Charset: "UTF-8",
-                Data: `Hi I am ${name}, from contact page.`,
-            },
-        },
-        Source: process.env.FROM_EMAIL || "youremail@gmail.com",
-        ReplyToAddresses: [],
+    // Email to you (notification of new contact)
+    const notificationEmail = {
+        from: `"Portfolio Contact Form" <${process.env.EMAIL_USER || 'garvitdani@gmail.com'}>`,
+        to: 'garvitdani@gmail.com',
+        replyTo: email,
+        subject: `New Contact Form Message from ${name}`,
+        html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;">
+                <div style="background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h2 style="color: #333; margin-bottom: 20px; border-bottom: 2px solid #007acc; padding-bottom: 10px;">
+                        New Contact Form Submission
+                    </h2>
+                    <div style="margin-bottom: 15px;">
+                        <p style="margin: 5px 0; color: #666;">
+                            <strong style="color: #333;">Name:</strong> ${name}
+                        </p>
+                        <p style="margin: 5px 0; color: #666;">
+                            <strong style="color: #333;">Email:</strong> 
+                            <a href="mailto:${email}" style="color: #007acc; text-decoration: none;">${email}</a>
+                        </p>
+                    </div>
+                    <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #007acc; border-radius: 4px;">
+                        <p style="margin: 0 0 10px 0; color: #333; font-weight: bold;">Message:</p>
+                        <p style="margin: 0; color: #666; line-height: 1.6;">${message}</p>
+                    </div>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
+                        <p style="margin: 0; color: #999; font-size: 12px;">
+                            This email was sent from your portfolio contact form
+                        </p>
+                    </div>
+                </div>
+            </div>
+        `
+    };
+
+    // Auto-reply email to the user
+    const autoReplyEmail = {
+        from: `"Garvit Dani" <${process.env.EMAIL_USER || 'garvitdani@gmail.com'}>`,
+        to: email,
+        subject: 'Thank you for contacting me - Garvit Dani',
+        html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;">
+                <div style="background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h2 style="color: #333; margin-bottom: 20px;">
+                        Thank You for Reaching Out!
+                    </h2>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
+                        Hi <strong>${name}</strong>,
+                    </p>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
+                        Thank you for contacting me through my portfolio website. I've received your message and will get back to you as soon as possible.
+                    </p>
+                    <div style="margin: 25px 0; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #007acc; border-radius: 4px;">
+                        <p style="margin: 0 0 10px 0; color: #333; font-weight: bold;">Your Message:</p>
+                        <p style="margin: 0; color: #666; line-height: 1.6; font-style: italic;">"${message}"</p>
+                    </div>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
+                        I typically respond within 24-48 hours. If your inquiry is urgent, feel free to reach out to me directly at 
+                        <a href="mailto:garvitdani@gmail.com" style="color: #007acc; text-decoration: none;">garvitdani@gmail.com</a>.
+                    </p>
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                        <p style="margin: 0 0 10px 0; color: #333; font-weight: bold;">Best regards,</p>
+                        <p style="margin: 0; color: #666;">Garvit Dani</p>
+                        <p style="margin: 5px 0 0 0; color: #999; font-size: 14px;">Software Development Engineer</p>
+                    </div>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
+                        <p style="margin: 0; color: #999; font-size: 12px;">
+                            This is an automated confirmation email. Please do not reply to this message.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        `
     };
 
     try {
-        const data = await ses.sendEmail(params).promise();
-        console.log("Email sent successfully:", data);
+        // Send notification email to you
+        await transporter.sendMail(notificationEmail);
+        console.log("✅ Notification email sent to garvitdani@gmail.com");
+
+        // Send auto-reply to the user
+        await transporter.sendMail(autoReplyEmail);
+        console.log(`✅ Auto-reply email sent to ${email}`);
+
         res.status(200).json({ data: true, error: "" });
     } catch (err) {
-        console.error("Error sending email:", err);
+        console.error("❌ Error sending email:", err);
         res.status(500).json({
             data: false,
             error: err.message || "Failed to send email",

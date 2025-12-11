@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import { useMediaQuery } from "react-responsive";
+import { Mail, User, MessageSquare, Send, CheckCircle } from "lucide-react";
 
 const Email = () => {
-    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 943px)" });
-
     useEffect(() => {
         document.title = "Contact me";
     }, []);
@@ -63,262 +61,156 @@ const Email = () => {
             autoHideDuration={200}
             universal={true}
         >
-            {!isTabletOrMobile ? (
-                <div className="h-full w-full mx-auto">
-                    <section className="shadow-xl items-center justify-center rounded-md mx-auto">
-                        <div className="max-w-6xl mx-auto pt-10 pb-10 ">
-                            <div className="mt-8 overflow-hidden">
-                                <div className="grid grid-cols-1 lg:grid-cols-2">
-                                    <div className="p-6 mr-2 mt-8   sm:rounded-lg">
-                                        <h1 className="text-4xl sm:text-5xl mx-auto text-gray-200 dark:text-white font-extrabold tracking-tight">
-                                            Get in touch
-                                        </h1>
-                                        <p className="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">
-                                            Fill in the form to start a conversation
-                                        </p>
-                                        <p className="text-normal text-md font-normal text-gray-400 dark:text-gray-400 mt-2">
-                                            You can contact me with any questions, suggestions or just
-                                            to say hi. I am always open to new ideas and
-                                            collaborations. It can be anything like collaborating on
-                                            good projects or startups or freelancing or gaming or
-                                            anything else.
-                                        </p>
-                                        <p className=" text-sm  text-red-600 dark:text-gray-400 mt-2">
-                                            {error}
-                                        </p>
-                                    </div>
+            <div className="w-full p-5 pb-40 text-left">
+                {/* Header matching other pages */}
+                <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-indigo-500">
+                    Get in touch
+                </h2>
 
-                                    {!done ? (
-                                        <form className="p-6  flex flex-col justify-center">
-                                            <div className="flex flex-col">
-                                                <label htmlFor="name" className="hidden">
-                                                    Name
-                                                </label>
-                                                <input
-                                                    type="name"
-                                                    name="name"
-                                                    id="name"
-                                                    onChange={(e) => setName(e.target.value)}
-                                                    placeholder="Full Name"
-                                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
-                                                />
-                                            </div>
+                <p className="mt-3 text-base font-medium max-w-2xl text-gray-400">
+                    Fill in the form to start a conversation
+                </p>
 
-                                            <div className="flex flex-col mt-2">
-                                                <label htmlFor="email" className="hidden">
-                                                    Email
-                                                </label>
-                                                <input
-                                                    type="email"
-                                                    name="email"
-                                                    id="email"
-                                                    value={email}
-                                                    onChange={(e) => setEmail(e.target.value)}
-                                                    placeholder="Email"
-                                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
-                                                />
-                                            </div>
+                <p className="mt-2 text-base max-w-3xl text-gray-400 leading-relaxed">
+                    You can contact me with any questions, suggestions or just to say hi.
+                    I am always open to new ideas and collaborations. It can be anything like
+                    collaborating on good projects or startups or anime or gaming or anything else.
+                </p>
 
-                                            <div className="flex flex-col mt-2">
-                                                <label htmlFor="tel" className="hidden">
-                                                    Message
-                                                </label>
-                                                <textarea
-                                                    name="details"
-                                                    value={message}
-                                                    id="details"
-                                                    placeholder="Message"
-                                                    onChange={(e) => setMessage(e.target.value)}
-                                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
-                                                ></textarea>
-                                            </div>
-
-                                            {!loading ? (
-                                                <button
-                                                    type="button"
-                                                    onClick={() => {
-                                                        if (name === "") {
-                                                            setError("Please enter your name.");
-                                                        } else if (email === "") {
-                                                            setError("Please enter your email.");
-                                                        } else if (message === "") {
-                                                            setError("Please enter your message.");
-                                                        } else {
-                                                            finalSendEmail();
-                                                        }
-                                                    }}
-                                                    className="md:w-32  bg-indigo-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300"
-                                                >
-                                                    Submit
-                                                </button>
-                                            ) : (
-                                                <div
-                                                    className="spinner-border flex pt-4 text-indigo-500"
-                                                    role="status"
-                                                >
-                                                    <img
-                                                        src="https://img.icons8.com/ios/50/ffffff/loading-circle.gif"
-                                                        className="rounded-full flex"
-                                                        width="30"
-                                                        height="30"
-                                                    />
-                                                    <span className="flex-auto text-white pl-2 font-medium pt-1">
-                                                        Loading...{" "}
-                                                    </span>
-                                                </div>
-                                            )}
-                                        </form>
-                                    ) : (
-                                        <div className=" flex  w-4/3 items-center justify-center">
-                                            <div className="text-center justify-center text-gray-300 font-medium text-sm">
-                                                <div className=" text-left text-lg pb-3">
-                                                    Thank you for your message. <br /> Will get back to
-                                                    you as soon as possible.
-                                                </div>
-                                                <div className=" text-left pb-3">
-                                                    <img
-                                                        src="https://c.tenor.com/mCiM7CmGGI4AAAAC/naruto.gif"
-                                                        width="75%"
-                                                        height="100"
-                                                        className="text-center rounded-lg "
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
+                {!done ? (
+                    <div className="mt-8 max-w-3xl">
+                        {/* Error Message */}
+                        {error && (
+                            <div className="mb-6 p-4 bg-red-900/20 border border-red-500/50 rounded-md">
+                                <p className="text-red-400 text-sm">{error}</p>
                             </div>
-                        </div>{" "}
-                    </section>
-                </div>
-            ) : (
-                <div className="h-full w-full pb-20  ">
-                    <section className="shadow-xl items-center justify-center rounded-md">
-                        <div className=" ">
-                            <div className="overflow-hidden">
-                                <div className="p-3 ">
-                                    <h1 className="text-4xl  text-gray-200 dark:text-white font-extrabold tracking-tight">
-                                        Get in touch
-                                    </h1>
-                                    <p className="text-normal text-lg font-medium text-gray-600 dark:text-gray-400 mt-2">
-                                        Fill in the form to start a conversation
-                                    </p>
-                                    <p className="text-normal text-md font-normal text-gray-400 dark:text-gray-400 mt-2">
-                                        You can contact me with any questions, suggestions or just
-                                        to say hi. I am always open to new ideas and collaborations.
-                                        It can be anything like collaborating on good projects or
-                                        startups or freelancing or gaming or anything else.
-                                    </p>
-                                    <p className=" text-sm  text-red-600 dark:text-gray-400 mt-2">
-                                        {error}
-                                    </p>
-                                </div>
+                        )}
 
-                                {!done ? (
-                                    <form className="p-3 pb-20 justify-center">
-                                        <div className="">
-                                            <label htmlFor="name" className="hidden">
-                                                Name
-                                            </label>
-                                            <input
-                                                type="name"
-                                                name="name"
-                                                id="name"
-                                                onChange={(e) => setName(e.target.value)}
-                                                placeholder="Full Name"
-                                                className="w-full mt-2 py-3 px-3 rounded-lg
-                         bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
-                                            />
-                                        </div>
-
-                                        <div className=" mt-2">
-                                            <label htmlFor="email" className="hidden">
-                                                Email
-                                            </label>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                id="email"
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
-                                                placeholder="Email"
-                                                className="w-full mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
-                                            />
-                                        </div>
-
-                                        <div className=" mt-2">
-                                            <label htmlFor="tel" className="hidden">
-                                                Message
-                                            </label>
-                                            <textarea
-                                                name="details"
-                                                value={message}
-                                                id="details"
-                                                placeholder="Message"
-                                                onChange={(e) => setMessage(e.target.value)}
-                                                className="w-full mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
-                                            ></textarea>
-                                        </div>
-
-                                        {!loading ? (
-                                            <button
-                                                type="button"
-                                                onClick={() => {
-                                                    if (name === "") {
-                                                        setError("Please enter your name.");
-                                                    } else if (email === "") {
-                                                        setError("Please enter your email.");
-                                                    } else if (message === "") {
-                                                        setError("Please enter your message.");
-                                                    } else {
-                                                        finalSendEmail();
-                                                    }
-                                                }}
-                                                className="md:w-32 mb-20  bg-indigo-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3
-                         hover:bg-indigo-500 transition ease-in-out duration-300"
-                                            >
-                                                Submit
-                                            </button>
-                                        ) : (
-                                            <div
-                                                className="spinner-border flex pt-4 mb-20 text-indigo-500"
-                                                role="status"
-                                            >
-                                                <img
-                                                    src="https://img.icons8.com/ios/50/ffffff/loading-circle.gif"
-                                                    className="rounded-full flex"
-                                                    width="30"
-                                                    height="30"
-                                                />
-                                                <span className="flex-auto text-white pl-2 font-medium pt-1">
-                                                    Loading...{" "}
-                                                </span>
-                                            </div>
-                                        )}
-                                    </form>
-                                ) : (
-                                    <div className=" flex p-2 pt-5  pb-20 w-full items-center justify-center">
-                                        <div className="text-center justify-center text-gray-300 font-medium text-sm">
-                                            <div className=" text-left text-lg pb-3">
-                                                Thank you for your message. <br /> Will get back to you
-                                                as soon as possible.
-                                            </div>
-                                            <div className=" text-left pb-3">
-                                                <img
-                                                    src="https://c.tenor.com/mCiM7CmGGI4AAAAC/naruto.gif"
-                                                    width="100%"
-                                                    height="100"
-                                                    className="text-center rounded-lg "
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
+                        <form className="space-y-6">
+                            {/* Name Input */}
+                            <div>
+                                <label
+                                    htmlFor="name"
+                                    className="block text-sm font-medium text-gray-300 mb-2"
+                                >
+                                    <User size={16} className="inline mr-2" />
+                                    Full Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="John Doe"
+                                    className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                                />
                             </div>
-                        </div>{" "}
-                    </section>
+
+                            {/* Email Input */}
+                            <div>
+                                <label
+                                    htmlFor="email"
+                                    className="block text-sm font-medium text-gray-300 mb-2"
+                                >
+                                    <Mail size={16} className="inline mr-2" />
+                                    Email Address
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="john@example.com"
+                                    className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                                />
+                            </div>
+
+                            {/* Message Input */}
+                            <div>
+                                <label
+                                    htmlFor="message"
+                                    className="block text-sm font-medium text-gray-300 mb-2"
+                                >
+                                    <MessageSquare size={16} className="inline mr-2" />
+                                    Message
+                                </label>
+                                <textarea
+                                    name="message"
+                                    id="message"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    placeholder="Your message here..."
+                                    rows={6}
+                                    className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors resize-none"
+                                />
+                            </div>
+
+                            {/* Submit Button */}
+                            {!loading ? (
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        if (name === "") {
+                                            setError("Please enter your name.");
+                                        } else if (email === "") {
+                                            setError("Please enter your email.");
+                                        } else if (message === "") {
+                                            setError("Please enter your message.");
+                                        } else {
+                                            finalSendEmail();
+                                        }
+                                    }}
+                                    className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-md transition-colors duration-200 flex items-center gap-2"
+                                >
+                                    <Send size={18} />
+                                    Send Message
+                                </button>
+                            ) : (
+                                <div className="flex items-center gap-3 text-gray-300">
+                                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-indigo-500 border-t-transparent"></div>
+                                    <span>Sending...</span>
+                                </div>
+                            )}
+                        </form>
+                    </div>
+                ) : (
+                    <div className="mt-8 max-w-3xl bg-[#161b22] border border-[#30363d] rounded-lg p-12 text-center">
+                        <div className="flex flex-col items-center justify-center space-y-4">
+                            <CheckCircle size={64} className="text-green-500" />
+                            <h3 className="text-2xl font-bold text-white">
+                                Message Sent Successfully!
+                            </h3>
+                            <p className="text-base text-gray-400 max-w-md">
+                                Thank you for reaching out. I've received your message and will get back to you as soon as possible.
+                            </p>
+                            <p className="text-sm text-gray-500">
+                                You should receive a confirmation email shortly.
+                            </p>
+                            <button
+                                onClick={() => setDone(false)}
+                                className="mt-4 px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-md transition-colors duration-200"
+                            >
+                                Send Another Message
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* Footer Info */}
+                <div className="mt-8 text-left max-w-3xl">
+                    <p className="text-sm text-gray-500">
+                        You can also reach me directly at{" "}
+                        <a
+                            href="mailto:garvitdani@gmail.com"
+                            className="text-indigo-400 hover:text-indigo-300 hover:underline"
+                        >
+                            garvitdani@gmail.com
+                        </a>
+                    </p>
                 </div>
-            )}
+            </div>
         </Scrollbars>
     );
 };
