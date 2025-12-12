@@ -3,7 +3,7 @@ export const projectsdata = () => [
     {
         title: "IT solutions and software devlopment Website",
         name: "Geek Theory Website",
-        banner: "/xporthumb.png",
+        banner: "/Geek.png",
         skills: [
             "CSS3",
             "JavaScript",
@@ -18,27 +18,25 @@ export const projectsdata = () => [
         link: "geektheo.com",
         github: "https://github.com",
         // Logo Image of your project
-        logo: "/xportlogo.jpg",
+        logo: "/GeekTheoryIcon.PNG",
         features: [
             "Upload and share any file of size upto 1GB of any format like text file, images, videos, application, pdf, excel, ppt and more.",
             "Other important sections like User Profile, Tracking of number of files shared, amount of data transported, authentication and more.",
         ],
         // Screenshots of your project
         snapshots: [
-            "/xport/Send1-min.png",
-            "/xport/send2-min.png",
-            "/xport/send3-min.png",
-            "/xport/Recieve-min.png",
-            "/xport/User profile-min.png",
-            "/xport/login-min.png",
-            "/xport/register-min.png",
-            "/xport/edit account-min.png",
-            "/xport/delete-min.png",
+            "/xport/Screenshot (293).png",
+            "/xport/Screenshot (294).png",
+            "/xport/Screenshot (295).png",
+            "/xport/Screenshot (296).png",
+            "/xport/Screenshot (298).png",
+            "/xport/Screenshot (299).png",
+            ,
         ],
         height: 1900,
         others: [
             {
-                link: "/Projects/5",
+                link: "/Projects/2",
                 thumbnail: "/shortthumb.jpg",
                 logo: "/shortlogo.jpg",
                 title: "Shortlit - Resume Shortlisting Service",
@@ -46,7 +44,7 @@ export const projectsdata = () => [
                           the job.`,
             },
             {
-                link: "/Projects/4",
+                link: "/Projects/3",
                 thumbnail: "/firflowthumb.jpg",
                 logo: "/firelogo.jpg",
                 title: "fireflow - Anonymous Chat Rooms ",

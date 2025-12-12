@@ -36,8 +36,8 @@ const Projects = () => {
                                             <div className="pr-3 pl-3">
                                                 <img
                                                     className="rounded-xl"
-                                                    src={index === 0 ? "/ayethumb.jpg" : obj.banner}
-                                                    alt="Ayedot - Short Blogging Platform logo"
+                                                    src={index === 0 ? "Geek.png" : obj.banner}
+                                                    alt="Geek Theory Website"
                                                     width="500"
                                                     height="270"
                                                 />
@@ -47,7 +47,7 @@ const Projects = () => {
                                                     <img
                                                         className="h-10 w-10 rounded-full"
                                                         src={obj.logo}
-                                                        alt="Ayedot - Short Blogging Platform logo"
+                                                        alt="Geek Theory Website logo"
                                                         width="35"
                                                         height="35"
                                                     />

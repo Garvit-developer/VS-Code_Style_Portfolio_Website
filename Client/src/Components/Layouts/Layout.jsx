@@ -346,7 +346,7 @@ const Layout = ({ children }) => {
                     <ul className="right pt-1" style={{ fontSize: "12px" }}>
                         <li>Made in</li>
                         <li>React.JS</li>
-                        <li>TypeScript</li>
+                        <li>JavaScript</li>
                         <li>Tailwind</li>
                         <li>React</li>
                     </ul>

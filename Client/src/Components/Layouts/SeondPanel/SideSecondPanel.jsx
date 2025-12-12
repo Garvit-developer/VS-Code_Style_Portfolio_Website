@@ -169,10 +169,10 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
             {!isTabletOrMobile && (
                 <ul className="bottom-links pl-2">
                     <li className="border-b border-gray-500">
-                        <span className="text-gray-400 hover:text-gray-200">All Rights Reserved.</span>
+                        <span className="text-gray-400">All Rights Reserved.</span>
                     </li>
                     <li>
-                        <span className="text-gray-400 hover:text-gray-200">Ⓒ Copyright 2023.</span>
+                        <span className="text-gray-400">Ⓒ Copyright 2023.</span>
                     </li>
                 </ul>
             )}
