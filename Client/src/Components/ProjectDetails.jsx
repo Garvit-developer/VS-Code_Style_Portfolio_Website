@@ -75,12 +75,13 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                         </div>
                                     )}
                                     {projectDetails?.link && (
-                                        <div
-                                            className="float-right butto pr-4 inline-block pt-3 text-xl font-bold text-blue-400"
-                                            
-                                        >
+                                        <div className="float-right pr-4 inline-block pt-3 text-xl font-bold text-blue-400">
                                             <a
-                                                href={projectDetails.link}
+                                                href={
+                                                    projectDetails.link.startsWith("http")
+                                                        ? projectDetails.link
+                                                        : `https://${projectDetails.link.replace(/^\/+/, "")}`
+                                                }
                                                 target="_blank"
                                                 rel="noreferrer"
                                             >
@@ -88,6 +89,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                             </a>
                                         </div>
                                     )}
+
                                     <div className="mt-5 text-2xl dark:text-gray-200">
                                         <span className="font-bold">{projectDetails?.name || ""}</span> -{" "}
                                         {projectDetails?.title || ""}

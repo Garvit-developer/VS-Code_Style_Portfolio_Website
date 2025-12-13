@@ -24,7 +24,7 @@ const Projects = () => {
                     Projects
                 </h2>
                 <p className=" font-medium pl-5 pb-2 text-gray-400 text-md pt-1 w-4/5 ">
-                    College and Side Projects for practice.
+                    Internship and Side Projects for practice.
                 </p>
                 {!isTabletOrMobile ? (
                     <div className="w-full mt-3 mb-5 pb-5 grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 ">
