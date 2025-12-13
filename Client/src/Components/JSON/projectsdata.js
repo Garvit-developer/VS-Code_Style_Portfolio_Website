@@ -4,6 +4,7 @@ export const projectsdata = () => [
         title: "IT solutions and software devlopment Website",
         name: "Geek Theory Website",
         banner: "/Geek.png",
+        detailBanner: "/shortthumb.jpg",
         skills: [
             "CSS3",
             "JavaScript",
@@ -114,7 +115,8 @@ export const projectsdata = () => [
     {
         title: "Your Task Manager",
         name: "Taskly Pro",
-        banner:  "task.png",
+        banner: "/task.png",
+        detailBanner: "/xporthumb.png", // Different banner for detail page
         skills: [
             "JavaScript",
             "React.js (Vite)",

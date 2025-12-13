@@ -9,7 +9,7 @@ const Projects = () => {
     const projects = projectsdata();
 
     useEffect(() => {
-        document.title = "Projects";
+        document.title = "Projects | Garvit Dani";
     }, []);
 
     return (
@@ -36,8 +36,8 @@ const Projects = () => {
                                             <div className="pr-3 pl-3">
                                                 <img
                                                     className="rounded-xl"
-                                                    src={index === 0 ? "Geek.png" : obj.banner}
-                                                    alt="Geek Theory Website"
+                                                    src={obj.banner}
+                                                    alt={`${obj.name} - ${obj.title}`}
                                                     width="500"
                                                     height="270"
                                                 />
@@ -75,8 +75,8 @@ const Projects = () => {
                                             <div className="">
                                                 <img
                                                     className="rounded-xl"
-                                                    src={index === 0 ? "/ayethumb.jpg" : obj.banner}
-                                                    alt="Ayedot - Short Blogging Platform logo"
+                                                    src={obj.banner}
+                                                    alt={`${obj.name} - ${obj.title}`}
                                                     width="500"
                                                     height="270"
                                                 />

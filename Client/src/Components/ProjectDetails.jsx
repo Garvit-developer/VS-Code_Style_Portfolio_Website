@@ -36,7 +36,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                         width: "100%",
                         borderRadius: "1em",
                         height: "50vh",
-                        backgroundImage: `url(${projectDetails?.banner || ""})`,
+                        backgroundImage: `url(${projectDetails?.detailBanner || projectDetails?.banner || ""})`,
                         paddingBottom: "35%",
                         backgroundPosition: "center",
                         backgroundSize: "cover",
@@ -206,7 +206,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                     width: "100%",
                     borderRadius: "1em",
                     height: "50vh",
-                    backgroundImage: `url(${projectDetails.banner})`,
+                    backgroundImage: `url(${projectDetails?.detailBanner || projectDetails?.banner || ""})`,
                     backgroundPosition: "center",
                     backgroundSize: "cover",
                 }}

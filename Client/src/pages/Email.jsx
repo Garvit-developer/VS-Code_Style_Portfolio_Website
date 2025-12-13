@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { Mail, User, MessageSquare, Send, CheckCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Email = () => {
     useEffect(() => {
@@ -18,28 +19,43 @@ const Email = () => {
         setLoading(true);
         setError("");
 
-        const data = {
-            email: email,
+        // EmailJS configuration
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        const adminTemplateId = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID || "template_8jpeh2t";
+        const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID || "template_ku2g8bf";
+
+        // Template parameters
+        const templateParams = {
+            from_name: name,
+            from_email: email,
             message: message,
-            name: name,
+            to_name: "Garvit Dani",
         };
 
         try {
-            const res = await fetch("http://localhost:5000/api/sendEmail", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+            // Send admin notification email
+            const adminResponse = await emailjs.send(
+                serviceId,
+                adminTemplateId,
+                {
+                    ...templateParams,
+                    to_email: "garvitdani@gmail.com",
                 },
-                body: JSON.stringify(data),
-            });
+                publicKey
+            );
 
-            const result = await res.json();
+            // Send auto-reply email to the sender
+            const autoReplyResponse = await emailjs.send(
+                serviceId,
+                autoReplyTemplateId,
+                templateParams,
+                publicKey
+            );
 
-            if (!res.ok || !result.data) {
-                setError(result.error || "Failed to send email. Please try again.");
-                setLoading(false);
-                return;
-            }
+            // Both emails sent successfully
+            console.log("Admin notification sent:", adminResponse);
+            console.log("Auto-reply sent:", autoReplyResponse);
 
             // Clear form only on success
             setEmail("");
@@ -48,9 +64,12 @@ const Email = () => {
             setLoading(false);
             setDone(true);
         } catch (err) {
-            setError("An error occurred. Please try again.");
+            console.error("EmailJS Error:", err);
+            setError(
+                err?.text ||
+                "Failed to send email. Please try again or contact me directly at garvitdani@gmail.com"
+            );
             setLoading(false);
-            console.error("Error sending email:", err);
         }
     };
 
