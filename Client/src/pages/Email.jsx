@@ -93,7 +93,7 @@ const Email = () => {
                 <p className="mt-2 text-base max-w-3xl text-gray-400 leading-relaxed">
                     You can contact me with any questions, suggestions or just to say hi.
                     I am always open to new ideas and collaborations. It can be anything like
-                    collaborating on good projects or startups or anime or gaming or anything else.
+                    collaborating on good projects, job opportunity or anything else.
                 </p>
 
                 {!done ? (
@@ -121,7 +121,7 @@ const Email = () => {
                                     id="name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    placeholder="John Doe"
+                                    placeholder="Full Name"
                                     className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
                                 />
                             </div>
@@ -141,7 +141,7 @@ const Email = () => {
                                     id="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="john@example.com"
+                                    placeholder="example@email.com"
                                     className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
                                 />
                             </div>

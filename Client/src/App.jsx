@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './Components/Layouts/Layout';
 import Home from './pages/index';
+import Philosophy from './pages/Philosophy';
 import Contact from './pages/Email';
 import Experience from './pages/Experience';
 import Gaming from './pages/Gaming';
@@ -22,6 +23,7 @@ function App() {
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/Philosophy" element={<Philosophy />} />
                         <Route path="/experience" element={<Experience />} />
                         <Route path="/gaming" element={<Gaming />} />
                         <Route path="/hobbies" element={<Hobbies />} />
