@@ -164,6 +164,8 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
 import styles from "./Layout.module.css";
 import { SideSecondPanel } from "./SeondPanel/SideSecondPanel";
+import SearchBar from "../Search/SearchBar";
+import { MessageSquare } from "lucide-react";
 
 // import countapi from "countapi-js";
 import { numberTOWords } from "../Helper/utility";
@@ -225,36 +227,51 @@ const Layout = ({ children }) => {
     return (
         <>
             {/* HEADER */}
-            <div className="header w-full">
-                <div className="logo pl-2">
-                    <img
-                        src="https://img.icons8.com/color/96/000000/visual-studio-code-2019.png"
-                        alt="Visual Studio Code Styled Portfolio Icon"
-                        width="60"
-                        height="60"
-                    />
+            <div className="header w-full flex items-center justify-between px-2">
+                <div className="flex items-center gap-4">
+                    <div className="logo pl-2">
+                        <img
+                            src="https://img.icons8.com/color/96/000000/visual-studio-code-2019.png"
+                            alt="Visual Studio Code Styled Portfolio Icon"
+                            width="25"
+                            height="25"
+                        />
+                    </div>
+
+                    <ul className="header-menu hidden md:flex">
+                        <li className="header-menu-link">
+                            <Link to="/">About</Link>
+                        </li>
+                        <li className="header-menu-link">
+                            <Link to="/Experience">Experience</Link>
+                        </li>
+                        <li className="header-menu-link">
+                            <Link to="/Skills">Skills</Link>
+                        </li>
+                        <li className="header-menu-link">
+                            <Link to="/Projects">Projects</Link>
+                        </li>
+                    </ul>
                 </div>
 
-                <ul className="header-menu">
-                    <li className="header-menu-link">
-                        <Link to="/">About</Link>
-                    </li>
-                    <li className="header-menu-link">
-                        <Link to="/Experience">Experience</Link>
-                    </li>
-                    <li className="header-menu-link">
-                        <Link to="/Skills">Skills</Link>
-                    </li>
-                    <li className="header-menu-link">
-                        <Link to="/Projects">Projects</Link>
-                    </li>
-                    <li className="header-menu-link">
-                        <Link to="/Email">Contact</Link>
-                    </li>
-                    <li className="header-menu-link">
-                        <Link to="/Hobbies">Hobbies</Link>
-                    </li>
-                </ul>
+                {/* SEARCH BAR (CENTERED) */}
+                <div className="flex-1 max-w-2xl px-4 flex items-center justify-center gap-2">
+                    <div className="flex-1 w-full">
+                        <SearchBar />
+                    </div>
+                    <button
+                        onClick={toggleChatbot}
+                        className={`p-1.5 rounded-md transition-all duration-200 border border-transparent
+                            ${showChatbot
+                                ? "bg-[#37373d] text-white border-[#454545]"
+                                : "text-gray-400 hover:bg-[#37373d] hover:text-white"
+                            }`}
+                        title="Toggle Chatbot"
+                    >
+                        <MessageSquare className="w-4 h-4" />
+                    </button>
+                </div>
+
 
                 {/* Desktop Menu Buttons */}
                 {!isTabletOrMobile ? (
