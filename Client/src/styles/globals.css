@@ -285,7 +285,7 @@ ul.side-header-botton-menu {
   top: 25px;
   left: 47px;
   width: 256px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 45px);
   overflow-x: hidden;
 }
 
@@ -324,7 +324,7 @@ ul.side-header-botton-menu {
   top: 25px;
   left: 47px;
   width: 256px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 45px);
   overflow-x: hidden;
   animation: slideIn 0.3s ease-out forwards;
 }
@@ -636,4 +636,3 @@ li {
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMiIgZmlsbD0iIzIxOTZmMyIvPjx0ZXh0IHg9IjI0IiB5PSIzMCIgZm9udC1zaXplPSIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZpbGw9IiNmZmYiIGZvbnQtd2VpZ2h0PSJib2xkIj5NRDwvdGV4dD48L3N2Zz4=") 50% 50% no-repeat;
   background-size: 100%;
 }
-

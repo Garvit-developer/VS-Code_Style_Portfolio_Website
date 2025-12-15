@@ -341,7 +341,7 @@ const Home = () => {
                                                 <div className="text-blue-500 cursor-pointer text-sm pb-2 font-sans flex gap-1 items-center">
                                                     {item.slice(1)}
                                                     <span className="text-gray-300 pl-2">
-                                                        E:/RajSavaliya{item}
+                                                        E:/GarvitDani{item}
                                                     </span>
                                                 </div>
                                             </Link>

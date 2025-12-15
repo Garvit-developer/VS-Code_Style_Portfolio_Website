@@ -165,7 +165,7 @@ import React, { useEffect, useState, Suspense, lazy } from "react";
 import styles from "./Layout.module.css";
 import { SideSecondPanel } from "./SeondPanel/SideSecondPanel";
 import SearchBar from "../Search/SearchBar";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, ArrowLeft, ArrowRight } from "lucide-react";
 
 // import countapi from "countapi-js";
 import { numberTOWords } from "../Helper/utility";
@@ -256,19 +256,35 @@ const Layout = ({ children }) => {
 
                 {/* SEARCH BAR (CENTERED) */}
                 <div className="flex-1 max-w-2xl px-4 flex items-center justify-center gap-2">
+                    <div className="flex items-center gap-1">
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="p-1 rounded hover:bg-[#37373d] text-gray-400 hover:text-white transition-colors"
+                            title="Go Back"
+                        >
+                            <ArrowLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                            onClick={() => navigate(1)}
+                            className="p-1 rounded hover:bg-[#37373d] text-gray-400 hover:text-white transition-colors"
+                            title="Go Forward"
+                        >
+                            <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </div>
                     <div className="flex-1 w-full">
                         <SearchBar />
                     </div>
                     <button
                         onClick={toggleChatbot}
-                        className={`p-1.5 rounded-md transition-all duration-200 border border-transparent
+                        className={`p-1 rounded-md transition-all duration-200 border border-transparent
                             ${showChatbot
-                                ? "bg-[#37373d] text-white border-[#454545]"
+                                ? " text-white border-[#454545]"
                                 : "text-gray-400 hover:bg-[#37373d] hover:text-white"
                             }`}
                         title="Toggle Chatbot"
                     >
-                        <MessageSquare className="w-4 h-4" />
+                        <img src="/Chatbot_img.png" className="w-5 h-5" />
                     </button>
                 </div>
 
