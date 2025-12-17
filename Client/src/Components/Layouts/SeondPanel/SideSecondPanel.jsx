@@ -12,7 +12,7 @@ const routeMap = {
     Hobbies: "Hobbies",
     Blogs: "Blogs",
     Email: "Email",
-    Philosophy: "philosophy.md",
+    MyVision: "vision.md",
     contact: "Email.tsx",
     Gaming: "Gaming",
     Learning: "Learning",
@@ -37,7 +37,7 @@ const menuData = [
             { name: "skills.css", link: "/Skills", icon: "icons8-css3" },
             { name: "experience.js", link: "/Experience", icon: "icons8-javascript" },
             { name: "projects.ts", link: "/Projects", icon: "icons8-typescript" },
-            { name: "philosophy.md", link: "/Philosophy", icon: "icons8-readme" },
+            { name: "vision.md", link: "/MyVision", icon: "icons8-readme" },
         ],
     },
     {

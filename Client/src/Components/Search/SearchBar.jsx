@@ -42,7 +42,7 @@ const SearchBar = () => {
             { title: "Home", path: "/", icon: <Monitor className="w-4 h-4 text-blue-400" />, desc: "Portfolio Home" },
             { title: "About", path: "/", icon: <FileText className="w-4 h-4 text-green-400" />, desc: "About Me" },
             { title: "Experience", path: "/Experience", icon: <Monitor className="w-4 h-4 text-purple-400" />, desc: "Professional Journey" },
-            { title: "Philosophy", path: "/Philosophy", icon: <Zap className="w-4 h-4 text-yellow-400" />, desc: "My Philosophy" },
+            { title: "My Vision", path: "/MyVision", icon: <Zap className="w-4 h-4 text-yellow-400" />, desc: "My Vision & Values" },
             { title: "Skills", path: "/Skills", icon: <Code className="w-4 h-4 text-pink-400" />, desc: "Tech Stack" },
             { title: "Contact", path: "/Email", icon: <FileText className="w-4 h-4 text-red-400" />, desc: "Get in Touch" },
         ];
