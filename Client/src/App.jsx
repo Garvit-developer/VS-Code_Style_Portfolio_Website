@@ -10,7 +10,6 @@ import Gaming from './pages/Gaming';
 import Hobbies from './pages/Hobbies';
 import Learning from './pages/Learning';
 import Skills from './pages/Skills';
-import Startup from './pages/Startup';
 import Projects from './pages/Projects/index';
 import ProjectPage from './pages/Projects/ProjectPage';
 import NotFound from './pages/404';
@@ -30,7 +29,6 @@ function App() {
                         <Route path="/learning" element={<Learning />} />
                         <Route path="/Email" element={<Contact />} />
                         <Route path="/skills" element={<Skills />} />
-                        <Route path="/startup" element={<Startup />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/projects/:projectname" element={<ProjectPage />} />
                         <Route path="*" element={<NotFound />} />

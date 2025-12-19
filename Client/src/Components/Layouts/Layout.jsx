@@ -227,8 +227,8 @@ const Layout = ({ children }) => {
     return (
         <>
             {/* HEADER */}
-            <div className="header w-full flex items-center justify-between px-2">
-                <div className="flex items-center gap-4">
+            <div className="header w-full flex items-center gap-1 sm:gap-5 md:gap-14 lg:gap-17 px-2">
+                <div className="flex items-center gap-1">
                     <div className="logo pl-2">
                         <img
                             src="https://img.icons8.com/color/96/000000/visual-studio-code-2019.png"
@@ -251,11 +251,17 @@ const Layout = ({ children }) => {
                         <li className="header-menu-link">
                             <Link to="/Projects">Projects</Link>
                         </li>
+                        <li className="header-menu-link">
+                            <Link to="/MyVision">My Vision</Link>
+                        </li>
+                        <li className="header-menu-link">
+                            <Link to="/Contact">Contact</Link>
+                        </li>
                     </ul>
                 </div>
 
                 {/* SEARCH BAR (CENTERED) */}
-                <div className="flex-1 max-w-2xl px-4 flex items-center justify-center gap-2">
+                <div className="flex-1 max-w-xl flex items-center justify-center gap-1">
                     <div className="flex items-center gap-1">
                         <button
                             onClick={() => navigate(-1)}
@@ -375,7 +381,7 @@ const Layout = ({ children }) => {
 
             {/* FOOTER */}
             {!isTabletOrMobile ? (
-                <div className="bottom-header pb-5 relative z-50 bg-blue-400">
+                <div className="bottom-header pb-5 relative z-50">
                     <ul className="right pt-1" style={{ fontSize: "12px" }}>
                         <li>Made in</li>
                         <li>React.JS</li>
@@ -403,7 +409,7 @@ const Layout = ({ children }) => {
                     </ul>
                 </div>
             ) : (
-                <div className="bottom-header fixed pb-5  relative z-50 bg-blue-400">
+                <div className="bottom-header fixed pb-5  relative z-50">
                     <ul className="right pt-1" style={{ fontSize: "12px" }}>
                         <li>React.JS</li>
                         <li>JavaScript</li>

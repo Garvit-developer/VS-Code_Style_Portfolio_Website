@@ -64,10 +64,8 @@ const menuData = [
         title: "Misc",
         items: [
             { id: "Hobbies", name: "Hobbies.cpp", link: "/Hobbies", icon: "icons8-cplusplus" },
-            { id: "Blogs", name: "Blogs.py", link: "/Blogs", icon: "icons8-typescript" },
             { id: "Gaming", name: "Gaming.sln", link: "/Gaming", icon: "icons8-c-sharp" },
             { id: "Learning", name: "Learning.ts", link: "/Learning", icon: "icons8-angularjs" },
-            { id: "Startup", name: "Startup.js", link: "/Startup", icon: "icons8-nodejs" },
         ],
     },
 ];
