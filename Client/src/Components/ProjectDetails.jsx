@@ -42,7 +42,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                         backgroundSize: "cover",
                     }}
                 ></div>
-                <div className="  pb-6 maincontainerprofileprojects w-full">
+                <div className="  pb-6  maincontainerprofileprojects w-full">
                     <div className="mx-auto boxprojectdetails shadow-lg sm:px-6 lg:px-8">
                         <div className="overflow-hidden  shadow-xl dark:bg-gray-800 rounded-xl sm:rounded-lg">
                             <div>

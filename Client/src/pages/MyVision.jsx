@@ -41,7 +41,9 @@ const MyVision = () => {
                 "        return askQuestions();",
                 "    }",
                 "    return simpleSolution(rootCause);",
-                "}"
+                "}",
+                " ",
+                " "
             ],
             language: "javascript",
             accent: "border-yellow-500/20"
@@ -78,7 +80,8 @@ const MyVision = () => {
                 "    ",
                 "    <!-- Code should speak -->",
                 "    <!-- for itself -->",
-                "</section>"
+                "</section>",
+                ""
             ],
             language: "html",
             accent: "border-red-500/20"

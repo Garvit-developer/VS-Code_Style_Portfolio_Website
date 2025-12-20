@@ -4,7 +4,7 @@ export const projectsdata = () => [
         title: "IT solutions and software devlopment Website",
         name: "Geek Theory Website",
         banner: "/Geek.png",
-        detailBanner: "/shortthumb.jpg",
+        detailBanner: "/Geek_banner.png",
         skills: [
             "CSS3",
             "JavaScript",
@@ -57,6 +57,7 @@ export const projectsdata = () => [
         title: "StudyAI",
         name: "Skilledu",
         banner: "/sai.png",
+        detailBanner: "/Skilledu_banner.png",
         skills: [
             "JavaScript",
             "React.js",
@@ -116,7 +117,7 @@ export const projectsdata = () => [
         title: "Your Task Manager",
         name: "Taskly Pro",
         banner: "/task.png",
-        detailBanner: "/xporthumb.png", // Different banner for detail page
+        detailBanner: "/Taskly_banner.png", // Different banner for detail page
         skills: [
             "JavaScript",
             "React.js (Vite)",
@@ -174,39 +175,40 @@ export const projectsdata = () => [
         ],
     },
     {
-        title: "Project Title",
-        name: "Project Name",
+        title: "Indian Script Transliterator",
+        name: "Bhasha Setu",
         banner: "/xporthumb.png",
         skills: [
             "JavaScript",
-            "Node.js",
             "React.js",
-            "Express",
-            "MongoDB",
-            "Bootsrap",
-            "CSS3",
+            "Tailwind CSS",
+            "GROQ API",
+            "Prism"
         ],
-        description: `An Online Service to easily Share large or small files of any format, with anyone around the world. `,
+        description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India. It specializes in transliterating text between various Indian scripts, enabling users to read content in their familiar script while preserving the original phonetic sound and language. `,
         //(Optional) Live link of your project, if hosted
-        link: null,
-        github: "https://github.com/SRX9/Xport---OOSE-Project",
+        link: "https://bhaasha-setu.vercel.app/",
+        github: "https://github.com/Garvit-developer/Bhasha_Setu",
         // Logo Image of your project
-        logo: "/xportlogo.jpg",
+        logo: "/Bhasha_logo.png",
+        banner: "/xport/Screenshot (324).png",
+        detailBanner: "/bhasha_banner.png",
         features: [
-            "Upload and share any file of size upto 1GB of any format like text file, images, videos, application, pdf, excel, ppt and more.",
-            "Other important sections like User Profile, Tracking of number of files shared, amount of data transported, authentication and more.",
+            "Developed AI chatbot for accurate transliteration across multiple Indian scripts.",
+            "Preserved original language, pronunciation, and meaning during script conversion.",
+            "Implemented dual output for transliteration and translation.",
+            "Integrated voice input and voice output for hands-free interaction.",
+            "Added multi-language support with dynamic script switching.",
+            "Enabled text and image-based input for transliteration tasks.",
         ],
         // Screenshots of your project
         snapshots: [
-            "/xport/Send1-min.png",
-            "/xport/send2-min.png",
-            "/xport/send3-min.png",
-            "/xport/Recieve-min.png",
-            "/xport/User profile-min.png",
-            "/xport/login-min.png",
-            "/xport/register-min.png",
-            "/xport/edit account-min.png",
-            "/xport/delete-min.png",
+            "/xport/Screenshot (322).png",
+            "/xport/Screenshot (326).png",
+            "/xport/Screenshot (329).png",
+            "/xport/Screenshot (324).png",
+            "/xport/Screenshot (325).png",
+
         ],
         height: 1900,
         others: [
