@@ -34,7 +34,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                     style={{
                         position: "relative",
                         width: "100%",
-                        borderRadius: "1em",
+                        borderRadius: "0.5em",
                         height: "50vh",
                         backgroundImage: `url(${projectDetails?.detailBanner || projectDetails?.banner || ""})`,
                         paddingBottom: "35%",
@@ -46,9 +46,9 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                     <div className="mx-auto boxprojectdetails shadow-lg sm:px-6 lg:px-8">
                         <div className="overflow-hidden  shadow-xl dark:bg-gray-800 rounded-xl sm:rounded-lg">
                             <div>
-                                <div className="p-6 bg-gray-900  dark:bg-gray-800 sm:px-20">
+                                <div className="p-8 bg-gray-900  dark:bg-gray-800 sm:px-20">
                                     <img
-                                        className="h-10 w-10 inline-block rounded-lg"
+                                        className="h-12 w-12 inline-block rounded-3xl"
                                         src={projectDetails?.logo || ""}
                                         alt={altt || "Project logo"}
                                         width="85"
@@ -160,12 +160,12 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                 key={`other-project-${index}`}
                                 className="mb-4 p-3"
                             >
-                                <div className="w-full rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500">
-                                    <a href={project?.link || "#"}>
-                                        <div>
-                                            <div className="pr-3 pl-3">
+                                <div className="w-full h-full rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500 flex flex-col">
+                                    <a href={project?.link || "#"} className="flex flex-col h-full">
+                                        <div className="flex-1">
+                                            <div className="p-3">
                                                 <img
-                                                    className="rounded-xl"
+                                                    className="rounded-xl w-full h-48 object-cover object-center"
                                                     src={project?.thumbnail || ""}
                                                     alt={project?.title || "Project"}
                                                     width="500"
@@ -199,18 +199,12 @@ const ProjectDetails = ({ projectDetails, altt }) => {
             </div>{" "}
         </Scrollbars>
     ) : (
-        <div className=" pb-40 mb-40  w-full">
-            <div
-                style={{
-                    position: "relative",
-                    width: "100%",
-                    borderRadius: "1em",
-                    height: "50vh",
-                    backgroundImage: `url(${projectDetails?.detailBanner || projectDetails?.banner || ""})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                }}
-            ></div>
+        <div className="pb-40 mb-40 w-full pl-4 pr-2">
+            <img
+                src={projectDetails?.detailBanner || projectDetails?.banner || ""}
+                alt={projectDetails?.title || "Project Banner"}
+                className="w-full h-auto rounded-xl shadow-lg object-contain"
+            />
             <div className=" ml-2 mr-2 mt-2 shadow-lg ">
                 <div className="overflow-hidden  shadow-xl dark:bg-gray-800 rounded-xl sm:rounded-lg">
                     <div>

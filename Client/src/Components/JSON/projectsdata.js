@@ -37,20 +37,19 @@ export const projectsdata = () => [
         others: [
             {
                 link: "/Projects/2",
-                thumbnail: "/shortthumb.jpg",
-                logo: "/shortlogo.jpg",
-                title: "Shortlit - Resume Shortlisting Service",
-                description: `Resume Shortlisting Service to find the best fit for
-                          the job.`,
+                thumbnail: "/Skilledu_banner.png",
+                logo: "/Skilledu.png",
+                title: "Skilledu - StudyAI",
+                description: `Skilledu is an AI-powered doubt-solving and learning assistance platform designed to help students get instant answers.`
             },
             {
                 link: "/Projects/3",
-                thumbnail: "/firflowthumb.jpg",
-                logo: "/firelogo.jpg",
-                title: "fireflow - Anonymous Chat Rooms ",
-                description: `Instant messaging webapp to chat with people in
-                          groups.`,
+                thumbnail: "/Taskly_banner.png",
+                logo: "/Taskly.png",
+                title: "Taskly Pro - Your Task Manager",
+                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
             },
+            
         ],
     },
     {
@@ -96,21 +95,20 @@ export const projectsdata = () => [
         height: 1900,
         others: [
             {
-                link: "/Projects/5",
-                thumbnail: "/shortthumb.jpg",
-                logo: "/shortlogo.jpg",
-                title: "Shortlit - Resume Shortlisting Service",
-                description: `Resume Shortlisting Service to find the best fit for
-                          the job.`,
+                link: "/Projects/3",
+                thumbnail: "/Taskly_banner.png",
+                logo: "/Taskly.png",
+                title: "Taskly Pro - Your Task Manager",
+                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
             },
             {
                 link: "/Projects/4",
-                thumbnail: "/firflowthumb.jpg",
-                logo: "/firelogo.jpg",
-                title: "fireflow - Anonymous Chat Rooms ",
-                description: `Instant messaging webapp to chat with people in
-                          groups.`,
+                thumbnail: "/bhasha_banner.png",
+                logo: "/Bhasha_logo.png",
+                title: "Bhasha Setu - Indian Script Transliterator",
+                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
             },
+          
         ],
     },
     {
@@ -156,28 +154,26 @@ export const projectsdata = () => [
         ],
         height: 1900,
         others: [
-            {
-                link: "/Projects/5",
-                thumbnail: "/shortthumb.jpg",
-                logo: "/shortlogo.jpg",
-                title: "Shortlit - Resume Shortlisting Service",
-                description: `Resume Shortlisting Service to find the best fit for
-                          the job.`,
-            },
+          
             {
                 link: "/Projects/4",
-                thumbnail: "/firflowthumb.jpg",
-                logo: "/firelogo.jpg",
-                title: "fireflow - Anonymous Chat Rooms ",
-                description: `Instant messaging webapp to chat with people in
-                          groups.`,
+                thumbnail: "/bhasha_banner.png",
+                logo: "/Bhasha_logo.png",
+                title: "Bhasha Setu - Indian Script Transliterator",
+                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
             },
+            {
+                link: "/Projects/5",
+                thumbnail: "/Secure_banner.png",
+                logo: "/Secure_logo.png",
+                title: "Secure stack - Your own Password Manager",
+                description: `A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers.`
+            }
         ],
     },
     {
         title: "Indian Script Transliterator",
         name: "Bhasha Setu",
-        banner: "/xporthumb.png",
         skills: [
             "JavaScript",
             "React.js",
@@ -191,7 +187,7 @@ export const projectsdata = () => [
         github: "https://github.com/Garvit-developer/Bhasha_Setu",
         // Logo Image of your project
         logo: "/Bhasha_logo.png",
-        banner: "/xport/Screenshot (324).png",
+        banner: "/xport/Screenshot (322).png",
         detailBanner: "/bhasha_banner.png",
         features: [
             "Developed AI chatbot for accurate transliteration across multiple Indian scripts.",
@@ -213,131 +209,140 @@ export const projectsdata = () => [
         height: 1900,
         others: [
             {
-                link: "/Projects/5",
-                thumbnail: "/shortthumb.jpg",
-                logo: "/shortlogo.jpg",
-                title: "Shortlit - Resume Shortlisting Service",
-                description: `Resume Shortlisting Service to find the best fit for
-                          the job.`,
+                link: "/Projects/3",
+                thumbnail: "/Taskly_banner.png",
+                logo: "/Taskly.png",
+                title: "Taskly Pro - Your Task Manager",
+                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
             },
             {
-                link: "/Projects/4",
-                thumbnail: "/firflowthumb.jpg",
-                logo: "/firelogo.jpg",
-                title: "fireflow - Anonymous Chat Rooms ",
-                description: `Instant messaging webapp to chat with people in
-                          groups.`,
-            },
+                link: "/Projects/5",
+                thumbnail: "/Secure_banner.png",
+                logo: "/Secure_logo.png",
+                title: "Secure stack - Your own Password Manager",
+                description: `A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers.`
+            }
         ],
     },
     {
-        title: "Project Title",
-        name: "Project Name",
-        banner: "/xporthumb.png",
+        title: "Your own Password Manager",
+        name: "Secure stack",
+        banner: "/xport/Screenshot (330).png",
+        detailBanner: "/Secure_banner.png",
         skills: [
-            "JavaScript",
-            "Node.js",
             "React.js",
-            "Express",
-            "MongoDB",
-            "Bootsrap",
-            "CSS3",
+            "Tailwind CSS",
+            "Vite",
+            "LocalStorage API",
+            "React Toastify",
         ],
-        description: `An Online Service to easily Share large or small files of any format, with anyone around the world. `,
+        description: "A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers. Your data stays on your device, ensuring maximum privacy.",
         //(Optional) Live link of your project, if hosted
         link: null,
-        github: "https://github.com/SRX9/Xport---OOSE-Project",
+        github: "https://github.com/Garvit-developer/Secure-Stack",
         // Logo Image of your project
-        logo: "/xportlogo.jpg",
+        logo: "/Secure_logo.png",
         features: [
-            "Upload and share any file of size upto 1GB of any format like text file, images, videos, application, pdf, excel, ppt and more.",
-            "Other important sections like User Profile, Tracking of number of files shared, amount of data transported, authentication and more.",
+            "Offline-First Storage: All passwords are stored locally in your browser's localStorage for maximum privacy.",
+            "Advanced Password Generator: Create unbreakable passwords with customizable length and character sets.",
+            "Data Portability: Securely export your vault to a JSON file or import from a backup.",
+            "Smart Organization: Categorize passwords and find them instantly with real-time search.",
+            "Security Dashboard: Real-time password strength indicator and vault statistics.",
         ],
         // Screenshots of your project
         snapshots: [
-            "/xport/Send1-min.png",
-            "/xport/send2-min.png",
-            "/xport/send3-min.png",
-            "/xport/Recieve-min.png",
-            "/xport/User profile-min.png",
-            "/xport/login-min.png",
-            "/xport/register-min.png",
-            "/xport/edit account-min.png",
-            "/xport/delete-min.png",
+            "/xport/Screenshot (330).png",
+            "/xport/Screenshot (331).png",
+            "/xport/Screenshot (332).png",
+            "/xport/Screenshot (333).png",
+            "/xport/Screenshot (334).png",
+            "/xport/Screenshot (335).png",
+            "/xport/Screenshot (336).png",
+            "/xport/Screenshot (337).png",
         ],
         height: 1900,
         others: [
             {
-                link: "/Projects/5",
-                thumbnail: "/shortthumb.jpg",
-                logo: "/shortlogo.jpg",
-                title: "Shortlit - Resume Shortlisting Service",
-                description: `Resume Shortlisting Service to find the best fit for
-                          the job.`,
+                link: "/Projects/3",
+                thumbnail: "/Taskly_banner.png",
+                logo: "/Taskly.png",
+                title: "Taskly Pro - Your Task Manager",
+                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
             },
             {
                 link: "/Projects/4",
-                thumbnail: "/firflowthumb.jpg",
-                logo: "/firelogo.jpg",
-                title: "fireflow - Anonymous Chat Rooms ",
-                description: `Instant messaging webapp to chat with people in
-                          groups.`,
-            },
+                thumbnail: "/bhasha_banner.png",
+                logo: "/Bhasha_logo.png",
+                title: "Bhasha Setu - Indian Script Transliterator",
+                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
+            }
         ],
     },
     {
-        title: "Project Title",
-        name: "Project Name",
-        banner: "/xporthumb.png",
+        title: "Simon Says Game",
+        name: "Simon Memory Challenge",
+        banner: "/Simon_banner.png",
         skills: [
-            "JavaScript",
-            "Node.js",
             "React.js",
-            "Express",
-            "MongoDB",
-            "Bootsrap",
-            "CSS3",
+            "JavaScript",
+            "Tailwind CSS",
+            "Web Audio API",
+            "Recharts",
+            "LocalStorage",
         ],
-        description: `An Online Service to easily Share large or small files of any format, with anyone around the world. `,
+        description: `A modern, interactive memory challenge built with React and Tailwind CSS. Test your focus and memory through increasingly complex color sequences, immersive oscillator-based sound effects, and a data-driven statistics dashboard.`,
         //(Optional) Live link of your project, if hosted
         link: null,
-        github: "https://github.com/SRX9/Xport---OOSE-Project",
+        github: "https://github.com/Garvit-developer/Simon-Says-Game",
         // Logo Image of your project
-        logo: "/xportlogo.jpg",
+        logo: "/Simon_logo.png",
         features: [
-            "Upload and share any file of size upto 1GB of any format like text file, images, videos, application, pdf, excel, ppt and more.",
-            "Other important sections like User Profile, Tracking of number of files shared, amount of data transported, authentication and more.",
+            "Interactive gameplay with dynamic sequence generation and real-time user input validation.",
+            "Integrated Data Visualization using Recharts (Bar and Pie charts) to track game history and performance.",
+            "Adaptive Difficulty Levels (Easy, Normal, Hard) that scale the button grid (4 to 8 colors) and flash speeds.",
+            "Immersive Audio Synthesis using Web Audio API to generate unique musical notes for every button press.",
+            "Premium UI/UX featuring glassmorphism, animated gradients, and staggered celebration/confetti effects.",
+            "Persistent Storage for tracking High Scores, Best Levels, and Total Games played across sessions.",
         ],
-        // Screenshots of your project
-        snapshots: [
-            "/xport/Send1-min.png",
-            "/xport/send2-min.png",
-            "/xport/send3-min.png",
-            "/xport/Recieve-min.png",
-            "/xport/User profile-min.png",
-            "/xport/login-min.png",
-            "/xport/register-min.png",
-            "/xport/edit account-min.png",
-            "/xport/delete-min.png",
-        ],
-        height: 1900,
+
+
+        height: 2200,
         others: [
             {
-                link: "/Projects/5",
-                thumbnail: "/shortthumb.jpg",
-                logo: "/shortlogo.jpg",
-                title: "Shortlit - Resume Shortlisting Service",
-                description: `Resume Shortlisting Service to find the best fit for
-                          the job.`,
+                link: "/Projects/1",
+                thumbnail: "/Geek_banner.png",
+                logo: "/GeekTheoryIcon.PNG",
+                title: "Geek Theory Website - IT solutions",
+                description: `GeekTheo is an IT solutions company that delivers modern, scalable, and performance-driven digital services.`
+            },
+            {
+                link: "/Projects/2",
+                thumbnail: "/Skilledu_banner.png",
+                logo: "/Skilledu.png",
+                title: "Skilledu - StudyAI",
+                description: `Skilledu is an AI-powered doubt-solving and learning assistance platform designed to help students get instant answers.`
+            },
+            {
+                link: "/Projects/3",
+                thumbnail: "/Taskly_banner.png",
+                logo: "/Taskly.png",
+                title: "Taskly Pro - Your Task Manager",
+                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
             },
             {
                 link: "/Projects/4",
-                thumbnail: "/firflowthumb.jpg",
-                logo: "/firelogo.jpg",
-                title: "fireflow - Anonymous Chat Rooms ",
-                description: `Instant messaging webapp to chat with people in
-                          groups.`,
+                thumbnail: "/bhasha_banner.png",
+                logo: "/Bhasha_logo.png",
+                title: "Bhasha Setu - Indian Script Transliterator",
+                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
             },
+            {
+                link: "/Projects/5",
+                thumbnail: "/Secure_banner.png",
+                logo: "/Secure_logo.png",
+                title: "Secure stack - Your own Password Manager",
+                description: `A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers.`
+            }
         ],
     },
 

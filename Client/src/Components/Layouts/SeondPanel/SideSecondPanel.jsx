@@ -3,13 +3,12 @@ import { DownIcon, RightIcon } from "../../SVG/IconsSVG";
 import SidePanelSubLink from "./SidePanelSubLink";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate, useLocation } from "react-router-dom";
-
 // Route filename mapping
 const routeMap = {
     Experience: "experience.css",
     Skills: "skills.js",
     Projects: "projects.ts",
-    Hobbies: "Hobbies",
+    GithubStreak: "GithubStreak.md",
     Blogs: "Blogs",
     Email: "Email",
     MyVision: "vision.md",
@@ -63,7 +62,7 @@ const menuData = [
         key: "misc",
         title: "Misc",
         items: [
-            { id: "Hobbies", name: "Hobbies.cpp", link: "/Hobbies", icon: "icons8-cplusplus" },
+            { id: "GithubStreak", name: "GithubStreak.md", link: "/GithubStreak", icon: "icons8-github" },
             { id: "Gaming", name: "Gaming.sln", link: "/Gaming", icon: "icons8-c-sharp" },
             { id: "Learning", name: "Learning.ts", link: "/Learning", icon: "icons8-angularjs" },
         ],

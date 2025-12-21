@@ -17,7 +17,7 @@
   width: calc(100vw - 320px);
   height: 100vh;
   margin-top: 8px;
-  margin-left: -8px;
+  margin-left: -10px;
   display: inline-flex;
   justify-content: center;
   transition: all 0.3s ease;
@@ -41,7 +41,7 @@
   overflow-x: hidden;
   justify-content: center;
   margin-top: 8px;
-  margin-left: -8px;
+  margin-left: 5px;
   display: inline-flex;
   transition: all 0.3s ease;
 }

@@ -229,12 +229,10 @@ const Layout = ({ children }) => {
             {/* HEADER */}
             <div className="header w-full flex items-center gap-1 sm:gap-5 md:gap-14 lg:gap-17 px-2">
                 <div className="flex items-center gap-1">
-                    <div className="logo pl-2">
+                    <div className="logo pl-2 ">
                         <img
                             src="https://img.icons8.com/color/96/000000/visual-studio-code-2019.png"
                             alt="Visual Studio Code Styled Portfolio Icon"
-                            width="25"
-                            height="25"
                         />
                     </div>
 
@@ -303,8 +301,8 @@ const Layout = ({ children }) => {
                             {/* Back Button */}
                             <button
                                 onClick={() => navigate(-1)}
-                                className="flex flex-col justify-center items-center p-1 m-1 rounded-full 
-                                text-gray-400 transition-color hover:bg-gray-100 hover:bg-opacity-60 focus:outline-none focus:ring-2"
+                                className="flex flex-col justify-center items-center p-[1px] m-1 rounded-full 
+                                text-gray-400 transition-color hover:bg-gray-500 hover:bg-opacity-60 focus:outline-none "
                             >
                                 <svg
                                     className="fill-current h-5 w-5"

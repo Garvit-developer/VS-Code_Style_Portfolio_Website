@@ -487,18 +487,18 @@ const SearchBar = () => {
 
             {/* SLIM SEARCH INPUT */}
             <div className="relative flex items-center justify-center">
-                <div className="absolute inset-y-0 left-0 pl-2 flex items-center justify-center pointer-events-none">
+                <span className="absolute inset-y-0 left-0 pl-2 flex items-center justify-center pointer-events-none">
                     <Search className="w-[11px] h-[11px] text-[#6a6a6a]" />
-                </div>
+                </span>
 
                 <input
                     type="text"
                     className="
-                        w-full h-5
+                        w-full h-6
                         pl-6 pr-2
                         bg-[#1e1e1e]
                         border border-[#3c3c3c]
-                        rounded-[6px]
+                        rounded-[7px]
                         text-[11px]
                         text-[#cccccc]
                         placeholder-[#6a6a6a]

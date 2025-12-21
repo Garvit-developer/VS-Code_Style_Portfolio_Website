@@ -102,7 +102,7 @@ h6 {
   display: flex;
   align-items: center;
   position: relative;
-  height: 25px;
+  height: 27px;
 }
 
 .logo {
@@ -133,7 +133,7 @@ ul.header-menu li.header-menu-link {
 }
 
 .logo img {
-  width: 17px;
+  width: 18px;
 }
 
 .bg-app {
@@ -211,7 +211,7 @@ ul.header-menu li.header-menu-link {
 .side-header {
   background: #333;
   position: absolute;
-  top: 25px;
+  top: 27px;
   left: 0;
   width: 47px;
   height: calc(100% - 45px);
@@ -280,9 +280,9 @@ ul.side-header-botton-menu {
 }
 
 .menu-option {
+  margin-top: 2px;
   background: #252526;
   position: absolute;
-  top: 25px;
   left: 47px;
   width: 256px;
   height: calc(100vh - 45px);
