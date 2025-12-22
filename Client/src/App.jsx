@@ -7,7 +7,7 @@ import MyVision from './pages/MyVision';
 import Contact from './pages/Email';
 import Experience from './pages/Experience';
 import Gaming from './pages/Gaming';
-import Hobbies from './pages/Hobbies';
+import GithubStreak from './pages/GithubStreak';
 import Learning from './pages/Learning';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects/index';
@@ -25,7 +25,7 @@ function App() {
                         <Route path="/MyVision" element={<MyVision />} />
                         <Route path="/experience" element={<Experience />} />
                         <Route path="/gaming" element={<Gaming />} />
-                        <Route path="/hobbies" element={<Hobbies />} />
+                        <Route path="/GithubStreak" element={<GithubStreak />} />
                         <Route path="/learning" element={<Learning />} />
                         <Route path="/Email" element={<Contact />} />
                         <Route path="/skills" element={<Skills />} />

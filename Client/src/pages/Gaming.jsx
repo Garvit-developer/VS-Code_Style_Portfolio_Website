@@ -61,7 +61,7 @@ const Gaming = () => {
                             Your browser does not support the audio element.
                         </audio>
                         <div className="flex flex-row justify-center items-center rounded-lg ">
-                            <main className="flex flex-col lg:flex-row  backdrop-filter backdrop-blur-md bg-opacity-20 rounded-xl overflow-hidden w-full max-w-5xl shadow-lg m-4 lg:m-6">
+                            <main className="flex flex-col lg:flex-row  backdrop-filter backdrop-blur-[8px] bg-opacity-20 rounded-xl overflow-hidden w-full max-w-5xl shadow-lg m-4 lg:m-6">
                                 <div className="flex-1 p-4 lg:p-6">
                                     <div className="text-lg text-white mb-4 flex items-center">
                                         <div className="md:flex items-cente text0 ">
@@ -77,8 +77,8 @@ const Gaming = () => {
                                         spare time. You can reach out to me if you want to play as a
                                         team.
                                     </div>{" "}
-                                    <div className="grid  gap-4 grid-cols-1s xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1">
-                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
+                                    <div className="grid grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1">
+                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-sm bg-opacity-20 p-4 flex flex-col relative undefined">
                                             <div className="text-white w-full">
                                                 <img
                                                     src="https://64.media.tumblr.com/8ba7ad1ceb0b13c21a97e1644797883f/530ffdf8632abbf3-3f/s500x750/9119bdb64f35ea668304704dd5027cb6292180e7.gifv"
@@ -94,53 +94,7 @@ const Gaming = () => {
                                                 developed and published by Riot Games.
                                             </div>
                                         </div>
-                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
-                                            <div className="text-white w-full">
-                                                <img
-                                                    src="https://i.pinimg.com/originals/0d/92/28/0d9228d6eb69ab0c57d53fee1d5a4879.gif"
-                                                    width="100%"
-                                                    className="rounded-lg h-50"
-                                                />
-                                            </div>
-                                            <div className="text-white text-lg font-medium mb-2 mt-4">
-                                                Genshin Impact
-                                            </div>
-                                            <div className="text-white font-normal">
-                                                Genshin Impact is an action role-playing game
-                                            </div>
-                                        </div>
-                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
-                                            <div className="text-white w-full">
-                                                <img
-                                                    src="https://media4.giphy.com/media/VgvLyXeQ35gGhzmcVG/giphy-downsized-large.gif"
-                                                    width="100%"
-                                                    className="rounded-lg h-50"
-                                                />
-                                            </div>
-                                            <div className="text-white text-lg font-medium mb-2 mt-4">
-                                                Forza Horizon 5
-                                            </div>
-                                            <div className="text-white font-normal">
-                                                Forza Horizon 5 is a racing video game developed by
-                                                Playground Games.
-                                            </div>
-                                        </div>
-                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
-                                            <div className="text-white w-full">
-                                                <img
-                                                    src="https://64.media.tumblr.com/e5c073740257c795f8f1519178ddca3c/4df32908d32a5a41-f0/s540x810/91e1ba687932228b6138d29ef917e1cb259be7a7.gifv"
-                                                    width="100%"
-                                                    className="rounded-lg h-50"
-                                                />
-                                            </div>
-                                            <div className="text-white text-lg font-medium mb-2 mt-4">
-                                                Pokemon Unite
-                                            </div>
-                                            <div className="text-white font-normal">
-                                                Pokémon Unite is a free-to-play, multiplayer online
-                                                battle arena video game.
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </main>

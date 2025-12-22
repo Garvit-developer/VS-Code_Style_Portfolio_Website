@@ -15,10 +15,12 @@
 
 .mainside {
   width: calc(100vw - 320px);
-  height: 100vh;
+  height: calc(100vh - 47px);
   margin-top: 8px;
   margin-left: -10px;
   display: inline-flex;
+  overflow-y: auto;
+  overflow-x: hidden;
   justify-content: center;
   transition: all 0.3s ease;
 }
@@ -35,9 +37,26 @@
   overflow-x: hidden;
 }
 
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
 .mainsidecollapse {
   width: calc(100vw - 57px);
-  height: 100vh;
+  height: calc(100vh - 47px);
+  overflow-y: auto;
   overflow-x: hidden;
   justify-content: center;
   margin-top: 8px;
