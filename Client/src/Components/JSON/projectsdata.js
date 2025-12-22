@@ -3,7 +3,7 @@ export const projectsdata = () => [
     {
         title: "IT solutions and software devlopment Website",
         name: "Geek Theory Website",
-        banner: "/Geek.png",
+        banner: "/Geek_banner2.png",
         detailBanner: "/Geek_banner.png",
         skills: [
             "CSS3",
@@ -13,6 +13,7 @@ export const projectsdata = () => [
             "Express",
             "MongoDB",
             "Tailwind CSS",
+            "REST APIs",
         ],
         description: `GeekTheo is an IT solutions company that delivers modern, scalable, and performance-driven digital services. The company specializes in web development, application design, and custom business solutions for clients. GeekTheo focuses on building secure, reliable, and user-focused systems using latest technologies. The website represents the company’s services, portfolio, and digital identity.`,
         //(Optional) Live link of your project, if hosted
@@ -37,7 +38,7 @@ export const projectsdata = () => [
         others: [
             {
                 link: "/Projects/2",
-                thumbnail: "/Skilledu_banner.png",
+                thumbnail: "/sai_banner4.png",
                 logo: "/Skilledu.png",
                 title: "Skilledu - StudyAI",
                 description: `Skilledu is an AI-powered doubt-solving and learning assistance platform designed to help students get instant answers.`
@@ -49,13 +50,13 @@ export const projectsdata = () => [
                 title: "Taskly Pro - Your Task Manager",
                 description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
             },
-            
+
         ],
     },
     {
-        title: "StudyAI",
+        title: "Study AI",
         name: "Skilledu",
-        banner: "/sai.png",
+        banner: "/sai_banner4.png",
         detailBanner: "/Skilledu_banner.png",
         skills: [
             "JavaScript",
@@ -108,13 +109,13 @@ export const projectsdata = () => [
                 title: "Bhasha Setu - Indian Script Transliterator",
                 description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
             },
-          
+
         ],
     },
     {
         title: "Your Task Manager",
         name: "Taskly Pro",
-        banner: "/task.png",
+        banner: "/Taskly_banner2.png",
         detailBanner: "/Taskly_banner.png", // Different banner for detail page
         skills: [
             "JavaScript",
@@ -154,7 +155,7 @@ export const projectsdata = () => [
         ],
         height: 1900,
         others: [
-          
+
             {
                 link: "/Projects/4",
                 thumbnail: "/bhasha_banner.png",
@@ -187,7 +188,7 @@ export const projectsdata = () => [
         github: "https://github.com/Garvit-developer/Bhasha_Setu",
         // Logo Image of your project
         logo: "/Bhasha_logo.png",
-        banner: "/xport/Screenshot (322).png",
+        banner: "/bhasha_banner.png",
         detailBanner: "/bhasha_banner.png",
         features: [
             "Developed AI chatbot for accurate transliteration across multiple Indian scripts.",
@@ -227,7 +228,7 @@ export const projectsdata = () => [
     {
         title: "Your own Password Manager",
         name: "Secure stack",
-        banner: "/xport/Screenshot (330).png",
+        banner: "Secure_banner4.png",
         detailBanner: "/Secure_banner.png",
         skills: [
             "React.js",
@@ -317,17 +318,9 @@ export const projectsdata = () => [
             },
             {
                 link: "/Projects/2",
-                thumbnail: "/Skilledu_banner.png",
-                logo: "/Skilledu.png",
+                thumbnail: "/sai_banner4.png", logo: "/Skilledu.png",
                 title: "Skilledu - StudyAI",
                 description: `Skilledu is an AI-powered doubt-solving and learning assistance platform designed to help students get instant answers.`
-            },
-            {
-                link: "/Projects/3",
-                thumbnail: "/Taskly_banner.png",
-                logo: "/Taskly.png",
-                title: "Taskly Pro - Your Task Manager",
-                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
             },
             {
                 link: "/Projects/4",
@@ -336,13 +329,6 @@ export const projectsdata = () => [
                 title: "Bhasha Setu - Indian Script Transliterator",
                 description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
             },
-            {
-                link: "/Projects/5",
-                thumbnail: "/Secure_banner.png",
-                logo: "/Secure_logo.png",
-                title: "Secure stack - Your own Password Manager",
-                description: `A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers.`
-            }
         ],
     },
 
