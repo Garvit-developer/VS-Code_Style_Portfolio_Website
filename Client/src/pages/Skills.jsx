@@ -1,9 +1,7 @@
 
-
-
 import { Scrollbars } from "react-custom-scrollbars";
 import { useEffect } from "react";
-import { programming, fullStack, database, Deployment, tools } from "../Components/JSON/skillsData";
+import { programming, fullStack, database, Deployment, tools } from "../Components/JSON/skillsData.js";
 
 const SkillSection = ({ title, skills }) => (
     <div className="mt-8">
@@ -14,7 +12,7 @@ const SkillSection = ({ title, skills }) => (
                 <div
                     key={skill.name}
                     className="
-                        flex items-center gap-3 p-2.5 text-base
+                        flex items-center gap-3 p-2.5 text-base0
                         rounded-lg bg-white/5 backdrop-blur-sm
                         hover:bg-white/10 transition-all duration-200 
                         hover:scale-[1.03]
@@ -60,4 +58,3 @@ const Skills = () => {
 };
 
 export default Skills;
-

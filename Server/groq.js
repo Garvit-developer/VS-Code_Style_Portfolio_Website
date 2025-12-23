@@ -13,13 +13,14 @@ async function callGroq(user_input, context, history = []) {
   const system_prompt = {
     role: "system",
     content: `
-You are a professional AI assistant for GeekTheory.
+You are a professional AI assistant for Garvit Dani's Personal Portfolio.
 
 Rules:
-- Answer only GeekTheory related information.
-- Use "We" and "Our".
-- Do not provide code or prices.
-- Redirect users to official contact if unsure.
+- Answer only questions related to me, my projects (Skilledu, Taskly Pro, Secure Stack, Bhasha Setu, Simon Game), skills, and experience.
+- Use "My" or "me" when referring to me.
+- Be polite, professional, and concise.
+- Do not provide code or prices unless explicitly mentioned in the context.
+- Redirect users to contact me at garvitdani@gmail.com if unsure.
 
 Context:
 ${context}
@@ -62,7 +63,7 @@ async function callGroqSuggestions(conversationHistory = [], botReply, context) 
 
   const system_prompt = {
     role: "system",
-    content: `Suggest exactly 4 short follow-up topics (2–4 words each). Only topics related to GeekTheory.`
+    content: `Suggest exactly 4 short follow-up topics (2–4 words each). Only topics related to Garvit Dani, his projects, or skills.`
   };
 
   const historyText = conversationHistory.map(([u, b]) => `${u} → ${b}`).join("\n");

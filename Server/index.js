@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
 import { callGroq, callGroqSuggestions } from "./groq.js";
-import { scrapeGeekTheo } from "./geekScraper.js";
+
 import findRelevantContext from "./tfidf.js";
 import fs from "fs";
 import axios from "axios";
@@ -26,8 +26,8 @@ let websiteTexts = [];
     try {
         const companyData = JSON.parse(fs.readFileSync("company_info.json", "utf-8"));
         companyText = Object.values(companyData).flat().join(" ");
-        websiteTexts = await scrapeGeekTheo();
-        console.log("✅ Static and scraped content loaded");
+        // websiteTexts = await scrapeGeekTheo();
+        console.log("✅ Static content loaded");
     } catch (err) {
         console.error("❌ Error loading data:", err.message);
     }
@@ -191,8 +191,8 @@ app.post("/api/sendEmail", async (req, res) => {
 
 //Github stats
 app.get("/github-contributions", async (req, res) => {
-  try {
-    const query = `
+    try {
+        const query = `
       query {
         user(login: "Garvit-developer") {
           contributionsCollection {
@@ -209,29 +209,29 @@ app.get("/github-contributions", async (req, res) => {
       }
     `;
 
-    const response = await axios.post(
-      "https://api.github.com/graphql",
-      { query },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-      }
-    );
+        const response = await axios.post(
+            "https://api.github.com/graphql",
+            { query },
+            {
+                headers: {
+                    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+                },
+            }
+        );
 
-    const weeks =
-      response?.data?.data?.user?.contributionsCollection?.contributionCalendar
-        ?.weeks;
+        const weeks =
+            response?.data?.data?.user?.contributionsCollection?.contributionCalendar
+                ?.weeks;
 
-    if (!Array.isArray(weeks)) {
-      return res.status(500).json([]);
+        if (!Array.isArray(weeks)) {
+            return res.status(500).json([]);
+        }
+
+        res.json(weeks);
+    } catch (err) {
+        console.error(err.response?.data || err.message);
+        res.status(500).json([]);
     }
-
-    res.json(weeks);
-  } catch (err) {
-    console.error(err.response?.data || err.message);
-    res.status(500).json([]);
-  }
 });
 
 // Start Server

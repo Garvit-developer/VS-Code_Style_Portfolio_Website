@@ -378,7 +378,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, FileText, Code, Monitor, Zap } from "lucide-react";
 import { projectsdata } from "../JSON/projectsdata";
-import { programming, fullStack, database, Deployment, tools } from "../JSON/skillsData";
+import { programming, fullStack, database, Deployment, tools } from "../JSON/skillsData.js";
 import { experiences } from "../JSON/experienceData";
 
 const SearchBar = () => {

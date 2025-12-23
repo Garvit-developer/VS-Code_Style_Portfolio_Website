@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { marked } from "marked";
-import { Send, Bot, User } from "lucide-react";
+import { Send, Bot, User, X } from "lucide-react";
 
 const Chatbot = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState([
@@ -96,7 +96,13 @@ const Chatbot = ({ isOpen, onClose }) => {
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-[#3e3e42] select-none">
         <span className="font-semibold text-xs uppercase tracking-wider text-[#bbbbbb]">Chat</span>
-        {/* Optional: Add more header controls like 'Clear Chat' here */}
+        <button
+          onClick={onClose}
+          className="text-[#cccccc] hover:text-white hover:bg-[#3e3e42] p-1 rounded-sm transition-colors"
+          title="Close"
+        >
+          <X size={16} />
+        </button>
       </div>
 
       {/* Chat Area */}
@@ -147,7 +153,7 @@ const Chatbot = ({ isOpen, onClose }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask Copilot a question or type '/' for commands"
+            placeholder="Ask Copilot a question about me"
             className="w-full bg-transparent text-[#cccccc] p-2 pr-10 text-sm resize-none focus:outline-none placeholder-[#858585] custom-scrollbar"
             rows={1}
             style={{ minHeight: "36px", maxHeight: "120px" }}

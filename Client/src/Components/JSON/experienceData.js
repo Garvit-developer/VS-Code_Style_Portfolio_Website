@@ -12,6 +12,7 @@ export const experiences = [
         ],
         tech: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "OpenAI API"],
         logo: "/GeekTheoryIcon.webp",
+        certificate: "https://drive.google.com/file/d/1whWxX-cHZS1GqSiOMmh7SoU55vvBqqEY/view?usp=sharing"
     },
     {
         title: "Web Designing Internship",
@@ -26,5 +27,6 @@ export const experiences = [
         ],
         tech: ["HTML", "CSS", "JavaScript"],
         logo: "/download.png",
+        certificate: "https://drive.google.com/file/d/1RRVgE89ceskrWgU7olzHSJC1ccSZw0eG/view?usp=sharing"
     },
 ];
