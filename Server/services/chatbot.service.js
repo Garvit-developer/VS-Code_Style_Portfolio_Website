@@ -20,15 +20,20 @@ class ChatbotService {
     async initialize() {
         try {
             const filePath = path.join(process.cwd(), "company_info.json");
-            const companyData = JSON.parse(
-                fs.readFileSync(filePath, "utf-8")
-            );
+            console.log(`📖 Attempting to load company data from: ${filePath}`);
+
+            if (!fs.existsSync(filePath)) {
+                throw new Error(`File not found: ${filePath}`);
+            }
+
+            const fileContent = fs.readFileSync(filePath, "utf-8");
+            const companyData = JSON.parse(fileContent);
+
             this.companyText = Object.values(companyData).flat().join(" ");
-            // this.websiteTexts = await scrapeGeekTheo(); // Commented out as in original
             this.initialized = true;
-            console.log("✅ Chatbot static content loaded");
+            console.log("✅ Chatbot static content loaded successfully");
         } catch (err) {
-            console.error("❌ Error loading chatbot data:", err.message);
+            console.error("❌ Chatbot initialization error:", err.message);
             throw err;
         }
     }

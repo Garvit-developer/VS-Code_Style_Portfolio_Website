@@ -11,9 +11,11 @@ const app = express();
 // Validate environment variables on startup
 try {
     validateEnv();
+    console.log("✅ Environment variables validated");
 } catch (err) {
-    console.error(err.message);
-    process.exit(1);
+    console.error("❌ Environment validation failed:", err.message);
+    // In production/serverless, we log but don't exit to allow Vercel to show logs
+    if (process.env.NODE_ENV !== "production") process.exit(1);
 }
 
 // Middleware
@@ -23,10 +25,11 @@ app.use(express.json());
 // Initialize services
 (async () => {
     try {
+        console.log("📂 Current Working Directory:", process.cwd());
         await chatbotService.initialize();
     } catch (err) {
         console.error("❌ Failed to initialize services:", err.message);
-        process.exit(1);
+        if (process.env.NODE_ENV !== "production") process.exit(1);
     }
 })();
 
