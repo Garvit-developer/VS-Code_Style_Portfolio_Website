@@ -13,12 +13,6 @@ const config = {
     // Frontend URL
     frontendUrl: process.env.FRONTEND_URL || "http://localhost:5173",
 
-    // Email Configuration
-    email: {
-        user: process.env.EMAIL_USER,
-        password: process.env.EMAIL_PASSWORD,
-        recipient: process.env.EMAIL_RECIPIENT || "garvitdani@gmail.com"
-    },
 
     // Groq API Configuration
     groq: {
@@ -42,8 +36,6 @@ export const validateEnv = () => {
     const required = [
         { key: "GROQ_API_KEY", value: config.groq.apiKey },
         { key: "GITHUB_TOKEN", value: config.github.token },
-        { key: "EMAIL_USER", value: config.email.user },
-        { key: "EMAIL_PASSWORD", value: config.email.password }
     ];
 
     const missing = required.filter(({ value }) => !value).map(({ key }) => key);

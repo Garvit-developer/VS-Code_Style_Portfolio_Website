@@ -16,7 +16,7 @@ const GithubStats = () => {
     const fetchData = async () => {
         try {
             setLoading(true);
-            const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/github-contributions`);
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/github-contributions`);
             if (!res.ok) throw new Error("Failed to fetch");
             const data = await res.json();
             setWeeks(data);
