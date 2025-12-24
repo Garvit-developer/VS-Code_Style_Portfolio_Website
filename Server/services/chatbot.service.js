@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 import findRelevantContext from "../utils/tfidf.js";
 import { callGroq, callGroqSuggestions } from "../utils/groq.js";
 
@@ -18,8 +19,9 @@ class ChatbotService {
      */
     async initialize() {
         try {
+            const filePath = path.join(process.cwd(), "company_info.json");
             const companyData = JSON.parse(
-                fs.readFileSync("company_info.json", "utf-8")
+                fs.readFileSync(filePath, "utf-8")
             );
             this.companyText = Object.values(companyData).flat().join(" ");
             // this.websiteTexts = await scrapeGeekTheo(); // Commented out as in original

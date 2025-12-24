@@ -38,8 +38,12 @@ app.use(notFoundHandler);
 app.use(errorHandler);
 
 // Start server
-app.listen(config.port, () => {
-    console.log(`✅ Server is running on port ${config.port}`);
-    console.log(`✅ Environment: ${config.nodeEnv}`);
-    console.log(`✅ Frontend URL: ${config.frontendUrl}`);
-});
+if (process.env.NODE_ENV !== "production") {
+    app.listen(config.port, () => {
+        console.log(`✅ Server is running on port ${config.port}`);
+        console.log(`✅ Environment: ${config.nodeEnv}`);
+        console.log(`✅ Frontend URL: ${config.frontendUrl}`);
+    });
+}
+
+export default app;
