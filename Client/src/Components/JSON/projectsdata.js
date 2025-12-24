@@ -40,15 +40,15 @@ export const projectsdata = () => [
                 link: "/Projects/2",
                 thumbnail: "/sai_banner4.png",
                 logo: "/Skilledu.png",
-                title: "Skilledu - StudyAI",
-                description: `Skilledu is an AI-powered doubt-solving and learning assistance platform designed to help students get instant answers.`
+                title: "Skilledu ",
+                description: `StudyAI.`
             },
             {
                 link: "/Projects/3",
                 thumbnail: "/Taskly_banner.png",
                 logo: "/Taskly.png",
-                title: "Taskly Pro - Your Task Manager",
-                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
+                title: "Taskly Pro ",
+                description: `Your Task Manager.`
             },
 
         ],
@@ -99,15 +99,15 @@ export const projectsdata = () => [
                 link: "/Projects/3",
                 thumbnail: "/Taskly_banner.png",
                 logo: "/Taskly.png",
-                title: "Taskly Pro - Your Task Manager",
-                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
+                title: "Taskly Pro ",
+                description: `Your Task Manager.`
             },
             {
                 link: "/Projects/4",
                 thumbnail: "/bhasha_banner.png",
                 logo: "/Bhasha_logo.png",
-                title: "Bhasha Setu - Indian Script Transliterator",
-                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
+                title: "Bhasha Setu ",
+                description: `Indian Script Transliterator.`
             },
 
         ],
@@ -160,15 +160,15 @@ export const projectsdata = () => [
                 link: "/Projects/4",
                 thumbnail: "/bhasha_banner.png",
                 logo: "/Bhasha_logo.png",
-                title: "Bhasha Setu - Indian Script Transliterator",
-                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
+                title: "Bhasha Setu ",
+                description: `Indian Script Transliterator.`
             },
             {
                 link: "/Projects/5",
                 thumbnail: "/Secure_banner.png",
                 logo: "/Secure_logo.png",
-                title: "Secure stack - Your own Password Manager",
-                description: `A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers.`
+                title: "Secure stack ",
+                description: `Your own Password Manager.`
             }
         ],
     },
@@ -184,7 +184,7 @@ export const projectsdata = () => [
         ],
         description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India. It specializes in transliterating text between various Indian scripts, enabling users to read content in their familiar script while preserving the original phonetic sound and language. `,
         //(Optional) Live link of your project, if hosted
-        link: "https://bhaasha-setu.vercel.app/",
+        link: "bhaasha-setu.vercel.app",
         github: "https://github.com/Garvit-developer/Bhasha_Setu",
         // Logo Image of your project
         logo: "/Bhasha_logo.png",
@@ -213,15 +213,15 @@ export const projectsdata = () => [
                 link: "/Projects/3",
                 thumbnail: "/Taskly_banner.png",
                 logo: "/Taskly.png",
-                title: "Taskly Pro - Your Task Manager",
-                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
+                title: "Taskly Pro ",
+                description: `Your Task Manager.`
             },
             {
                 link: "/Projects/5",
                 thumbnail: "/Secure_banner.png",
                 logo: "/Secure_logo.png",
-                title: "Secure stack - Your own Password Manager",
-                description: `A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers.`
+                title: "Secure stack ",
+                description: `Your own Password Manager.`
             }
         ],
     },
@@ -239,7 +239,7 @@ export const projectsdata = () => [
         ],
         description: "A modern, offline-first password manager built to keep your digital life secure without relying on cloud servers. Your data stays on your device, ensuring maximum privacy.",
         //(Optional) Live link of your project, if hosted
-        link: null,
+        link: "secure-stackk.vercel.app",
         github: "https://github.com/Garvit-developer/Secure-Stack",
         // Logo Image of your project
         logo: "/Secure_logo.png",
@@ -267,16 +267,16 @@ export const projectsdata = () => [
                 link: "/Projects/3",
                 thumbnail: "/Taskly_banner.png",
                 logo: "/Taskly.png",
-                title: "Taskly Pro - Your Task Manager",
-                description: `Taskly Pro is a modern and responsive task planner that helps users manage, organize, and track daily tasks efficiently.`
+                title: "Taskly Pro ",
+                description: `Your Task Manager.`
             },
             {
                 link: "/Projects/4",
                 thumbnail: "/bhasha_banner.png",
                 logo: "/Bhasha_logo.png",
-                title: "Bhasha Setu - Indian Script Transliterator",
-                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
-            }
+                title: "Bhasha Setu ",
+                description: `Indian Script Transliterator.`
+            },
         ],
     },
     {
@@ -313,21 +313,22 @@ export const projectsdata = () => [
                 link: "/Projects/1",
                 thumbnail: "/Geek_banner.png",
                 logo: "/GeekTheoryIcon.PNG",
-                title: "Geek Theory Website - IT solutions",
-                description: `GeekTheo is an IT solutions company that delivers modern, scalable, and performance-driven digital services.`
+                title: "Geek Theory Website ",
+                description: `A modern, IT solutions website for Geek Theory.`
             },
             {
                 link: "/Projects/2",
-                thumbnail: "/sai_banner4.png", logo: "/Skilledu.png",
-                title: "Skilledu - StudyAI",
-                description: `Skilledu is an AI-powered doubt-solving and learning assistance platform designed to help students get instant answers.`
+                thumbnail: "/sai_banner4.png",
+                logo: "/Skilledu.png",
+                title: "Skilledu ",
+                description: `StudyAI`
             },
             {
                 link: "/Projects/4",
                 thumbnail: "/bhasha_banner.png",
                 logo: "/Bhasha_logo.png",
-                title: "Bhasha Setu - Indian Script Transliterator",
-                description: `Bhaasha Setu is an advanced AI-powered chatbot designed to bridge linguistic barriers across India.`
+                title: "Bhasha Setu ",
+                description: `Indian Script Transliterator.`
             },
         ],
     },

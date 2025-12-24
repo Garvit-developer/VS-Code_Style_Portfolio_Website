@@ -29,174 +29,183 @@ const ProjectDetails = ({ projectDetails, altt }) => {
             autoHideDuration={200}
             universal={true}
         >
-            <div>
+            <div className="relative h-full w-full bg-[#1e1e1e]">
+                {/* Grid Background */}
                 <div
+                    className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
                     style={{
-                        position: "relative",
-                        width: "100%",
-                        borderRadius: "0.5em",
-                        height: "50vh",
-                        backgroundImage: `url(${projectDetails?.detailBanner || projectDetails?.banner || ""})`,
-                        paddingBottom: "35%",
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
+                        backgroundImage:
+                            "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                        backgroundSize: "40px 40px"
                     }}
-                ></div>
-                <div className="  pb-6  maincontainerprofileprojects w-full">
-                    <div className="mx-auto boxprojectdetails shadow-lg sm:px-6 lg:px-8">
-                        <div className="overflow-hidden  shadow-xl dark:bg-gray-800 rounded-xl sm:rounded-lg">
-                            <div>
-                                <div className="p-8 bg-gray-900  dark:bg-gray-800 sm:px-20">
-                                    <img
-                                        className="h-12 w-12 inline-block rounded-3xl"
-                                        src={projectDetails?.logo || ""}
-                                        alt={altt || "Project logo"}
-                                        width="85"
-                                        height="85"
-                                    />
-                                    {projectDetails.github && (
-                                        <div
-                                            className="float-right inline-block"
-                                            style={{ marginRight: "-55px" }}
-                                        >
-                                            <a
-                                                href={projectDetails.github}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                <img
-                                                    className="h-14 w-14 border-2 border-blue-400 rounded-full"
-                                                    src="https://img.icons8.com/fluency/144/000000/github.png"
-                                                    alt="Github"
-                                                    width={45}
-                                                    height={45}
-                                                />
-                                            </a>
-                                        </div>
-                                    )}
-                                    {projectDetails?.link && (
-                                        <div className="float-right pr-4 inline-block pt-3 text-xl font-bold text-blue-400">
-                                            <a
-                                                href={
-                                                    projectDetails.link.startsWith("http")
-                                                        ? projectDetails.link
-                                                        : `https://${projectDetails.link.replace(/^\/+/, "")}`
-                                                }
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                {projectDetails.link}
-                                            </a>
-                                        </div>
-                                    )}
-
-                                    <div className="mt-5 text-2xl dark:text-gray-200">
-                                        <span className="font-bold">{projectDetails?.name || ""}</span> -{" "}
-                                        {projectDetails?.title || ""}
-                                    </div>
-                                    <div className="mt-6 text-gray-400 text-md dark:text-gray-400">
-                                        {projectDetails?.description || ""}
-                                    </div>
-                                    <div className="mt-6 text-gray-400 font-semibold text-md dark:text-gray-400">
-                                        Key Features
-                                    </div>
-                                    <ul className="mt-2 text-gray-400 list-disc  text-md dark:text-gray-400">
-                                        {projectDetails?.features?.map((feature, index) => (
-                                            <li key={`feature-desktop-${index}`}>
-                                                • {feature}
-                                            </li>
-                                        )) || []}
-                                    </ul>
-                                    <div className="mt-6 text-gray-400 font-semibold text-md dark:text-gray-400">
-                                        Technologies Used
-                                    </div>
-                                    <div className="pt-1">
-                                        {projectDetails?.skills?.map((skill, index) => (
+                />
+                <div className="relative z-10">
+                    <div
+                        style={{
+                            position: "relative",
+                            width: "100%",
+                            borderRadius: "0.5em",
+                            height: "50vh",
+                            backgroundImage: `url(${projectDetails?.detailBanner || projectDetails?.banner || ""})`,
+                            paddingBottom: "35%",
+                            backgroundPosition: "center",
+                            backgroundSize: "cover",
+                        }}
+                    ></div>
+                    <div className="  pb-6  maincontainerprofileprojects w-full">
+                        <div className="mx-auto boxprojectdetails shadow-lg sm:px-6 lg:px-8">
+                            <div className="overflow-hidden shadow-xl bg-[#252526] border border-[#3c3c3c] rounded-xl sm:rounded-lg">
+                                <div>
+                                    <div className="p-8 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
+                                        <img
+                                            className="h-14 w-14 inline-block rounded-3xl bg-[#1e1e1e] border border-[#3c3c3c] p-0.5"
+                                            src={projectDetails?.logo || ""}
+                                            alt={altt || "Project logo"}
+                                        />
+                                        {projectDetails.github && (
                                             <div
-                                                key={skill + index}
-                                                className="text-xs inline-flex mt-2 items-center font-bold leading-sm  p-1 pl-2 pr-2 mr-2 bg-blue-100 text-gray-700 rounded-full"
+                                                className="float-right inline-block"
+                                                style={{ marginRight: "-55px" }}
                                             >
-                                                {skill}
+                                                <a
+                                                    href={projectDetails.github}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    <img
+                                                        className="h-14 w-14 border-2 border-blue-400 rounded-full"
+                                                        src="https://img.icons8.com/fluency/144/000000/github.png"
+                                                        alt="Github"
+                                                        width={45}
+                                                        height={45}
+                                                    />
+                                                </a>
                                             </div>
-                                        )) || []}
+                                        )}
+                                        {projectDetails?.link && (
+                                            <div className="float-right pr-4 inline-block pt-3 text-xl font-bold text-blue-400">
+                                                <a
+                                                    href={
+                                                        projectDetails.link.startsWith("http")
+                                                            ? projectDetails.link
+                                                            : `https://${projectDetails.link.replace(/^\/+/, "")}`
+                                                    }
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    {projectDetails.link}
+                                                </a>
+                                            </div>
+                                        )}
+
+                                        <div className="mt-5 text-2xl text-[#cccccc]">
+                                            <span className="font-bold text-white">{projectDetails?.name || ""}</span> -{" "}
+                                            {projectDetails?.title || ""}
+                                        </div>
+                                        <div className="mt-6 text-gray-400 text-md dark:text-gray-400">
+                                            {projectDetails?.description || ""}
+                                        </div>
+                                        <div className="mt-6 text-gray-400 font-semibold text-md dark:text-gray-400">
+                                            Key Features
+                                        </div>
+                                        <ul className="mt-2 text-gray-400 list-disc  text-md dark:text-gray-400">
+                                            {projectDetails?.features?.map((feature, index) => (
+                                                <li key={`feature-desktop-${index}`}>
+                                                    • {feature}
+                                                </li>
+                                            )) || []}
+                                        </ul>
+                                        <div className="mt-6 text-gray-400 font-semibold text-md dark:text-gray-400">
+                                            Technologies Used
+                                        </div>
+                                        <div className="pt-1">
+                                            {projectDetails?.skills?.map((skill, index) => (
+                                                <span
+                                                    key={skill + index}
+                                                    className="px-3 py-1 text-xs text-[#cccccc] bg-[#1e1e1e] border border-[#3c3c3c] rounded hover:border-blue-500 hover:text-white transition-colors inline-flex mt-2 items-center mr-2"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            )) || []}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className=" pl-5 pr-5 mt-3 ml-5 mr-5 mb-3">
-                        <div className="mt-6 pb-2 text-gray-400 font-semibold text-2xl dark:text-gray-400">
-                            Snapshots
+                        <div className=" pl-5 pr-5 mt-3 ml-5 mr-5 mb-3">
+                            <div className="mt-6 pb-2 text-gray-400 font-semibold text-2xl dark:text-gray-400">
+                                Snapshots
+                            </div>
+                            <div className="w-full mt-2 mb-5 pb-5 grid grid-cols-1  xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 xs:grid-cols-1 ">
+                                {projectDetails?.snapshots?.map((shot, index) => (
+                                    <div
+                                        className="mr-3 mb-3"
+                                        key={`snapshot-${index}`}
+                                    >
+                                        <Zoom zoomMargin={100}>
+                                            <img
+                                                className="text-center rounded-xl "
+                                                src={shot}
+                                                alt={altt || "Project snapshot"}
+                                                width="3000"
+                                                height={projectDetails?.height || 2000}
+                                                style={{ objectPosition: "center" }}
+                                            />
+                                        </Zoom>
+                                    </div>
+                                )) || []}
+                            </div>
                         </div>
-                        <div className="w-full mt-2 mb-5 pb-5 grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 xs:grid-cols-1 ">
-                            {projectDetails?.snapshots?.map((shot, index) => (
+                        <h2 className="text-3xl pl-3 pt-2 pb-1 text-blue-500 font-semibold tracking-wide uppercase">
+                            Other Projects
+                        </h2>
+                        <p className=" font-medium pl-3 pb-2 text-gray-400 text-sm pt-1 w-4/5 ">
+                            Based to the current project you are watching.
+                        </p>
+                        <div className="w-full mt-5 mb-5 pb-5  grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 ">
+                            {projectDetails?.others?.map((project, index) => (
                                 <div
-                                    className="mr-3 mb-3"
-                                    key={`snapshot-${index}`}
+                                    key={`other-project-${index}`}
+                                    className="mb-4 p-3"
                                 >
-                                    <Zoom zoomMargin={100}>
-                                        <img
-                                            className="text-center rounded-xl "
-                                            src={shot}
-                                            alt={altt || "Project snapshot"}
-                                            width="3000"
-                                            height={projectDetails?.height || 2000}
-                                            style={{ objectPosition: "center" }}
-                                        />
-                                    </Zoom>
+                                    <div className="w-full h-full rounded-xl overflow-hidden cursor-pointer bg-[#252526] border border-[#3c3c3c] hover:border-[#007acc]/60 hover:shadow-[0_0_0_1px_rgba(0,122,204,0.35)] transform transition-all duration-300 flex flex-col">
+                                        <a href={project?.link || "#"} className="flex flex-col h-full">
+                                            <div className="flex-1">
+                                                <div className="p-2">
+                                                    <img
+                                                        className=" w-full aspect-[2/1] overflow-hidden rounded-xl border-b border-[#3c3c3c] object-cover object-center"
+                                                        src={project?.thumbnail || ""}
+                                                        alt={project?.title || "Project"}
+                                                        width="500"
+                                                        height="270"
+                                                    />
+                                                </div>
+                                                <div className="flex justify-between pr-3  pl-3 pb-1">
+                                                    <div className="flex items-center space-x-4">
+                                                        <img
+                                                            className="h-10 w-10 rounded-full bg-[#1e1e1e] border border-[#3c3c3c]"
+                                                            src={project?.logo || ""}
+                                                            alt={project?.title || "Project logo"}
+                                                            width="55"
+                                                            height="55"
+                                                        />
+                                                        <h1 className="text-lg text-gray-100 font-bold">
+                                                            {project?.title || ""}
+                                                            <p className=" font-medium text-gray-400 text-sm  w-4/5 ">
+                                                                {project?.description || ""}
+                                                            </p>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             )) || []}
                         </div>
                     </div>
-                    <h2 className="text-3xl pl-3 pt-2 pb-1 text-indigo-500 font-semibold tracking-wide uppercase">
-                        Other Projects
-                    </h2>
-                    <p className=" font-medium pl-3 pb-2 text-gray-400 text-sm pt-1 w-4/5 ">
-                        Based to the current project you are watching.
-                    </p>
-                    <div className="w-full mt-5 mb-5 pb-5  grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 ">
-                        {projectDetails?.others?.map((project, index) => (
-                            <div
-                                key={`other-project-${index}`}
-                                className="mb-4 p-3"
-                            >
-                                <div className="w-full h-full rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500 flex flex-col">
-                                    <a href={project?.link || "#"} className="flex flex-col h-full">
-                                        <div className="flex-1">
-                                            <div className="p-3">
-                                                <img
-                                                    className="rounded-xl w-full h-48 object-cover object-center"
-                                                    src={project?.thumbnail || ""}
-                                                    alt={project?.title || "Project"}
-                                                    width="500"
-                                                    height="270"
-                                                />
-                                            </div>
-                                            <div className="flex justify-between pr-3 pt-2 pl-3 pb-2">
-                                                <div className="flex items-center space-x-4">
-                                                    <img
-                                                        className="h-10 w-10 rounded-full"
-                                                        src={project?.logo || ""}
-                                                        alt={project?.title || "Project logo"}
-                                                        width="55"
-                                                        height="55"
-                                                    />
-                                                    <h1 className="text-lg text-gray-100 font-bold">
-                                                        {project?.title || ""}
-                                                        <p className=" font-medium text-gray-400 text-sm pt-1 w-4/5 ">
-                                                            {project?.description || ""}
-                                                        </p>
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        )) || []}
-                    </div>
                 </div>
-            </div>{" "}
+            </div>
         </Scrollbars>
     ) : (
         <div className="pb-40 mb-40 w-full pl-4 pr-2">
@@ -208,9 +217,9 @@ const ProjectDetails = ({ projectDetails, altt }) => {
             <div className=" ml-2 mr-2 mt-2 shadow-lg ">
                 <div className="overflow-hidden  shadow-xl dark:bg-gray-800 rounded-xl sm:rounded-lg">
                     <div>
-                        <div className="p-3 bg-gray-900  dark:bg-gray-800 sm:px-20">
+                        <div className="p-3 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
                             <img
-                                className="h-10 w-10 inline-block rounded-lg"
+                                className="h-10 w-10 inline-block rounded-lg bg-[#1e1e1e] border border-[#3c3c3c] p-1"
                                 src={projectDetails?.logo || ""}
                                 alt={altt || "Project logo"}
                                 width="65"
@@ -240,7 +249,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                     </a>
                                 </div>
                             )}
-                            <div className="mt-5 text-xl dark:text-gray-200">
+                            <div className="mt-5 text-xl text-[#cccccc]">
                                 <span className="font-bold">{projectDetails?.name || ""}</span> -{" "}
                                 {projectDetails?.title || ""}
                             </div>
@@ -265,12 +274,12 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                             </div>
                             <div className="pt-1">
                                 {projectDetails?.skills?.map((skill, index) => (
-                                    <div
+                                    <span
                                         key={`skill-${index}`}
-                                        className="text-xs inline-flex mt-2 items-center font-bold leading-sm  p-1 pl-2 pr-2 mr-2 bg-blue-100 text-gray-700 rounded-full"
+                                        className="px-3 py-1 text-xs text-[#cccccc] bg-[#1e1e1e] border border-[#3c3c3c] rounded hover:border-blue-500 hover:text-white transition-colors inline-flex mt-2 items-center mr-2"
                                     >
                                         {skill}
-                                    </div>
+                                    </span>
                                 )) || []}
                             </div>
                         </div>

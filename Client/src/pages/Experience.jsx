@@ -14,116 +14,124 @@ const MyWork = () => {
     }, []);
 
     return (
-        <Scrollbars
-            autoHide
-            autoHideTimeout={1000}
-            autoHideDuration={200}
-            universal={true}
-        >
-            <div className="w-full p-5 pb-40 text-left">
-                {/* Header matching Projects/Skills pages */}
-                <div className="flex items-center gap-2">
-                    <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                        Work
-                    </h2>
-                    <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-indigo-500">
-                        Experience
-                    </h2>
-                </div>
+        <div className="relative h-full w-full bg-[#1e1e1e]">
+            {/* Grid Background */}
+            <div
+                className="absolute inset-0 opacity-[0.02] pointer-events-none fixed"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                    backgroundSize: "40px 40px"
+                }}
+            />
 
-                <p className="mt-3 text-base font-medium max-w-2xl text-gray-400">
-                    My professional journey, internships, and industry projects.
-                </p>
+            <Scrollbars
+                autoHide
+                autoHideTimeout={1000}
+                autoHideDuration={200}
+                universal={true}
+            >
+                <div className="w-full px-5 py-5 pb-20 text-left">
+                    {/* Header matching Projects/Skills pages */}
+                    <div className="flex flex-col gap-3 mb-10">
+                        <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            Work <span className="font-semibold text-blue-500">Experience</span>
+                        </h1>
+                        <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                            My professional journey, internships, and industry projects.
+                        </p>
+                    </div>
 
-                {/* Timeline Section */}
-                <div className="w-full mt-8">
-                    <VerticalTimeline layout="1-column-left" lineColor="#30363d">
-                        {experiences.map((exp, index) => (
-                            <VerticalTimelineElement
-                                key={index}
-                                className="vertical-timeline-element--work"
-                                contentStyle={{
-                                    background: "#161b22",
-                                    color: "#c9d1d9",
-                                    border: "1px solid #30363d",
-                                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-                                    borderRadius: "0.75rem",
-                                    padding: "1.5rem",
-                                    textAlign: "left",
-                                }}
-                                contentArrowStyle={{
-                                    borderRight: "7px solid #3f3f3fff",
-                                }}
-                                iconStyle={{
-                                    background: "#6366f1",
-                                    color: "#fff",
-                                    boxShadow: "0 0 0 4px #1f2937",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    overflow: "hidden",
-                                    border: "2px solid #0d1117"
-                                }}
-                                icon={
-                                    exp.logo ? (
-                                        <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-0.5">
-                                            <img
-                                                src={exp.logo}
-                                                alt={exp.company}
-                                                className="w-full h-full object-cover rounded-full"
-                                            />
+                    {/* Timeline Section */}
+                    <div className="w-full mt-8">
+                        <VerticalTimeline layout="1-column-left" lineColor="#3c3c3c">
+                            {experiences.map((exp, index) => (
+                                <VerticalTimelineElement
+                                    key={index}
+                                    className="vertical-timeline-element--work"
+                                    contentStyle={{
+                                        background: "#252526",
+                                        color: "#cccccc",
+                                        border: "1px solid #3c3c3c",
+                                        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                                        borderRadius: "0.5rem",
+                                        padding: "1.5rem",
+                                        textAlign: "left",
+                                    }}
+                                    contentArrowStyle={{
+                                        borderRight: "7px solid #252526",
+                                    }}
+                                    iconStyle={{
+                                        background: "#007acc",
+                                        color: "#fff",
+                                        boxShadow: "0 0 0 4px #1e1e1e",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        overflow: "hidden",
+                                        border: "2px solid #1e1e1e"
+                                    }}
+                                    icon={
+                                        exp.logo ? (
+                                            <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-0.5">
+                                                <img
+                                                    src={exp.logo}
+                                                    alt={exp.company}
+                                                    className="w-full h-full object-cover rounded-full"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <Briefcase className="text-white w-5 h-5" />
+                                        )
+                                    }
+                                >
+                                    <div className="space-y-3">
+                                        {/* Header with timeline date */}
+                                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between pb-3 border-b border-[#3c3c3c]">
+                                            <div className="flex-1">
+                                                <h3 className="text-xl font-medium text-white tracking-tight">
+                                                    {exp.title}
+                                                </h3>
+                                                <h4 className="text-base text-blue-400 font-normal mt-1">
+                                                    {exp.company}
+                                                </h4>
+                                            </div>
+                                            <div className="flex items-center gap-1.5 mt-2 sm:mt-0 text-gray-500">
+                                                <Calendar className="w-3.5 h-3.5" />
+                                                <span className="text-xs font-mono">{exp.date}</span>
+                                            </div>
                                         </div>
-                                    ) : (
-                                        <Briefcase className="text-white w-6 h-6" />
-                                    )
-                                }
-                            >
-                                <div className="space-y-3">
-                                    {/* Header with timeline date */}
-                                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between pb-3 border-b border-gray-800">
-                                        <div className="flex-1">
-                                            <h3 className="mt-3  text-xl font-bold text-white tracking-tight">
-                                                {exp.title}
-                                            </h3>
-                                            <h4 className="text-base text-indigo-400 font-semibold">
-                                                {exp.company}
-                                            </h4>
-                                        </div>
-                                        <div className="flex items-center gap-1.5 mt-5 sm:mt-3 text-gray-400">
-                                            <Calendar className="w-4 h-4" />
-                                            <span className="text-sm font-medium">{exp.date}</span>
-                                        </div>
-                                    </div>
 
-                                    {/* Description */}
-                                    <div className="text-gray-400 text-sm md:text-base leading-relaxed">
-                                        <ul className="space-y-2 list-disc list-inside">
-                                            {exp.description.map((item, i) => (
-                                                <li key={i} className="text-gray-400">
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    {/* Tech Stack */}
-                                    <div className="pt-3">
-                                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                                            Tech Stack
-                                        </p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {exp.tech.map((tech, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-3 py-1 text-xs font-medium rounded-full bg-white/5 text-gray-300 border border-gray-700 hover:border-indigo-500 hover:text-indigo-400 transition-colors duration-200"
-                                                >
-                                                    {tech}
-                                                </span>
-                                            ))}
+                                        {/* Description */}
+                                        <div className="text-gray-400 text-sm md:text-base leading-relaxed">
+                                            <ul className="space-y-2 list-disc list-inside marker:text-blue-500">
+                                                {exp.description.map((item, i) => (
+                                                    <li key={i} className="text-gray-300 font-light">
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
-                                    </div>
 
-                                    {/* Certificate Button */}
+                                        {/* Tech Stack */}
+                                        <div className="pt-3">
+                                            <p className="text-[10px] font-semibold text-[#858585] uppercase tracking-wider mb-2">
+                                                Tech Stack
+                                            </p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {exp.tech.map((tech, i) => (
+                                                    <span
+                                                        key={i}
+                                                        className="px-2 py-1 text-xs text-[#cccccc] bg-[#1e1e1e] border border-[#3c3c3c] rounded hover:border-blue-500 hover:text-white transition-colors duration-200"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Certificate Button */}
+                                        {/* Certificate Button */}
                                     {exp.certificate && (
                                         <div className="pt-3.5">
                                             <a
@@ -134,12 +142,12 @@ const MyWork = () => {
                                                 inline-flex items-center gap-2
                                                 px-4 py-1.5
                                                 text-sm font-medium
-                                                text-indigo-400
-                                                bg-indigo-500/10
-                                                border border-indigo-500/20
+                                                text-blue-400
+                                                bg-blue-500/10
+                                                border border-blue-500/20
                                                 rounded-lg
-                                                hover:bg-indigo-500/20
-                                                hover:border-indigo-400/40
+                                                hover:bg-blue-500/20
+                                                hover:border-blue-400/40
                                                 transition-all duration-200
                                             "
                                             >
@@ -161,14 +169,15 @@ const MyWork = () => {
                                             </a>
                                         </div>
 
-                                    )}
-                                </div>
-                            </VerticalTimelineElement>
-                        ))}
-                    </VerticalTimeline>
+                                        )}
+                                    </div>
+                                </VerticalTimelineElement>
+                            ))}
+                        </VerticalTimeline>
+                    </div>
                 </div>
-            </div>
-        </Scrollbars>
+            </Scrollbars>
+        </div>
     );
 };
 

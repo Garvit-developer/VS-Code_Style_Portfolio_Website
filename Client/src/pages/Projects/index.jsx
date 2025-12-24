@@ -1,11 +1,63 @@
 import { Scrollbars } from "react-custom-scrollbars";
 import { Link } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 import { projectsdata } from "../../Components/JSON/projectsdata";
 import { useEffect } from "react";
+import { VscRepo, VscLinkExternal } from "react-icons/vsc";
+
+const ProjectCard = ({ project, index }) => (
+    <Link
+        to={`/projects/${index + 1}`}
+        className="
+            group flex flex-col h-full
+            bg-[#252526] border border-[#3c3c3c] rounded-lg
+            overflow-hidden
+            hover:shadow-[0_0_0_1px_rgba(0,122,204,0.35)]
+            hover:border-[#007acc]/60
+            transition-all duration-300
+        "
+    >
+        {/* Banner Image - 2:1 Aspect Ratio as requested */}
+        <div className="relative w-full aspect-[2/1] overflow-hidden border-b border-[#3c3c3c]">
+            <img
+                src={project.banner}
+                alt={`${project.name} banner`}
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+        </div>
+
+        {/* Content - Keeping Logo and Bold Name intact */}
+        <div className="p-4 flex flex-col flex-grow gap-3">
+            <div className="flex items-center gap-3">
+                <img
+                    src={project.logo}
+                    alt="logo"
+                    className="w-10 h-10 rounded-full bg-[#1e1e1e] border border-[#3c3c3c] object-cover flex-shrink-0"
+                />
+                <div className="flex flex-col  overflow-hidden">
+                    <div className="text-lg font-bold text-gray-100 group-hover:text-blue-400 transition-colors truncate">
+                        {project.name}
+                    </div>
+                    <div className="text-sm font-medium text-gray-400 truncate">
+                        {project.title}
+                    </div>
+                </div>
+            </div>
+
+            {/* Footer Actions */}
+            <div className="mt-auto pt-2 flex items-center gap-4 text-[11px] text-[#858585] uppercase tracking-wider font-semibold border-t border-[#3c3c3c]/50">
+                <span className="flex items-center gap-1 group-hover:text-blue-400 transition-colors mt-2">
+                    <VscRepo className="text-base" /> Details
+                </span>
+                <span className="flex items-center gap-1 group-hover:text-white transition-colors ml-auto mt-2">
+                    Open <VscLinkExternal />
+                </span>
+            </div>
+        </div>
+    </Link>
+);
 
 const Projects = () => {
-    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 943px)" });
     const projects = projectsdata();
 
     useEffect(() => {
@@ -13,98 +65,47 @@ const Projects = () => {
     }, []);
 
     return (
-        <Scrollbars
-            autoHide
-            autoHideTimeout={1000}
-            autoHideDuration={200}
-            universal={true}
-        >
-            <div className=" w-full px-2 ml-1 text-left">
-                <h2 className="lg:text-5xl pl-5  font-bold leading-tight text-indigo-500 text-3xl ">
-                    Projects
-                </h2>
-                <p className=" font-medium pl-5 pb-1 text-gray-400 text-md pt-1 w-4/5 ">
-                    Internship and Side Projects for practice.
-                </p>
-                {!isTabletOrMobile ? (
-                    <div className="w-full mt-3 mb-5 pb-5 grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-3">
-                        {projects?.map((obj, index) => (
-                            <div className="mb-4 p-3" key={index}>
-                                <div className="w-full h-full rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500 bg-[#1a1a1a] flex flex-col">
-                                    <Link to={`/projects/${index + 1}`} className="flex flex-col h-full">
-                                        <div>
-                                            <div className="p-3">
-                                                <img
-                                                    className="rounded-xl w-full aspect-[2/1] object-cover object-center"
-                                                    src={obj.banner}
-                                                    alt={`${obj.name} - ${obj.title}`}
-                                                />
-                                            </div>
-                                            <div className="flex justify-between pr-3 pl-3 pb-2 flex-grow">
-                                                <div className="flex items-center space-x-4">
-                                                    <img
-                                                        className="h-10 w-10 rounded-full flex-shrink-0"
-                                                        src={obj.logo}
-                                                        alt="Geek Theory Website logo"
-                                                    />
-                                                    <div className="flex flex-col ">
-                                                        <p className="text-lg text-gray-100 font-bold line-clamp-1">
-                                                            {obj.name}
-                                                        </p>
-                                                        <p className="font-medium text-gray-400 text-sm line-clamp-1">
-                                                            {obj.title}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
+        <div className="relative h-full w-full bg-[#1e1e1e]">
+            {/* Grid Background */}
+            <div
+                className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                    backgroundSize: "40px 40px"
+                }}
+            />
+
+            <Scrollbars
+                autoHide
+                autoHideTimeout={1000}
+                autoHideDuration={200}
+                universal={true}
+            >
+                <div className="w-full px-6 py-10 pb-20">
+                    {/* Header */}
+                    <div className="flex flex-col gap-3 mb-8">
+                        <div className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            My <span className="font-semibold text-blue-500">Projects</span>
+                        </div>
+                        <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                            Internship and Side Projects for practice.
+                        </p>
+                    </div>
+
+                    {/* Unified Responsive Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+                        {projects?.map((project, index) => (
+                            <ProjectCard
+                                key={index}
+                                project={project}
+                                index={index}
+                            />
                         ))}
                     </div>
-                ) : (
-                    <div className="w-full mt-3 pb-60 grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-5">
-                        {projects?.map((obj, index) => (
-                            <div className="mb-5 " key={index + 125}>
-                                <div className="w-full h-full rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500 bg-[#1e1e1e] border border-gray-700 flex flex-col">
-                                    <Link to={`/projects/${index + 1}`} className="flex flex-col h-full">
-                                        <div>
-                                            <div className="p-3">
-                                                <img
-                                                    className="rounded-xl w-full aspect-[2/1] object-cover object-center"
-                                                    src={obj.banner}
-                                                    alt={`${obj.name} - ${obj.title}`}
-                                                />
-                                            </div>
-                                            <div className="flex justify-between pr-3 pt-1 pl-3 pb-2 flex-grow">
-                                                <div className="flex items-center space-x-4">
-                                                    <img
-                                                        className="h-10 w-10 rounded-full flex-shrink-0"
-                                                        src={obj.logo}
-                                                        alt="Ayedot - Short Blogging Platform logo"
-                                                        width="45"
-                                                        height="45"
-                                                    />
-                                                    <div className="flex flex-col">
-                                                        <p className="text-lg text-gray-100 font-bold line-clamp-1">
-                                                            {obj.name}
-                                                        </p>
-                                                        <p className="font-medium text-gray-400 text-sm line-clamp-1">
-                                                            {obj.title}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
-        </Scrollbars>
+                </div>
+            </Scrollbars>
+        </div>
     );
 };
 

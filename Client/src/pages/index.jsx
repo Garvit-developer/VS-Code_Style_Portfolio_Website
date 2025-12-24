@@ -369,7 +369,7 @@ const Home = () => {
 
                 {/* Grid Background */}
                 <div
-                    className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
+                    className="absolute inset-0 opacity-[0.09] pointer-events-none fixed"
                     style={{
                         backgroundImage:
                             "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
@@ -460,6 +460,7 @@ const Home = () => {
                             ${item.accent.text}
                             group-hover:scale-110
                             transition-transform
+                            h-10
                         `}
                     >
                         {item.icon}

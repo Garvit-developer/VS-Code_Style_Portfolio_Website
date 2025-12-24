@@ -5,6 +5,8 @@ import { programming, fullStack, database, Deployment, tools } from "../Componen
 
 const SkillSection = ({ title, skills }) => (
     <div className="mt-8">
+        {/* Grid Background */}
+
         <p className="tracking-tight text-gray-300 text-xl mb-3 font-semibold">{title}</p>
 
         <dl className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -40,12 +42,26 @@ const Skills = () => {
 
     return (
         <Scrollbars autoHide autoHideTimeout={1000} autoHideDuration={200} universal={true}>
-            <div className="w-full p-5 pb-40">
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-indigo-500">Skills</h2>
+             <div
+                    className="absolute inset-0 opacity-[0.09] pointer-events-none fixed"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                        backgroundSize: "40px 40px"
+                    }}
+                />
 
-                <p className="mt-3 text-base font-medium max-w-2xl  text-gray-400">
-                    Frontend & Backend Development, Database Handling, AI Integration, Cloud Deployment and prompt engineering.
-                </p>
+            <div className="w-full px-5 py-5">
+                {/* Header */}
+
+                <div className="flex flex-col gap-3">
+                    <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                        Technical <span className="font-semibold text-blue-500">Skills</span>
+                    </h1>
+                    <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                        A comprehensive list of technologies, frameworks, and tools I work with to build scalable applications.
+                    </p>
+                </div>
 
                 <SkillSection title="Programming" skills={programming} />
                 <SkillSection title="Full-Stack Development" skills={fullStack} />

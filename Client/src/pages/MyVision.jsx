@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import { Rocket, Heart, Brain, Layers, FileCode, Check, X, Minus, Square } from "lucide-react";
+import { FileCode, Check } from "lucide-react";
 
 const MyVision = () => {
     useEffect(() => {
@@ -26,7 +26,7 @@ const MyVision = () => {
                 "}"
             ],
             language: "c",
-            accent: "border-gray-500/20"
+            border: "border-blue-500/20"
         },
         {
             filename: "logic.js",
@@ -46,7 +46,7 @@ const MyVision = () => {
                 " "
             ],
             language: "javascript",
-            accent: "border-yellow-500/20"
+            border: "border-yellow-500/20"
         },
         {
             filename: "Growth.java",
@@ -61,11 +61,11 @@ const MyVision = () => {
                 "            learn();",
                 "        }",
                 "    }",
-                "}",
-                "// Experience is the best teacher"
+                "    // Experience is the best teacher",
+                "}"
             ],
             language: "java",
-            accent: "border-orange-500/20"
+            border: "border-orange-500/20"
         },
         {
             filename: "index.html",
@@ -84,29 +84,29 @@ const MyVision = () => {
                 ""
             ],
             language: "html",
-            accent: "border-red-500/20"
+            border: "border-red-500/20"
         }
     ];
 
     const CodeLine = ({ text, index }) => (
-        <div className="flex font-mono text-sm leading-6">
-            <span className="w-8 flex-none text-right select-none text-gray-600 mr-4">
+        <div className="flex font-mono text-sm leading-6 hover:bg-[#2a2d2e] transition-colors">
+            <span className="w-8 flex-none text-right select-none text-[#858585] mr-4 opacity-50">
                 {index + 1}
             </span>
-            <span className="text-gray-300 whitespace-pre">
-                {text.replace(/(".*?")/g, '<span class="text-green-400">$1</span>')
-                    .replace(/('.*?')/g, '<span class="text-green-400">$1</span>')
-                    .replace(/(&lt;.*?&gt;)/g, '<span class="text-blue-400">$1</span>') // HTML tags
+            <span className="text-[#d4d4d4] whitespace-pre">
+                {text.replace(/(".*?")/g, '<span class="text-[#ce9178]">$1</span>')
+                    .replace(/('.*?')/g, '<span class="text-[#ce9178]">$1</span>')
+                    .replace(/(&lt;.*?&gt;)/g, '<span class="text-[#569cd6]">$1</span>') // HTML tags
                     .split(/(<span.*?>.*?<\/span>)/g)
                     .map((part, i) =>
                         part.startsWith('<span') ?
-                            <span key={i} dangerouslySetInnerHTML={{ __html: part.replace(/<span.*?>(.*?)<\/span>/, '$1') }} className={part.includes('text-green') ? "text-green-400" : "text-blue-400"} /> :
+                            <span key={i} dangerouslySetInnerHTML={{ __html: part.replace(/<span.*?>(.*?)<\/span>/, '$1') }} className={part.includes('text-[#ce9178]') ? "text-[#ce9178]" : "text-[#569cd6]"} /> :
                             <span key={i} className={
-                                part.includes('//') || part.trim().startsWith('/*') ? "text-gray-500 italic" :
-                                    part.trim().startsWith('<!--') ? "text-gray-500 italic" :
-                                        part.includes('const') || part.includes('let') || part.includes('var') || part.includes('struct') || part.includes('void') || part.includes('class') || part.includes('public') ? "text-pink-400" :
-                                            part.includes('return') || part.includes('if') || part.includes('while') || part.includes('for') ? "text-purple-400" :
-                                                "text-gray-200"
+                                part.includes('//') || part.trim().startsWith('/*') ? "text-[#6a9955]" :
+                                    part.trim().startsWith('<!--') ? "text-[#6a9955]" :
+                                        part.includes('const') || part.includes('let') || part.includes('var') || part.includes('struct') || part.includes('void') || part.includes('class') || part.includes('public') ? "text-[#569cd6]" :
+                                            part.includes('return') || part.includes('if') || part.includes('while') || part.includes('for') ? "text-[#c586c0]" :
+                                                "text-[#d4d4d4]"
                             }>{part}</span>
                     )
                 }
@@ -115,90 +115,92 @@ const MyVision = () => {
     );
 
     return (
-        <Scrollbars
-            autoHide
-            autoHideTimeout={1000}
-            autoHideDuration={200}
-            universal={true}
-        >
-            <div className="w-full p-6 pb-40 font-sans text-left min-h-screen">
-                {/* Header */}
-                <div className="flex flex-col gap-2 mb-8">
-                    <div className="flex items-baseline gap-2">
-                        <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
-                            My
-                        </h2>
-                        <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-indigo-500">
-                            Vision
-                        </h2>
-                    </div>
+        <div className="relative h-full w-full bg-[#1e1e1e]">
+            {/* Grid Background */}
+            <div
+                className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                    backgroundSize: "40px 40px"
+                }}
+            />
 
-                    <div className="mt-2 max-w-3xl space-y-4 text-gray-400 leading-relaxed font-medium">
-                        <p>
-                            For me, design isn't just about making things look beautiful—it's about solving real problems that matter.
-                            I create with intent, ensuring every pixel serves a purpose.
-                        </p>
-                        <p>
-                            I build things from existing components, refining and adding value to create something unique.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    {philosophies.map((item, idx) => (
-                        <div
-                            key={idx}
-                            className={`
-                                group relative bg-[#0d1117] rounded-lg overflow-hidden
-                                border border-gray-800 hover:border-gray-600 transition-all duration-300
-                                hover:shadow-2xl hover:-translate-y-2
-                            `}
-                        >
-                            {/* VS Code Title Bar */}
-                            <div className="flex items-center justify-between px-4 py-2 bg-[#161b22] border-b border-gray-800">
-                                <div className="flex items-center gap-2">
-                                    {item.icon}
-                                    <span className="text-xs font-mono text-gray-400 group-hover:text-gray-200 transition-colors">
-                                        {item.filename}
-                                    </span>
-                                </div>
-                                <div className="flex gap-1.5">
-                                    {/* Mock window controls */}
-                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-700 group-hover:bg-yellow-500/50 transition-colors" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-700 group-hover:bg-green-500/50 transition-colors" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-700 group-hover:bg-red-500/50 transition-colors" />
-                                </div>
-                            </div>
-
-                            {/* Code Area */}
-                            <div className="p-4 bg-[#0d1117] overflow-x-auto">
-                                <div className="min-w-max">
-                                    {item.code.map((line, i) => (
-                                        <CodeLine key={i} text={line} index={i} />
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Bottom Status Bar Mock - decorative */}
-                            <div className="h-6 bg-[#161b22] border-t border-gray-800 flex items-center px-3 gap-4 text-[10px] text-gray-500 font-mono">
-                                <div className="flex items-center gap-1">
-                                    <FileCode className="w-3 h-3" />
-                                    {item.language}
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <Check className="w-3 h-3" />
-                                    Prettier
-                                </div>
-                                <div className="ml-auto">
-                                    Ln {item.code.length}, Col 1
-                                </div>
-                            </div>
+            <Scrollbars
+                autoHide
+                autoHideTimeout={1000}
+                autoHideDuration={200}
+                universal={true}
+            >
+                <div className="w-full px-6 pt-3 pb-10 font-sans text-left min-h-screen">
+                    {/* Header */}
+                    <div className="flex flex-col gap-1 mb-8">
+                        <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            My <span className="font-bold text-blue-500">Vision</span>
+                        </h1>
+                        <div className="max-w-3xl space-y-4 text-gray-400 leading-relaxed font-light text-lg">
+                            <p>
+                                design isn't just about making things look beautiful—it's about solving real problems that matter. <br/>
+                                I build things from existing components, refining and adding value to create something unique.
+                            </p>
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Grid Layout */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl">
+                        {philosophies.map((item, idx) => (
+                            <div
+                                key={idx}
+                                className={`
+                                    group relative bg-[#1e1e1e] rounded-lg overflow-hidden
+                                    border border-[#3c3c3c] 
+                                    hover:border-[#007acc]/50 hover:shadow-[0_0_15px_rgba(0,122,204,0.1)] 
+                                    transition-all duration-300
+                                `}
+                            >
+                                {/* VS Code Title Bar */}
+                                <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-[#1e1e1e]">
+                                    <div className="flex items-center gap-2">
+                                        {item.icon}
+                                        <span className="text-xs font-normal text-[#cccccc] group-hover:text-white transition-colors">
+                                            {item.filename}
+                                        </span>
+                                    </div>
+                                    <div className="flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+                                    </div>
+                                </div>
+
+                                {/* Code Area */}
+                                <div className="p-4 bg-[#1e1e1e] overflow-x-auto">
+                                    <div className="min-w-max">
+                                        {item.code.map((line, i) => (
+                                            <CodeLine key={i} text={line} index={i} />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Bottom Status Bar */}
+                                <div className="h-6 bg-[#007acc] text-white flex items-center px-3 gap-4 text-[10px] font-medium">
+                                    <div className="flex items-center gap-1">
+                                        <FileCode className="w-3 h-3" />
+                                        {item.language.toUpperCase()}
+                                    </div>
+                                    <div className="flex items-center gap-1 ml-auto">
+                                        Ln {item.code.length}, Col 1
+                                        <div className="ml-2 flex items-center gap-1">
+                                            UTF-8
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </Scrollbars>
+            </Scrollbars>
+        </div>
     );
 };
 
