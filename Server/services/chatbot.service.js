@@ -1,7 +1,7 @@
-import fs from "fs";
 import path from "path";
 import findRelevantContext from "../utils/tfidf.js";
 import { callGroq, callGroqSuggestions } from "../utils/groq.js";
+import companyData from "../company_info.json" with { type: "json" };
 
 /**
  * Chatbot service
@@ -19,15 +19,7 @@ class ChatbotService {
      */
     async initialize() {
         try {
-            const filePath = path.join(process.cwd(), "company_info.json");
-            console.log(`📖 Attempting to load company data from: ${filePath}`);
-
-            if (!fs.existsSync(filePath)) {
-                throw new Error(`File not found: ${filePath}`);
-            }
-
-            const fileContent = fs.readFileSync(filePath, "utf-8");
-            const companyData = JSON.parse(fileContent);
+            console.log("📖 Loading company data from imported JSON");
 
             this.companyText = Object.values(companyData).flat().join(" ");
             this.initialized = true;
