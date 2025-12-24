@@ -7,6 +7,6 @@ const router = express.Router();
  * GET /github-contributions
  * GitHub contributions endpoint
  */
-router.get("/github-contributions", getContributions);
+router.get("/github-streak", getContributions);
 
 export default router;

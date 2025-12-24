@@ -17,6 +17,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/api", chatbotRoutes);
-router.use("/", githubRoutes);
+router.use("/api", githubRoutes);
 
 export default router;

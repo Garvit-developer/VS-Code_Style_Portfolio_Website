@@ -33,7 +33,7 @@ const Chatbot = ({ isOpen, onClose }) => {
   };
 
   const generateResponse = async (userMsg) => {
-    const API_URL = `${import.meta.env.VITE_API_URL}/api/chat`;
+    const API_URL = `${import.meta.env.VITE_API_URL}/api/chatbot`;
     try {
       const response = await fetch(API_URL, {
         method: "POST",

@@ -8,6 +8,6 @@ const router = express.Router();
  * POST /api/chat
  * Chatbot endpoint
  */
-router.post("/chat", validateChatRequest, handleChat);
+router.post("/chatbot", validateChatRequest, handleChat);
 
 export default router;
