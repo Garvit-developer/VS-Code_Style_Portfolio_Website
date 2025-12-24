@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Scrollbars } from "react-custom-scrollbars";
 
 const GithubStats = () => {
     const [weeks, setWeeks] = useState([]);
@@ -97,7 +98,7 @@ const GithubStats = () => {
     }, []);
 
     const getColor = (count) => {
-        if (count === 0) return "#161b22";
+        if (count === 0) return "#1e1e1e";
         if (count < 5) return "#0e4429";
         if (count < 10) return "#006d32";
         if (count < 20) return "#26a641";
@@ -121,122 +122,138 @@ const GithubStats = () => {
     };
 
     return (
-        <div className="text-white w-full flex flex-col items-center  p-2  gap-4 animate-fade-in-up transition-all duration-500">
-            {/* Heading */}
-            <div className="flex items-center gap-2 text-left">
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-                    GitHub
-                </h2>
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-indigo-500">
-                    Activity
-                </h2>
-            </div>
+        <div className="relative h-full w-full bg-[#1e1e1e]">
+            {/* Grid Background */}
+            <div
+                className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                    backgroundSize: "40px 40px"
+                }}
+            />
 
-            {/* Dashboard Stats Card */}
-            <div className="w-full max-w-5xl bg-[#0d1117] border border-[#30363d] rounded-2xl py-8 px-5 flex flex-wrap items-center justify-between shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-visible group transition-all duration-300 hover:border-blue-500/30">
-
-                {/* Background Glow */}
-                <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
-
-                {/* Total Contributions */}
-                <div className="flex-1 min-w-[180px] flex flex-col items-center justify-center p-3 relative z-10 transition-transform duration-300 hover:scale-105">
-                    <div className="text-gray-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-1">
-                        Total
+            <Scrollbars
+                autoHide
+                autoHideTimeout={1000}
+                autoHideDuration={200}
+                universal={true}
+            >
+                <div className="text-white w-full flex flex-col items-center p-6 py-10 gap-4 animate-fade-in-up transition-all duration-500">
+                    {/* Heading */}
+                    <div className="flex flex-col gap-3 mb-6">
+                        <div className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            GitHub <span className="font-semibold text-blue-500">Activity</span>
+                        </div>
+                        <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                            Real-time contribution tracking and coding consistency.
+                        </p>
                     </div>
-                    <span className="text-4xl font-black text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] leading-none py-1">
-                        {stats.total}
-                    </span>
-                    <span className="text-[9px] text-blue-400 mt-1 font-mono">
-                        CONTRIBUTIONS
-                    </span>
-                </div>
 
-                {/* Divider */}
-                <div className="hidden md:block w-[1px] h-20 bg-gradient-to-b from-transparent via-[#30363d] to-transparent"></div>
+                    {/* Dashboard Stats Card */}
+                    <div className="w-full max-w-4xl bg-[#181818] border border-[#3c3c3c] rounded-2xl py-8 px-5 flex flex-wrap items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-visible group transition-all duration-300 hover:border-[#007acc]/80 hover:shadow-[0_8px_32px_rgba(0,122,204,0.2)]">
 
-                {/* Current Streak */}
-                <div className="flex-1 min-w-[220px] flex flex-col items-center justify-center p-3 relative z-10 scale-105 lg:scale-110">
-                    <div className="relative group/ring">
+                        {/* Background Glow */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#007acc]/10 via-transparent to-[#007acc]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
 
-                        {/* Outer Glow */}
-                        <div className="absolute -inset-2 bg-blue-500/20 rounded-full blur-lg opacity-40 group-hover/ring:opacity-70 transition-opacity duration-500"></div>
-
-                        {/* Ring */}
-                        <svg className="w-24 h-24 transform -rotate-90 drop-shadow-[0_0_12px_rgba(59,130,246,0.4)]">
-                            <circle
-                                cx="48"
-                                cy="48"
-                                r="40"
-                                stroke="#161b22"
-                                strokeWidth="5"
-                                fill="transparent"
-                            />
-                            <circle
-                                cx="48"
-                                cy="48"
-                                r="40"
-                                stroke="url(#activeGradient)"
-                                strokeWidth="7"
-                                fill="transparent"
-                                strokeDasharray="251.2"
-                                strokeDashoffset={251.2 - (251.2 * Math.min(stats.currentStreak, 100)) / 100}
-                                strokeLinecap="round"
-                                className="transition-all duration-1000 ease-out"
-                            />
-                            <defs>
-                                <linearGradient id="activeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#3b82f6" />
-                                    <stop offset="100%" stopColor="#60a5fa" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-
-                        {/* Inner Content */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                            <span className="text-xl drop-shadow-[0_0_6px_rgba(255,165,0,0.6)] animate-bounce-slow">
-                                🔥
+                        {/* Total Contributions */}
+                        <div className="flex-1 min-w-[180px] flex flex-col items-center justify-center p-4 relative z-10 transition-all duration-300 hover:scale-105 hover:bg-[#252526]/50 rounded-xl">
+                            <div className="text-gray-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-1">
+                                Total
+                            </div>
+                            <span className="text-4xl font-black text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] leading-none py-1">
+                                {stats.total}
                             </span>
-                            <span className="text-3xl font-black text-white leading-none mt-0.5 tracking-tight">
-                                {stats.currentStreak}
+                            <span className="text-[9px] text-blue-400 mt-1 font-mono">
+                                CONTRIBUTIONS
+                            </span>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-[1px] h-20 bg-gradient-to-b from-transparent via-[#3c3c3c] to-transparent"></div>
+
+                        {/* Current Streak */}
+                        <div className="flex-1 min-w-[220px] flex flex-col items-center justify-center p-3 relative z-10 scale-105 lg:scale-110">
+                            <div className="relative group/ring">
+
+                                {/* Outer Glow */}
+                                <div className="absolute -inset-2 bg-[#007acc]/20 rounded-full blur-lg opacity-40 group-hover/ring:opacity-70 transition-opacity duration-500"></div>
+
+                                {/* Ring */}
+                                <svg className="w-24 h-24 transform -rotate-90 drop-shadow-[0_0_12px_rgba(0,122,204,0.4)]">
+                                    <circle
+                                        cx="48"
+                                        cy="48"
+                                        r="40"
+                                        stroke="#1e1e1e"
+                                        strokeWidth="5"
+                                        fill="transparent"
+                                    />
+                                    <circle
+                                        cx="48"
+                                        cy="48"
+                                        r="40"
+                                        stroke="url(#activeGradient)"
+                                        strokeWidth="7"
+                                        fill="transparent"
+                                        strokeDasharray="251.2"
+                                        strokeDashoffset={251.2 - (251.2 * Math.min(stats.currentStreak, 100)) / 100}
+                                        strokeLinecap="round"
+                                        className="transition-all duration-1000 ease-out"
+                                    />
+                                    <defs>
+                                        <linearGradient id="activeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="#007acc" />
+                                            <stop offset="100%" stopColor="#0098ff" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                                {/* Inner Content */}
+                                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                    <span className="text-xl drop-shadow-[0_0_6px_rgba(255,165,0,0.6)] animate-bounce-slow">
+                                        🔥
+                                    </span>
+                                    <span className="text-3xl font-black text-white leading-none mt-0.5 tracking-tight">
+                                        {stats.currentStreak}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="mt-3 text-center">
+                                <span className="text-[10px] text-gray-300 uppercase tracking-widest font-bold">
+                                    Current Streak
+                                </span>
+                                <div className="h-1 w-10 bg-[#007acc] mx-auto mt-1 rounded-full"></div>
+                            </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-[1px] h-20 bg-gradient-to-b from-transparent via-[#3c3c3c] to-transparent"></div>
+
+                        {/* Longest Streak */}
+                        <div className="flex-1 min-w-[180px] flex flex-col items-center justify-center p-4 relative z-10 transition-all duration-300 hover:scale-105 hover:bg-[#252526]/50 rounded-xl">
+                            <div className="text-gray-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-1">
+                                Longest
+                            </div>
+                            <span className="text-4xl font-black text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] leading-none py-1">
+                                {stats.longestStreak}
+                            </span>
+                            <span className="text-[9px] text-green-400 mt-1 font-mono">
+                                DAY STREAK
                             </span>
                         </div>
                     </div>
 
-                    <div className="mt-3 text-center">
-                        <span className="text-[10px] text-gray-300 uppercase tracking-widest font-bold">
-                            Current Streak
-                        </span>
-                        <div className="h-1 w-10 bg-blue-500 mx-auto mt-1 rounded-full"></div>
-                    </div>
-                </div>
 
-                {/* Divider */}
-                <div className="hidden md:block w-[1px] h-20 bg-gradient-to-b from-transparent via-[#30363d] to-transparent"></div>
-
-                {/* Longest Streak */}
-                <div className="flex-1 min-w-[180px] flex flex-col items-center justify-center p-3 relative z-10 transition-transform duration-300 hover:scale-105">
-                    <div className="text-gray-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-1">
-                        Longest
-                    </div>
-                    <span className="text-4xl font-black text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] leading-none py-1">
-                        {stats.longestStreak}
-                    </span>
-                    <span className="text-[9px] text-green-400 mt-1 font-mono">
-                        DAY STREAK
-                    </span>
-                </div>
-            </div>
-
-
-            {/* Live Contribution Graph */}
-            <div className="w-full max-w-3xl flex flex-col gap-4">
+                    <div className="w-full max-w-3xl flex flex-col gap-4">
                 <div className="flex justify-between items-baseline">
                     <h2 className="text-xl font-semibold text-gray-200">
                         Contribution Graph
                     </h2>
                 </div>
 
-                <div className="w-full overflow-x-auto shadow-2xl rounded-xl p-4 md:p-6 bg-[#0d1117] border border-[#30363d] transition-all duration-300">
+                <div className="w-full overflow-x-auto shadow-2xl rounded-xl p-4 md:p-6 bg-[#181818] border border-[#30363d] transition-all duration-300">
                     {loading ? (
                         <div className="flex justify-center items-center h-40 text-blue-400">
                             <svg className="animate-spin h-8 w-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -247,7 +264,7 @@ const GithubStats = () => {
                         </div>
                     ) : error ? (
                         <div className="flex flex-col justify-center items-center h-40 text-gray-400">
-                            <p>⚠️ Failed to load data.</p>
+                            <p>Failed to load data.</p>
                             <p className="text-sm mt-2">Make sure the backend server is running and configured.</p>
                         </div>
                     ) : (
@@ -313,11 +330,13 @@ const GithubStats = () => {
                 </div>
             </div>
 
-            {/* Footer Text */}
-            <p className="text-gray-400 text-sm max-w-2xl md:max-w-3xl text-center leading-relaxed pb-8">
-                This section dynamically syncs with my <a href="https://github.com/Garvit-developer" target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">GitHub profile</a>, showing near real-time
-                contributions and coding consistency.
-            </p>
+                    {/* Footer Text */}
+                    <p className="text-gray-400 text-sm max-w-2xl md:max-w-3xl text-center leading-relaxed pb-20">
+                        This section dynamically syncs with my <a href="https://github.com/Garvit-developer" target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">GitHub profile</a>, showing near real-time
+                        contributions and coding consistency.
+                    </p>
+                </div>
+            </Scrollbars>
         </div>
     );
 };

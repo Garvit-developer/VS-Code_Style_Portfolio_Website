@@ -18,7 +18,7 @@ export const projectsdata = () => [
         description: `GeekTheo is an IT solutions company that delivers modern, scalable, and performance-driven digital services. The company specializes in web development, application design, and custom business solutions for clients. GeekTheo focuses on building secure, reliable, and user-focused systems using latest technologies. The website represents the company’s services, portfolio, and digital identity.`,
         //(Optional) Live link of your project, if hosted
         link: "geektheo.com",
-        github: "https://github.com",
+        github: null,
         // Logo Image of your project
         logo: "/GeekTheoryIcon.PNG",
         features: [
@@ -72,7 +72,7 @@ export const projectsdata = () => [
         description: `Skilledu (StudyAI) is an AI-powered doubt-solving and learning assistance platform designed to help students get instant, accurate answers to academic questions. It provides a clean and student-friendly interface to ask doubts, explore explanations, and enhance conceptual understanding in real time.`,
         //(Optional) Live link of your project, if hosted
         link: "sai.skilledu.in",
-        github: "https://github.com",
+        github: null,
         // Logo Image of your project
         logo: "/Skilledu.png",
         features: [

@@ -2,6 +2,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 import { useMediaQuery } from "react-responsive";
 import Zoom from "react-medium-image-zoom";
 import { useEffect, useState } from "react";
+import { VscLinkExternal, VscGithub } from "react-icons/vsc";
 
 const ProjectDetails = ({ projectDetails, altt }) => {
     const isTabletOrMobileQuery = useMediaQuery({ query: "(max-width: 943px)" });
@@ -56,47 +57,79 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                         <div className="mx-auto boxprojectdetails shadow-lg sm:px-6 lg:px-8">
                             <div className="overflow-hidden shadow-xl bg-[#252526] border border-[#3c3c3c] rounded-xl sm:rounded-lg">
                                 <div>
-                                    <div className="p-8 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
-                                        <img
-                                            className="h-14 w-14 inline-block rounded-3xl bg-[#1e1e1e] border border-[#3c3c3c] p-0.5"
-                                            src={projectDetails?.logo || ""}
-                                            alt={altt || "Project logo"}
-                                        />
-                                        {projectDetails.github && (
-                                            <div
-                                                className="float-right inline-block"
-                                                style={{ marginRight: "-55px" }}
-                                            >
-                                                <a
-                                                    href={projectDetails.github}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                >
-                                                    <img
-                                                        className="h-14 w-14 border-2 border-blue-400 rounded-full"
-                                                        src="https://img.icons8.com/fluency/144/000000/github.png"
-                                                        alt="Github"
-                                                        width={45}
-                                                        height={45}
-                                                    />
-                                                </a>
-                                            </div>
-                                        )}
-                                        {projectDetails?.link && (
-                                            <div className="float-right pr-4 inline-block pt-3 text-xl font-bold text-blue-400">
-                                                <a
-                                                    href={
-                                                        projectDetails.link.startsWith("http")
-                                                            ? projectDetails.link
-                                                            : `https://${projectDetails.link.replace(/^\/+/, "")}`
-                                                    }
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                >
-                                                    {projectDetails.link}
-                                                </a>
-                                            </div>
-                                        )}
+                                    <div className=" p-8 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
+                                        <div className="flex items-center justify-between">
+                                            <img
+                                                className="h-14 w-14 rounded-3xl bg-[#1e1e1e] border border-[#3c3c3c] p-1 shadow-inner"
+                                                src={projectDetails?.logo || ""}
+                                                alt={altt || "Project logo"}
+                                            />
+
+                                            {(projectDetails?.link || projectDetails?.github) && (
+                                                <div className="flex items-center gap-3">
+                                                    {projectDetails?.link && (
+                                                        <a
+                                                            href={
+                                                                projectDetails.link.startsWith("http")
+                                                                    ? projectDetails.link
+                                                                    : `https://${projectDetails.link.replace(/^\/+/, "")}`
+                                                            }
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                            className="
+                        group relative flex items-center gap-2
+                        px-3 py-2
+                        text-sm font-medium text-white
+                        bg-[#1e1e1e]
+                        border border-[#3c3c3c]
+                        rounded-md
+                        border border-[#007acc]
+                        rounded-md
+                        transition-all duration-200
+                        hover:bg-[#1177bb]
+                        hover:shadow-[0_0_16px_rgba(0,122,204,0.55)]
+                        focus:outline-none focus:ring-2 focus:ring-[#007acc]/60
+                    "
+                                                        >
+                                                            <VscLinkExternal className="text-lg h-4 w-4 text-white/90 group-hover:text-white transition" />
+                                                            <span className="tracking-wide">Live Demo</span>
+
+                                                            {/* subtle command glow */}
+                                                            <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition pointer-events-none bg-gradient-to-r from-transparent via-[#007acc]/10 to-transparent" />
+                                                        </a>
+                                                    )}
+
+                                                    {projectDetails?.github && (
+                                                        <a
+                                                            href={projectDetails.github}
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                            className="
+                        group relative flex items-center gap-2
+                        px-3 py-2
+                        text-sm font-medium text-gray-300
+                        bg-[#1e1e1e]
+                        border border-[#3c3c3c]
+                        rounded-md
+                        transition-all duration-200
+                        hover:bg-[#252526]
+                        hover:border-[#007acc]
+                        hover:text-white
+                        hover:shadow-[0_0_14px_rgba(0,122,204,0.35)]
+                        focus:outline-none focus:ring-2 focus:ring-[#007acc]/50
+                    "
+                                                        >
+                                                            <VscGithub className="text-lg text-gray-400 group-hover:text-white transition" />
+                                                            <span className="tracking-wide">View Code</span>
+
+                                                            {/* editor hover line */}
+                                                            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#007acc] group-hover:w-full transition-all duration-300 rounded-full" />
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+
 
                                         <div className="mt-5 text-2xl text-[#cccccc]">
                                             <span className="font-bold text-white">{projectDetails?.name || ""}</span> -{" "}
@@ -105,6 +138,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                         <div className="mt-6 text-gray-400 text-md dark:text-gray-400">
                                             {projectDetails?.description || ""}
                                         </div>
+
                                         <div className="mt-6 text-gray-400 font-semibold text-md dark:text-gray-400">
                                             Key Features
                                         </div>
@@ -225,30 +259,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                 width="65"
                                 height="65"
                             />
-                            {projectDetails?.github && (
-                                <div className="float-right mt-1 inline-block">
-                                    <a
-                                        href={projectDetails.github}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        <img
-                                            className="h-7 w-7 border-2 border-blue-400 rounded-full"
-                                            src="https://img.icons8.com/fluency/144/000000/github.png"
-                                            alt="Github"
-                                            height={45}
-                                            width={45}
-                                        />
-                                    </a>
-                                </div>
-                            )}
-                            {projectDetails?.link && (
-                                <div className="float-right butto pr-4 inline-block pt-3 text-md font-bold text-blue-400">
-                                    <a href={projectDetails.link} target="_blank" rel="noreferrer">
-                                        {projectDetails.link}
-                                    </a>
-                                </div>
-                            )}
+
                             <div className="mt-5 text-xl text-[#cccccc]">
                                 <span className="font-bold">{projectDetails?.name || ""}</span> -{" "}
                                 {projectDetails?.title || ""}
@@ -256,6 +267,39 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                             <div className="mt-6 text-gray-400 text-sm font-medium dark:text-gray-400">
                                 {projectDetails?.description || ""}
                             </div>
+
+                            {/* Action Buttons - Mobile */}
+                            {(projectDetails?.link || projectDetails?.github) && (
+                                <div className="mt-6 flex flex-col gap-3">
+                                    {projectDetails?.link && (
+                                        <a
+                                            href={
+                                                projectDetails.link.startsWith("http")
+                                                    ? projectDetails.link
+                                                    : `https://${projectDetails.link.replace(/^\/+/, "")}`
+                                            }
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="group flex items-center justify-center gap-2 px-4 py-3 bg-[#007acc] hover:bg-[#0098ff] text-white font-medium text-sm rounded border border-[#007acc] hover:border-[#0098ff] transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,122,204,0.5)]"
+                                        >
+                                            <VscLinkExternal className="text-lg" />
+                                            <span>Live Demo</span>
+                                        </a>
+                                    )}
+                                    {projectDetails?.github && (
+                                        <a
+                                            href={projectDetails.github}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="group flex items-center justify-center gap-2 px-4 py-3 bg-[#1e1e1e] hover:bg-[#2d2d30] text-gray-300 hover:text-white font-medium text-sm rounded border border-[#3c3c3c] hover:border-[#007acc] transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,122,204,0.3)]"
+                                        >
+                                            <VscGithub className="text-lg" />
+                                            <span>View Code</span>
+                                        </a>
+                                    )}
+                                </div>
+                            )}
+
                             <div className="mt-6 text-gray-400 font-semibold text-md dark:text-gray-400">
                                 Key Features
                             </div>

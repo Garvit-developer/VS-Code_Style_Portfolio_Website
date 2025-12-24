@@ -148,55 +148,90 @@ const MyVision = () => {
 
                     {/* Grid Layout */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl">
-                        {philosophies.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className={`
-                                    group relative bg-[#1e1e1e] rounded-lg overflow-hidden
-                                    border border-[#3c3c3c] 
-                                    hover:border-[#007acc]/50 hover:shadow-[0_0_15px_rgba(0,122,204,0.1)] 
-                                    transition-all duration-300
-                                `}
-                            >
-                                {/* VS Code Title Bar */}
-                                <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-[#1e1e1e]">
-                                    <div className="flex items-center gap-2">
-                                        {item.icon}
-                                        <span className="text-xs font-normal text-[#cccccc] group-hover:text-white transition-colors">
-                                            {item.filename}
-                                        </span>
-                                    </div>
-                                    <div className="flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-                                    </div>
-                                </div>
+                       {philosophies.map((item, idx) => (
+    <div
+        key={idx}
+        className="
+            group relative bg-[#1e1e1e] rounded-lg overflow-hidden
+            border border-[#3c3c3c]
+            hover:border-[#007acc]/50 hover:shadow-[0_0_15px_rgba(0,122,204,0.1)]
+            transition-all duration-300
+        "
+    >
+        {/* VS Code Title Bar */}
+        <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-[#1e1e1e]">
+            <div className="flex items-center gap-2">
+                {item.icon}
+                <span className="text-xs font-normal text-[#cccccc] group-hover:text-white transition-colors">
+                    {item.filename}
+                </span>
+            </div>
 
-                                {/* Code Area */}
-                                <div className="p-4 bg-[#1e1e1e] overflow-x-auto">
-                                    <div className="min-w-max">
-                                        {item.code.map((line, i) => (
-                                            <CodeLine key={i} text={line} index={i} />
-                                        ))}
-                                    </div>
-                                </div>
+            {/* macOS Dots (same as learning cards) */}
+            <div className="flex items-center space-x-2">
+                {/* Close */}
+                <div
+                    className="
+                        w-3 h-3 rounded-full
+                        bg-red-500/20
+                        border border-red-500/50
+                        transition-all duration-200
+                        group-hover:bg-red-500
+                        group-hover:border-red-500
+                    "
+                />
 
-                                {/* Bottom Status Bar */}
-                                <div className="h-6 bg-[#007acc] text-white flex items-center px-3 gap-4 text-[10px] font-medium">
-                                    <div className="flex items-center gap-1">
-                                        <FileCode className="w-3 h-3" />
-                                        {item.language.toUpperCase()}
-                                    </div>
-                                    <div className="flex items-center gap-1 ml-auto">
-                                        Ln {item.code.length}, Col 1
-                                        <div className="ml-2 flex items-center gap-1">
-                                            UTF-8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                {/* Minimize */}
+                <div
+                    className="
+                        w-3 h-3 rounded-full
+                        bg-yellow-500/20
+                        border border-yellow-500/50
+                        transition-all duration-200
+                        group-hover:bg-yellow-400
+                        group-hover:border-yellow-400
+                    "
+                />
+
+                {/* Maximize */}
+                <div
+                    className="
+                        w-3 h-3 rounded-full
+                        bg-green-500/20
+                        border border-green-500/50
+                        transition-all duration-200
+                        group-hover:bg-green-500
+                        group-hover:border-green-500
+                    "
+                />
+            </div>
+        </div>
+
+        {/* Code Area */}
+        <div className="p-4 bg-[#1e1e1e] overflow-x-auto">
+            <div className="min-w-max">
+                {item.code.map((line, i) => (
+                    <CodeLine key={i} text={line} index={i} />
+                ))}
+            </div>
+        </div>
+
+        {/* Bottom Status Bar */}
+        <div className="h-6 bg-[#007acc] text-white flex items-center px-3 gap-4 text-[10px] font-medium">
+            <div className="flex items-center gap-1">
+                <FileCode className="w-3 h-3" />
+                {item.language.toUpperCase()}
+            </div>
+            <div className="flex items-center gap-1 ml-auto">
+                Ln {item.code.length}, Col 1
+                <div className="ml-2 flex items-center gap-1">
+                    UTF-8
+                </div>
+            </div>
+        </div>
+    </div>
+))}
+
                     </div>
                 </div>
             </Scrollbars>
