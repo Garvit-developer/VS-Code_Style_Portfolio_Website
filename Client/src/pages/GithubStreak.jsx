@@ -99,9 +99,9 @@ const GithubStats = () => {
 
     const getColor = (count) => {
         if (count === 0) return "#1e1e1e";
-        if (count < 5) return "#0e4429";
-        if (count < 10) return "#006d32";
-        if (count < 20) return "#26a641";
+        if (count < 3) return "#0e4429";
+        if (count < 5) return "#006d32";
+        if (count < 7) return "#26a641";
         return "#39d353";
     };
 

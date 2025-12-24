@@ -25,9 +25,9 @@ function App() {
                         <Route path="/MyVision" element={<MyVision />} />
                         <Route path="/experience" element={<Experience />} />
                         <Route path="/gaming" element={<Gaming />} />
-                        <Route path="/GithubStreak" element={<GithubStreak />} />
+                        <Route path="/github-streak" element={<GithubStreak />} />
                         <Route path="/learning" element={<Learning />} />
-                        <Route path="/Email" element={<Contact />} />
+                        <Route path="/email" element={<Contact />} />
                         <Route path="/skills" element={<Skills />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/projects/:projectname" element={<ProjectPage />} />

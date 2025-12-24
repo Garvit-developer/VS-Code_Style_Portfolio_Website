@@ -55,14 +55,14 @@ const menuData = [
         key: "contact",
         title: "Contact",
         items: [
-            { id: "Email", name: "Email.tsx", link: "/Email", icon: "icons8-gmail" },
+            { id: "Email", name: "Email.tsx", link: "/email", icon: "icons8-gmail" },
         ],
     },
     {
         key: "misc",
         title: "Misc",
         items: [
-            { id: "GithubStreak", name: "GithubStreak.md", link: "/GithubStreak", icon: "icons8-github" },
+            { id: "GithubStreak", name: "GithubStreak.md", link: "/github-streak", icon: "icons8-github" },
             { id: "Gaming", name: "Gaming.sln", link: "/Gaming", icon: "icons8-c-sharp" },
             { id: "Learning", name: "Learning.ts", link: "/Learning", icon: "icons8-angularjs" },
         ],
