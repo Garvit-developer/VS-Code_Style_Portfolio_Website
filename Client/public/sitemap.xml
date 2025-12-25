@@ -1,42 +1,48 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-<loc>https://www.rajsavaliya.com/</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>1.00</priority>
-</url>
-<url>
-<loc>https://www.rajsavaliya.com/Experience</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>0.60</priority>
-</url>
-<url>
-<loc>https://www.rajsavaliya.com/Skills</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://www.rajsavaliya.com/Projects</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://www.rajsavaliya.com/Blogs</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://www.rajsavaliya.com/Gaming</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://www.rajsavaliya.com/Email</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>0.60</priority>
-</url>
-<url>
-<loc>https://www.rajsavaliya.com/Hobbies</loc>
-<lastmod>2021-11-09T18:05:45+00:00</lastmod>
-<priority>0.60</priority>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/experience</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/skills</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/projects</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/myvision</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/github-streak</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/gaming</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/email</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://garvitdani-portfolio.vercel.app/learning</loc>
+    <lastmod>2025-12-26</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>

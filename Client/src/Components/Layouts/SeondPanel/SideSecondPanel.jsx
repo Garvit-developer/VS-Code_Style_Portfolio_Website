@@ -5,17 +5,14 @@ import { useMediaQuery } from "react-responsive";
 import { useNavigate, useLocation } from "react-router-dom";
 // Route filename mapping
 const routeMap = {
-    Experience: "experience.css",
-    Skills: "skills.js",
-    Projects: "projects.ts",
-    GithubStreak: "GithubStreak.md",
-    Blogs: "Blogs",
-    Email: "Email",
-    MyVision: "vision.md",
-    contact: "Email.tsx",
-    Gaming: "Gaming",
-    Learning: "Learning",
-    Startup: "Startup",
+    experience: "experience.js",
+    skills: "skills.css",
+    projects: "projects.ts",
+    "github-streak": "GithubStreak",
+    myvision: "vision.md",
+    email: "Email",
+    gaming: "Gaming",
+    learning: "Learning",
     "": "index.html",
     undefined: "index.html",
     1: "1",
@@ -33,10 +30,10 @@ const menuData = [
         title: "About",
         items: [
             { name: "index.html", link: "/", icon: "icons8-html-5" },
-            { name: "skills.css", link: "/Skills", icon: "icons8-css3" },
-            { name: "experience.js", link: "/Experience", icon: "icons8-javascript" },
-            { name: "projects.ts", link: "/Projects", icon: "icons8-typescript" },
-            { name: "vision.md", link: "/MyVision", icon: "icons8-readme" },
+            { name: "skills.css", link: "/skills", icon: "icons8-css3" },
+            { name: "experience.js", link: "/experience", icon: "icons8-javascript" },
+            { name: "projects.ts", link: "/projects", icon: "icons8-typescript" },
+            { name: "vision.md", link: "/myvision", icon: "icons8-readme" },
         ],
     },
     {
@@ -130,7 +127,7 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
 
     // Detect active file name
     useEffect(() => {
-        const last = location.pathname.split("/").pop();
+        const last = location.pathname.split("/").pop().toLowerCase();
         setActiveCurrentSubLink(routeMap[last]);
     }, [location.pathname]);
 
@@ -166,12 +163,12 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
             </div>
 
             {!isTabletOrMobile && (
-                <ul className="bottom-links pl-2">
-                    <li className="border-b border-gray-500">
-                        <span className="text-gray-400">All Rights Reserved.</span>
+                <ul className="bottom-links pl-2 ">
+                    <li className=" text-sm border-b border-gray-500">
+                        <div className="text-gray-400">All Rights Reserved.</div>
                     </li>
                     <li>
-                        <span className="text-gray-400">Ⓒ Copyright 2023.</span>
+                        <div className="text-gray-400">Ⓒ Copyright 2025.</div>
                     </li>
                 </ul>
             )}

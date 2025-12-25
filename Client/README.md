@@ -2,10 +2,7 @@
 
 An Visual Studio Themed Developer Portfolio built using TypeScript, Next.js and Tailwind.
 
-Live Link: <a href="https://www.rajsavaliya.com/" >rajsavaliya.com</a>
-
-> *Warning*
-> ### As was getting many requests for open sourcing the repository, i have open sourced it, but please note that code of this project is pure mess, since i created this as a practice while learning Next.js. Use at your own risk, if anyone wants to contribute, It will help people a lot. Thanks.
+Live Link: <a href="https://garvitdani-portfolio.vercel.app/" >garvitdani-portfolio.vercel.app</a>
 
 ## Snapshot
 

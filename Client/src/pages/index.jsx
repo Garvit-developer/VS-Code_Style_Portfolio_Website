@@ -1,274 +1,3 @@
-// import React, { useMemo, useState, useEffect } from "react";
-// import { useMediaQuery } from "react-responsive";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { Helmet } from "react-helmet-async";
-// import TextTransition, { presets } from "react-text-transition";
-// import { VscNewFile, VscFolderOpened, VscRepoClone, VscDebugAlt, VscCommentDiscussion, VscTerminal } from "react-icons/vsc";
-// import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
-
-// const ROLES = [
-//     "Software Development Engineer",
-//     "Full Stack Developer",
-//     "UI/UX Enthusiast",
-//     "Creative Problem Solver"
-// ];
-
-// const Home = () => {
-//     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 943px)" });
-//     const location = useLocation();
-//     const [index, setIndex] = useState(0);
-
-//     // Cycle through roles
-//     useEffect(() => {
-//         const intervalId = setInterval(() => setIndex((index) => index + 1), 3000);
-//         return () => clearInterval(intervalId);
-//     }, []);
-
-//     // Load recent links
-//     const recentLinks = useMemo(() => {
-//         if (typeof window !== "undefined") {
-//             const recent = localStorage.getItem("history");
-//             try {
-//                 return recent ? JSON.parse(recent) : [];
-//             } catch {
-//                 return [];
-//             }
-//         }
-//         return [];
-//     }, [location.pathname]);
-
-//     return (
-//         <>
-//             <Helmet>
-//                 <title>Garvit Dani | VS Code Portfolio</title>
-//                 <meta name="description" content="VS code style developer portfolio" />
-//             </Helmet>
-
-//             <main className="w-full h-full flex flex-col justify-center items-center text-gray-300 font-sans selection:bg-blue-500 selection:text-white relative overflow-hidden">
-
-//                 {/* Background Grid Pattern */}
-//                 <div className="absolute inset-0 pointer-events-none opacity-5"
-//                     style={{
-//                         backgroundImage: `linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)`,
-//                         backgroundSize: '40px 40px'
-//                     }}>
-//                 </div>
-
-//                 <div className="w-full max-w-6xl p-6 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-16 z-10">
-
-//                     {/* LEFT COLUMN */}
-//                     <div className="flex flex-col gap-10">
-//                         {/* Header */}
-//                         <div className="animate-fade-in-down">
-//                             <h1 className="text-6xl md:text-7xl font-thin text-white mb-4 tracking-tighter">
-//                                 Garvit <span className="font-bold text-blue-500">Dani</span>
-//                             </h1>
-//                             <div className="text-2xl text-gray-400 font-light flex gap-2 items-center h-8">
-//                                 <span>I am a</span>
-//                                 <TextTransition springConfig={presets.gentle} inline>
-//                                     <span className="text-blue-400 font-normal">{ROLES[index % ROLES.length]}</span>
-//                                 </TextTransition>
-//                             </div>
-//                         </div>
-
-//                         {/* Start Section - Interactive Cards */}
-//                         <div className="flex flex-col gap-4">
-//                             <h3 className="text-xl text-gray-500 font-medium uppercase tracking-widest text-xs">Start</h3>
-
-//                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-//                                 <Link to="/Skills" className="group p-4 bg-[#252526] hover:bg-[#2a2d2e] rounded-lg border border-transparent hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-blue-500/10 flex items-start gap-3">
-//                                     <div className="p-2 bg-blue-500/10 rounded-md text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-transform">
-//                                         <VscNewFile size={24} />
-//                                     </div>
-//                                     <div>
-//                                         <span className="block text-gray-200 font-medium group-hover:text-blue-400 transition-colors">New Skill</span>
-//                                         <span className="text-xs text-gray-500 mt-1 block">Explore my technical stack & abilities</span>
-//                                     </div>
-//                                 </Link>
-
-//                                 <Link to="/Projects" className="group p-4 bg-[#252526] hover:bg-[#2a2d2e] rounded-lg border border-transparent hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-blue-500/10 flex items-start gap-3">
-//                                     <div className="p-2 bg-orange-500/10 rounded-md text-orange-400 group-hover:text-orange-300 group-hover:scale-110 transition-transform">
-//                                         <VscFolderOpened size={24} />
-//                                     </div>
-//                                     <div>
-//                                         <span className="block text-gray-200 font-medium group-hover:text-orange-400 transition-colors">Open Project</span>
-//                                         <span className="text-xs text-gray-500 mt-1 block">Browse my portfolio projects</span>
-//                                     </div>
-//                                 </Link>
-
-//                                 <Link to="/GithubStreak" className="group p-4 bg-[#252526] hover:bg-[#2a2d2e] rounded-lg border border-transparent hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-blue-500/10 flex items-start gap-3">
-//                                     <div className="p-2 bg-green-500/10 rounded-md text-green-400 group-hover:text-green-300 group-hover:scale-110 transition-transform">
-//                                         <VscRepoClone size={24} />
-//                                     </div>
-//                                     <div>
-//                                         <span className="block text-gray-200 font-medium group-hover:text-green-400 transition-colors">Clone Repos</span>
-//                                         <span className="text-xs text-gray-500 mt-1 block">Check my Github stats & streaks</span>
-//                                     </div>
-//                                 </Link>
-
-//                                 <Link to="/Experience" className="group p-4 bg-[#252526] hover:bg-[#2a2d2e] rounded-lg border border-transparent hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-blue-500/10 flex items-start gap-3">
-//                                     <div className="p-2 bg-purple-500/10 rounded-md text-purple-400 group-hover:text-purple-300 group-hover:scale-110 transition-transform">
-//                                         <VscDebugAlt size={24} />
-//                                     </div>
-//                                     <div>
-//                                         <span className="block text-gray-200 font-medium group-hover:text-purple-400 transition-colors">Run & Debug</span>
-//                                         <span className="text-xs text-gray-500 mt-1 block">View my work experience</span>
-//                                     </div>
-//                                 </Link>
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                     {/* RIGHT COLUMN */}
-//                     <div className="flex flex-col gap-10 md:pt-8">
-
-//                         {/* RECENT - TERMINAL STYLE */}
-//                         <div className="flex flex-col gap-4">
-//                             <h3 className="text-xl text-gray-500 font-medium uppercase tracking-widest text-xs flex items-center gap-2">
-//                                 <VscTerminal /> Terminal - Recent Activity
-//                             </h3>
-
-//                             <div className="w-full bg-[#1e1e1e] rounded-lg border border-[#333] p-4 font-mono text-sm shadow-2xl relative overflow-hidden group">
-//                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 opacity-20"></div>
-
-//                                 <div className="flex flex-col gap-3 min-h-[200px]">
-//                                     {recentLinks.length < 1 ? (
-//                                         <div className="text-gray-500">
-//                                             <span className="text-green-500">➜</span> <span className="text-blue-400">~</span> No recent activity found...
-//                                         </div>
-//                                     ) : (
-//                                         recentLinks.map((item, idx) => (
-//                                             <Link to={item} key={idx} className="block hover:bg-[#2d2d2d] -mx-2 px-2 py-1 rounded transition-colors">
-//                                                 <div className="flex items-center gap-2 truncate">
-//                                                     <span className="text-green-500">➜</span>
-//                                                     <span className="text-blue-400">~</span>
-//                                                     <span className="text-gray-300">cd</span>
-//                                                     <span className="text-yellow-300"> E:/GarvitDani{item}</span>
-//                                                 </div>
-//                                                 <div className="ml-6 text-gray-500 text-xs mt-0.5">
-//                                                     [INFO] Opening {item.replace('/', '')}...
-//                                                 </div>
-//                                             </Link>
-//                                         ))
-//                                     )}
-
-//                                     {/* Blinking Cursor */}
-//                                     <div className="mt-auto pt-2 flex items-center gap-2">
-//                                         <span className="text-green-500">➜</span>
-//                                         <span className="text-blue-400">~</span>
-//                                         <span className="w-2.5 h-5 bg-gray-400 animate-pulse block"></span>
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-
-//                         {/* HELP / ABOUT */}
-//                         <div className="flex flex-col gap-3">
-//                             <h3 className="text-[11px] text-[#858585] font-medium uppercase tracking-widest">
-//                                 Help & Connect
-//                             </h3>
-
-//                             <div className="flex flex-wrap gap-2">
-//                                 {/* GitHub */}
-//                                 <a
-//                                     href="https://github.com/SRX9"
-//                                     target="_blank"
-//                                     rel="noreferrer"
-//                                     className="
-//                 flex items-center gap-2
-//                 px-3 py-1.5
-//                 text-[12px]
-//                 text-[#cccccc]
-//                 bg-[#252526]
-//                 border border-[#3c3c3c]
-//                 rounded
-//                 hover:bg-[#2a2d2e]
-//                 hover:border-[#007acc]
-//                 transition-all
-//             "
-//                                 >
-//                                     <FaGithub className="text-[#cccccc]" />
-//                                     GitHub
-//                                 </a>
-
-//                                 {/* LinkedIn */}
-//                                 <a
-//                                     href="https://www.linkedin.com/in/savaliya-raj"
-//                                     target="_blank"
-//                                     rel="noreferrer"
-//                                     className="
-//                 flex items-center gap-2
-//                 px-3 py-1.5
-//                 text-[12px]
-//                 text-[#9cdcfe]
-//                 bg-[#252526]
-//                 border border-[#3c3c3c]
-//                 rounded
-//                 hover:bg-[#2a2d2e]
-//                 hover:border-[#007acc]
-//                 transition-all
-//             "
-//                                 >
-//                                     <FaLinkedin />
-//                                     LinkedIn
-//                                 </a>
-
-//                                 {/* Twitter */}
-//                                 <a
-//                                     href="https://twitter.com/s_r_x_9"
-//                                     target="_blank"
-//                                     rel="noreferrer"
-//                                     className="
-//                 flex items-center gap-2
-//                 px-3 py-1.5
-//                 text-[12px]
-//                 text-[#4fc1ff]
-//                 bg-[#252526]
-//                 border border-[#3c3c3c]
-//                 rounded
-//                 hover:bg-[#2a2d2e]
-//                 hover:border-[#007acc]
-//                 transition-all
-//             "
-//                                 >
-//                                     <FaTwitter />
-//                                     Twitter
-//                                 </a>
-
-//                                 {/* Contact */}
-//                                 <Link
-//                                     to="/Email"
-//                                     className="
-//                 flex items-center gap-2
-//                 px-3 py-1.5
-//                 text-[12px]
-//                 text-[#ffffff]
-//                 bg-[#007acc]/90
-//                 border border-[#007acc]
-//                 rounded
-//                 hover:bg-[#0090f1]
-//                 transition-all
-//             "
-//                                 >
-//                                     <VscCommentDiscussion />
-//                                     Contact
-//                                 </Link>
-//                             </div>
-//                         </div>
-
-
-//                     </div>
-//                 </div>
-//             </main>
-//         </>
-//     );
-// };
-
-// export default Home;
-
-
-
-
 import React, { useMemo, useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useLocation } from "react-router-dom";
@@ -282,13 +11,13 @@ import {
     VscCommentDiscussion,
     VscTerminal
 } from "react-icons/vsc";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const ROLES = [
-    "Software Development Engineer",
+    "Software Developer",
     "Full Stack Developer",
     "UI/UX Enthusiast",
-    "Creative Problem Solver"
+    "Problem Solver"
 ];
 
 const startItems = [
@@ -411,7 +140,7 @@ const Home = () => {
                                 </p>
 
                                 <div className="flex flex-wrap gap-2 text-xs">
-                                    {["MERN Stack", "System Design", "UI/UX Focused"].map(
+                                    {["MERN Stack", "UI/UX Enthusiast"].map(
                                         tech => (
                                             <span
                                                 key={tech}
@@ -426,19 +155,19 @@ const Home = () => {
                         </div>
 
                         {/* START */}
-                          <div className="flex flex-col gap-4">
-        {/* Section Label */}
-        <h3 className="text-[11px] uppercase tracking-widest text-[#858585]">
-            Start
-        </h3>
+                        <div className="flex flex-col gap-4">
+                            {/* Section Label */}
+                            <h3 className="text-[11px] uppercase tracking-widest text-[#858585]">
+                                Start
+                            </h3>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {startItems.map(item => (
-                <Link
-                    key={item.title}
-                    to={item.to}
-                    className="
+                            {/* Cards */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {startItems.map(item => (
+                                    <Link
+                                        key={item.title}
+                                        to={item.to}
+                                        className="
                         group
                         flex gap-3
                         p-4
@@ -451,10 +180,10 @@ const Home = () => {
                         hover:shadow-[0_0_0_1px_rgba(0,122,204,0.35)]
                         transition-all duration-200
                     "
-                >
-                    {/* Icon */}
-                    <div
-                        className={`
+                                    >
+                                        {/* Icon */}
+                                        <div
+                                            className={`
                             p-2 rounded-md
                             ${item.accent.bg}
                             ${item.accent.text}
@@ -462,23 +191,23 @@ const Home = () => {
                             transition-transform
                             h-10
                         `}
-                    >
-                        {item.icon}
-                    </div>
+                                        >
+                                            {item.icon}
+                                        </div>
 
-                    {/* Text */}
-                    <div className="flex flex-col">
-                        <span className="text-sm text-gray-200 group-hover:text-white transition-colors">
-                            {item.title}
-                        </span>
-                        <span className="text-xs text-gray-500 leading-snug">
-                            {item.desc}
-                        </span>
-                    </div>
-                </Link>
-            ))}
-        </div>
-    </div>
+                                        {/* Text */}
+                                        <div className="flex flex-col">
+                                            <span className="text-sm text-gray-200 group-hover:text-white transition-colors">
+                                                {item.title}
+                                            </span>
+                                            <span className="text-xs text-gray-500 leading-snug">
+                                                {item.desc}
+                                            </span>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     {/* RIGHT */}
@@ -541,7 +270,7 @@ const Home = () => {
                             <div className="flex flex-wrap gap-2">
                                 {/* GitHub */}
                                 <a
-                                    href="https://github.com/SRX9"
+                                    href="https://github.com/Garvit-developer"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="
@@ -563,7 +292,7 @@ const Home = () => {
 
                                 {/* LinkedIn */}
                                 <a
-                                    href="https://www.linkedin.com/in/savaliya-raj"
+                                    href="https://www.linkedin.com/in/garvit-dani-865924318/"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="
@@ -583,27 +312,27 @@ const Home = () => {
                                     LinkedIn
                                 </a>
 
-                                {/* Twitter */}
                                 <a
-                                    href="https://twitter.com/s_r_x_9"
+                                    href="https://mail.google.com/mail/?view=cm&fs=1&to=garvitdani@gmail.com"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="
-                flex items-center gap-2
-                px-3 py-1.5
-                text-[12px]
-                text-[#4fc1ff]
-                bg-[#252526]
-                border border-[#3c3c3c]
-                rounded
-                hover:bg-[#2a2d2e]
-                hover:border-[#007acc]
-                transition-all
-            "
+    flex items-center gap-2
+    px-3 py-1.5
+    text-[12px]
+    text-[#4fc1ff]
+    bg-[#252526]
+    border border-[#3c3c3c]
+    rounded
+    hover:bg-[#2a2d2e]
+    hover:border-[#007acc]
+    transition-all
+  "
                                 >
-                                    <FaTwitter />
-                                    Twitter
+                                    <FaEnvelope />
+                                    Email
                                 </a>
+
 
                                 {/* Contact */}
                                 <Link
