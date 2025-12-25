@@ -369,7 +369,7 @@ const Home = () => {
 
                 {/* Grid Background */}
                 <div
-                    className="absolute inset-0 opacity-[0.09] pointer-events-none fixed"
+                    className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
                     style={{
                         backgroundImage:
                             "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",

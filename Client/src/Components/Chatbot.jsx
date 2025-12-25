@@ -33,7 +33,17 @@ const Chatbot = ({ isOpen, onClose }) => {
   };
 
   const generateResponse = async (userMsg) => {
-    const API_URL = `${import.meta.env.VITE_API_URL}/api/chatbot`;
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    // Safety check for undefined or empty API URL
+    if (!apiUrl || apiUrl === 'undefined') {
+      console.warn("VITE_API_URL is not defined in Chatbot. Falling back to relative path.");
+    }
+
+    // Remove trailing slash if present to avoid double slashes
+    const baseUrl = (apiUrl && apiUrl !== 'undefined') ? apiUrl.replace(/\/$/, "") : "";
+    const API_URL = `${baseUrl}/api/chatbot`;
+
     try {
       const response = await fetch(API_URL, {
         method: "POST",

@@ -16,7 +16,17 @@ const GithubStats = () => {
     const fetchData = async () => {
         try {
             setLoading(true);
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/github-streak`);
+            const apiUrl = import.meta.env.VITE_API_URL;
+
+            // Safety check for undefined or empty API URL
+            if (!apiUrl || apiUrl === 'undefined') {
+                console.warn("VITE_API_URL is not defined. Falling back to relative path if applicable.");
+            }
+
+            // Remove trailing slash if present to avoid double slashes
+            const baseUrl = (apiUrl && apiUrl !== 'undefined') ? apiUrl.replace(/\/$/, "") : "";
+            const res = await fetch(`${baseUrl}/api/github-streak`);
+
             if (!res.ok) throw new Error("Failed to fetch");
             const data = await res.json();
             setWeeks(data);
