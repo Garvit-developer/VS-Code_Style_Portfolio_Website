@@ -41,11 +41,11 @@ const menuData = [
         title: "Side Projects",
         items: [
             { id: "1", name: "Geektheo.js", link: "/Projects/1", icon: "icons8-nodejs" },
-            { id: "2", name: "Skilledu.js", link: "/Projects/2", icon: "icons8-react" },
-            { id: "3", name: "Taskly-Pro.ts", link: "/Projects/3", icon: "icons8-angularjs" },
-            { id: "4", name: "Bhasha-Setu.js", link: "/Projects/4", icon: "icons8-react" },
+            { id: "2", name: "Skilledu.jsx", link: "/Projects/2", icon: "icons8-react" },
+            { id: "3", name: "Taskly-Pro.js", link: "/Projects/3", icon: "icons8-angularjs" },
+            { id: "4", name: "Bhasha-Setu.jsx", link: "/Projects/4", icon: "icons8-react" },
             { id: "5", name: "Secure-Stack.js", link: "/Projects/5", icon: "icons8-nodejs" },
-            { id: "6", name: "SimonSaysGame.js", link: "/Projects/6", icon: "icons8-react" },
+            { id: "6", name: "SimonSaysGame.jsx", link: "/Projects/6", icon: "icons8-react" },
         ],
     },
     {
@@ -60,8 +60,8 @@ const menuData = [
         title: "Misc",
         items: [
             { id: "GithubStreak", name: "GithubStreak.md", link: "/github-streak", icon: "icons8-github" },
-            { id: "Gaming", name: "Gaming.sln", link: "/Gaming", icon: "icons8-c-sharp" },
-            { id: "Learning", name: "Learning.ts", link: "/Learning", icon: "icons8-angularjs" },
+            { id: "Gaming", name: "Gaming.cs", link: "/Gaming", icon: "icons8-c-sharp" },
+            { id: "Learning", name: "Learning.js", link: "/Learning", icon: "icons8-angularjs" },
         ],
     },
 ];
@@ -163,12 +163,12 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
             </div>
 
             {!isTabletOrMobile && (
-                <ul className="bottom-links pl-2 ">
-                    <li className=" text-sm border-b border-gray-500">
-                        <div className="text-gray-400">All Rights Reserved.</div>
+                <ul className="bottom-links ">
+                    <li className="  border-b border-gray-500">
+                        <div className="text-[12.5px] text-gray-400">All Rights Reserved.</div>
                     </li>
                     <li>
-                        <div className="text-gray-400">Ⓒ Copyright 2025.</div>
+                        <div className="text-[12.5px] text-gray-400">Ⓒ Copyright 2025.</div>
                     </li>
                 </ul>
             )}

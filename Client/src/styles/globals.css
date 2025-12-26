@@ -61,9 +61,7 @@ body {
 /* Reset only navigation and UI list elements */
 ul.header-menu,
 ul.side-header-menu,
-ul.side-header-botton-menu,
-ul.bottom-links,
-ul.right,
+ul.side-header-botton-menu ul.right,
 ul.left,
 .menu-option ul,
 .show-pre ul {
@@ -139,9 +137,7 @@ h6 {
   height: 27px;
 }
 
-.logo {
-  display: inline-block;
-}
+
 
 ul.header-menu {
   display: flex;
@@ -166,9 +162,7 @@ ul.header-menu li.header-menu-link {
   right: 0;
 }
 
-.logo img {
-  width: 18px;
-}
+
 
 .bg-app {
   background-image: url("https://64.media.tumblr.com/fa0e3dc16f9430ec91beda6d9214f515/5676916248bbf8a5-88/s540x810/61e17af8b66b5f47425f1f7eddfc5120362ab4e3.gifv");
@@ -252,12 +246,15 @@ ul.header-menu li.header-menu-link {
 }
 
 .bottom-header {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20px;
+  height: auto;
+  min-height: 22px;
   background: #3c3c3c;
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .side-header li:after {
@@ -326,7 +323,7 @@ ul.side-header-botton-menu {
 .menu-option h5 {
   margin: 10px 20px;
   color: #ccc;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -361,6 +358,41 @@ ul.side-header-botton-menu {
   height: calc(100vh - 45px);
   overflow-x: hidden;
   animation: slideIn 0.3s ease-out forwards;
+}
+
+@media only screen and (max-width: 943px) {
+  .menu-option {
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 95vh !important;
+    position: relative !important;
+  }
+
+  .menu-option .menu-drop li {
+    font-size: 17px !important;
+    padding: 17px !important;
+  }
+
+  .menu-option h5 {
+    margin: 10px 10px !important;
+    font-size: 17px !important;
+    /* Larger font for headers */
+  }
+
+  .show-pre {
+    margin-left: 8px !important;
+  }
+
+  .box-click span {
+    margin: 0 2px !important;
+    font-size: 16px !important;
+    /* Larger font for file names */
+  }
+
+  .bottom-header {
+    display: none;
+  }
 }
 
 .glasscard {
@@ -438,6 +470,7 @@ hr {
   padding: 3px;
   position: relative;
   cursor: pointer;
+  font-weight: 500 !important;
 }
 
 .menu-option .menu-drop li:before {
@@ -478,7 +511,7 @@ i.fab.fa-js {
 }
 
 ul.bottom-links {
-  bottom: 0;
+  bottom: 2px;
   position: absolute;
   z-index: 1000000;
   cursor: default;
@@ -492,7 +525,8 @@ ul.bottom-links li:hover:before {
   background: transparent !important;
   background-color: transparent !important;
   opacity: 1 !important;
-  /* Ensure text stays visible */
+  padding-left: 5px !important;
+
   cursor: default !important;
 }
 

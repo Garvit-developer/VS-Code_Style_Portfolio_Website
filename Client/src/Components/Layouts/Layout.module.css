@@ -83,3 +83,167 @@
   display: flex;
   flex-direction: column;
 }
+
+/* TABLET & MOBILE RESPONSIVE STYLES */
+@media screen and (max-width: 943px) {
+  .navside {
+    position: fixed;
+    left: 0;
+    top: 27px;
+    bottom: 0;
+    z-index: 100;
+    background: #1e1e1e;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    width: 260px;
+    /* Further reduced for very narrow phones */
+    padding: 10px 5px !important;
+    /* Reduced padding for mobile */
+  }
+
+  .navsidecollapse {
+    display: none;
+    /* Hide sidebar completely on mobile if collapsed */
+  }
+
+  .mainside,
+  .mainsidecollapse {
+    width: 100vw !important;
+    margin-left: 0 !important;
+    height: calc(100vh - 95px) !important;
+    /* Adjust for bottom nav (45px), header (27px), and status bar (22px) */
+  }
+
+  /* Overlay Panels */
+  .rightSidePanel {
+    width: 100vw;
+    height: calc(100vh - 95px);
+    top: 27px;
+    z-index: 101;
+  }
+
+  /* Bottom Navigation for Mobile */
+  .bottomNav {
+    position: fixed;
+    bottom: 22px;
+    /* Positioned above the status bar */
+    left: 0;
+    right: 0;
+    height: 45px;
+    /* Slightly taller for better touch targets */
+    background: #333333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #454545;
+    z-index: 1500;
+    padding-bottom: env(safe-area-inset-bottom);
+    /* Support for modern phone notches */
+  }
+
+  .bottomNavItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #858585;
+    /* Default gray */
+    font-size: 11px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    flex: 1;
+    padding: 8px 0;
+  }
+
+  .bottomNavItem:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .bottomNavItem.active {
+    color: #3b82f6;
+  }
+
+  .bottomNavItem i,
+  .bottomNavItem svg {
+    margin-bottom: 2px;
+  }
+
+  /* Backdrop for active panels */
+  .panelBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    backdrop-filter: blur(2px);
+  }
+
+  /* Command Palette (Floating Search) */
+  .commandPaletteWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .commandPaletteBackdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+  }
+
+  .commandPalette {
+    position: relative;
+    top: 5px;
+    width: 600px;
+    max-width: 90vw;
+    background: #252526;
+    border: 1px solid #454545;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Scale down header icon */
+  .layout-header-icon {
+    width: 12px;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 943px) {
+
+    .bottomNav {
+      bottom: 0px;
+    }
+
+}

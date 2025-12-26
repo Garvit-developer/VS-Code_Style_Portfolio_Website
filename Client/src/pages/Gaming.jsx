@@ -148,7 +148,7 @@ const Gaming = () => {
                                         <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
                                             <div className="text-white w-full">
                                                 <img
-                                                    src="https://preview.redd.it/pfts18ct1vi61.jpg?width=4096&format=pjpg&auto=webp&s=91151c92c90e3641eb43bb6f5dba3e795ef8f397"
+                                                    src="https://64.media.tumblr.com/8ba7ad1ceb0b13c21a97e1644797883f/530ffdf8632abbf3-3f/s500x750/9119bdb64f35ea668304704dd5027cb6292180e7.gifv"
                                                     width="100%"
                                                     className="rounded-lg h-50"
                                                 />
@@ -161,53 +161,7 @@ const Gaming = () => {
                                                 developed and published by Riot Games.
                                             </div>
                                         </div>
-                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
-                                            <div className="text-white w-full">
-                                                <img
-                                                    src="https://sensortower-itunes.s3.amazonaws.com/blog/2020/10/genshin-impact-first-week-revenue-header.jpg"
-                                                    width="100%"
-                                                    className="rounded-lg h-50"
-                                                />
-                                            </div>
-                                            <div className="text-white text-lg font-medium mb-2 mt-4">
-                                                Genshin Impact
-                                            </div>
-                                            <div className="text-white font-normal">
-                                                Genshin Impact is an action role-playing game
-                                            </div>
-                                        </div>
-                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
-                                            <div className="text-white w-full">
-                                                <img
-                                                    src="https://media4.giphy.com/media/VgvLyXeQ35gGhzmcVG/giphy-downsized-large.gif"
-                                                    width="100%"
-                                                    className="rounded-lg h-50"
-                                                />
-                                            </div>
-                                            <div className="text-white text-lg font-medium mb-2 mt-4">
-                                                Forza Horizon 5
-                                            </div>
-                                            <div className="text-white font-normal">
-                                                Forza Horizon 5 is a racing video game developed by
-                                                Playground Games.
-                                            </div>
-                                        </div>
-                                        <div className="rounded-2xl bg-white backdrop-filter backdrop-blur-lg bg-opacity-20 p-4 flex flex-col relative undefined">
-                                            <div className="text-white w-full">
-                                                <img
-                                                    src="https://pbs.twimg.com/media/E6tR0L9VUAIKt9R.jpg:large"
-                                                    width="100%"
-                                                    className="rounded-lg h-50"
-                                                />
-                                            </div>
-                                            <div className="text-white text-lg font-medium mb-2 mt-4">
-                                                Pokemon Unite
-                                            </div>
-                                            <div className="text-white font-normal">
-                                                Pokémon Unite is a free-to-play, multiplayer online
-                                                battle arena video game.
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </main>
