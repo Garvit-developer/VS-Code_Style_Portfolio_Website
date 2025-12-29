@@ -109,14 +109,14 @@
   .mainsidecollapse {
     width: 100vw !important;
     margin-left: 0 !important;
-    height: calc(100vh - 95px) !important;
+    height: calc(100dvh - 65px) !important;
     /* Adjust for bottom nav (45px), header (27px), and status bar (22px) */
   }
 
   /* Overlay Panels */
   .rightSidePanel {
     width: 100vw;
-    height: calc(100vh - 95px);
+    height: calc(100dvh - 95px);
     top: 27px;
     z-index: 101;
   }
@@ -242,8 +242,8 @@
 
 @media only screen and (max-width: 943px) {
 
-    .bottomNav {
-      bottom: 0px;
-    }
+  .bottomNav {
+    bottom: 0px;
+  }
 
 }
