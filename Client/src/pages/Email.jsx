@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
-import { Mail, User, MessageSquare, Send, CheckCircle } from "lucide-react";
+import { VscMail, VscSend, VscCheck } from "react-icons/vsc";
 import emailjs from "@emailjs/browser";
 
 const Email = () => {
@@ -19,13 +19,11 @@ const Email = () => {
         setLoading(true);
         setError("");
 
-        // EmailJS configuration
         const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
         const adminTemplateId = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID || "template_8jpeh2t";
         const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID || "template_ku2g8bf";
 
-        // Template parameters
         const templateParams = {
             from_name: name,
             from_email: email,
@@ -34,7 +32,6 @@ const Email = () => {
         };
 
         try {
-            // Send admin notification email
             const adminResponse = await emailjs.send(
                 serviceId,
                 adminTemplateId,
@@ -45,7 +42,6 @@ const Email = () => {
                 publicKey
             );
 
-            // Send auto-reply email to the sender
             const autoReplyResponse = await emailjs.send(
                 serviceId,
                 autoReplyTemplateId,
@@ -53,11 +49,6 @@ const Email = () => {
                 publicKey
             );
 
-            // Both emails sent successfully
-            console.log("Admin notification sent:", adminResponse);
-            console.log("Auto-reply sent:", autoReplyResponse);
-
-            // Clear form only on success
             setEmail("");
             setMessage("");
             setName("");
@@ -80,154 +71,165 @@ const Email = () => {
             autoHideDuration={200}
             universal={true}
         >
-            <div className="w-full p-5 pb-40 text-left">
-                {/* Header matching other pages */}
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-indigo-500">
-                    Get in touch
-                </h2>
+            <div className="relative min-h-screen bg-[#1e1e1e] text-[#d4d4d4] flex flex-col">
+                {/* Grid Background */}
+                <div
+                    className="absolute inset-0 opacity-[0.03] pointer-events-none fixed"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                        backgroundSize: "40px 40px"
+                    }}
+                />
 
-                <p className="mt-3 text-base font-medium max-w-2xl text-gray-400">
-                    Fill in the form to start a conversation
-                </p>
+                {/* Editor Tab Bar */}
+                <div className="relative z-10 flex bg-[#252526] h-7 border-b border-[#1e1e1e]">
+                    <div className="flex items-center gap-2 px-4 bg-[#1e1e1e] border-t border-t-[#007acc] text-sm text-[#d4d4d4] cursor-default">
+                        <VscMail size={14} className="text-[#519aba]" />
+                        <span>contact.me</span>
+                        <div className="w-2 h-2 rounded-full bg-[#d4d4d4]/20 hover:bg-[#d4d4d4]/40 transition-colors" />
+                    </div>
+                </div>
 
-                <p className="mt-2 text-base max-w-3xl text-gray-400 leading-relaxed">
-                    You can contact me with any questions, suggestions or just to say hi.
-                    I am always open to new ideas and collaborations. It can be anything like
-                    collaborating on good projects, job opportunity or anything else.
-                </p>
+                <div className="relative z-10 flex-1 p-6 sm:p-10 max-w-5xl">
+                    {/* Header Consistency */}
+                    <div className="mb-10">
+                        <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            Get in <span className="font-semibold text-blue-500">Touch</span>
+                        </h1>
+                        <p className="mt-4 text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                            Have a question, a project idea, or just want to say hi?
+                            My inbox is always open for new opportunities and collaborations.
+                        </p>
+                    </div>
 
-                {!done ? (
-                    <div className="mt-8 max-w-3xl">
-                        {/* Error Message */}
-                        {error && (
-                            <div className="mb-6 p-4 bg-red-900/20 border border-red-500/50 rounded-md">
-                                <p className="text-red-400 text-sm">{error}</p>
-                            </div>
-                        )}
+                    {!done ? (
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                            {/* Form Section */}
+                            <div className="lg:col-span-2 space-y-8">
+                                {error && (
+                                    <div className="p-4 bg-red-900/10 border border-red-500/20 rounded text-sm text-red-400 flex items-center gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                                        {error}
+                                    </div>
+                                )}
 
-                        <form className="space-y-6">
-                            {/* Name Input */}
-                            <div>
-                                <label
-                                    htmlFor="name"
-                                    className="block text-sm font-medium text-gray-300 mb-2"
-                                >
-                                    <User size={16} className="inline mr-2" />
-                                    Full Name
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    id="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    placeholder="Full Name"
-                                    className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
-                                />
-                            </div>
+                                <div className="space-y-6">
+                                    {/* Name Input */}
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-medium uppercase tracking-wider text-[#858585] flex items-center gap-2">
+                                            <span className="text-blue-400">01</span> Full Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            placeholder="John Doe"
+                                            className="w-full px-4 py-3 bg-[#252526] border border-[#3c3c3c] rounded text-[#d4d4d4] placeholder-gray-600 focus:outline-none focus:border-[#007acc] focus:ring-1 focus:ring-[#007acc]/30 transition-all font-mono"
+                                        />
+                                    </div>
 
-                            {/* Email Input */}
-                            <div>
-                                <label
-                                    htmlFor="email"
-                                    className="block text-sm font-medium text-gray-300 mb-2"
-                                >
-                                    <Mail size={16} className="inline mr-2" />
-                                    Email Address
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="example@email.com"
-                                    className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
-                                />
-                            </div>
+                                    {/* Email Input */}
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-medium uppercase tracking-wider text-[#858585] flex items-center gap-2">
+                                            <span className="text-blue-400">02</span> Email Address
+                                        </label>
+                                        <input
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="john@example.com"
+                                            className="w-full px-4 py-3 bg-[#252526] border border-[#3c3c3c] rounded text-[#d4d4d4] placeholder-gray-600 focus:outline-none focus:border-[#007acc] focus:ring-1 focus:ring-[#007acc]/30 transition-all font-mono"
+                                        />
+                                    </div>
 
-                            {/* Message Input */}
-                            <div>
-                                <label
-                                    htmlFor="message"
-                                    className="block text-sm font-medium text-gray-300 mb-2"
-                                >
-                                    <MessageSquare size={16} className="inline mr-2" />
-                                    Message
-                                </label>
-                                <textarea
-                                    name="message"
-                                    id="message"
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    placeholder="Your message here..."
-                                    rows={6}
-                                    className="w-full px-4 py-3 bg-[#161b22] border border-[#30363d] rounded-md text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors resize-none"
-                                />
-                            </div>
+                                    {/* Message Input */}
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-medium uppercase tracking-wider text-[#858585] flex items-center gap-2">
+                                            <span className="text-blue-400">03</span> Message
+                                        </label>
+                                        <textarea
+                                            value={message}
+                                            onChange={(e) => setMessage(e.target.value)}
+                                            placeholder="What's on your mind?"
+                                            rows={6}
+                                            className="w-full px-4 py-3 bg-[#252526] border border-[#3c3c3c] rounded text-[#d4d4d4] placeholder-gray-600 focus:outline-none focus:border-[#007acc] focus:ring-1 focus:ring-[#007acc]/30 transition-all font-mono resize-none leading-relaxed"
+                                        />
+                                    </div>
 
-                            {/* Submit Button */}
-                            {!loading ? (
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        if (name === "") {
-                                            setError("Please enter your name.");
-                                        } else if (email === "") {
-                                            setError("Please enter your email.");
-                                        } else if (message === "") {
-                                            setError("Please enter your message.");
-                                        } else {
-                                            finalSendEmail();
-                                        }
-                                    }}
-                                    className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-md transition-colors duration-200 flex items-center gap-2"
-                                >
-                                    <Send size={18} />
-                                    Send Message
-                                </button>
-                            ) : (
-                                <div className="flex items-center gap-3 text-gray-300">
-                                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-indigo-500 border-t-transparent"></div>
-                                    <span>Sending...</span>
+                                    <div className="pt-4">
+                                        {!loading ? (
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    if (name === "") setError("Please enter your name.");
+                                                    else if (email === "") setError("Please enter your email.");
+                                                    else if (message === "") setError("Please enter your message.");
+                                                    else finalSendEmail();
+                                                }}
+                                                className="group flex items-center gap-2 px-8 py-3 bg-[#007acc] hover:bg-[#0090f1] text-white rounded font-medium transition-all shadow-lg shadow-[#007acc]/10"
+                                            >
+                                                <VscSend size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                                Send Message
+                                            </button>
+                                        ) : (
+                                            <div className="flex items-center gap-3">
+                                                <div className="animate-spin rounded-full h-5 w-5 border-2 border-[#007acc] border-t-transparent"></div>
+                                                <span className="text-sm italic text-[#858585]">Processing request...</span>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            )}
-                        </form>
-                    </div>
-                ) : (
-                    <div className="mt-8 max-w-3xl bg-[#161b22] border border-[#30363d] rounded-lg p-12 text-center">
-                        <div className="flex flex-col items-center justify-center space-y-4">
-                            <CheckCircle size={64} className="text-green-500" />
-                            <h3 className="text-2xl font-bold text-white">
-                                Message Sent Successfully!
-                            </h3>
-                            <p className="text-base text-gray-400 max-w-md">
-                                Thank you for reaching out. I've received your message and will get back to you as soon as possible.
-                            </p>
-                            <p className="text-sm text-gray-500">
-                                You should receive a confirmation email shortly.
-                            </p>
-                            <button
-                                onClick={() => setDone(false)}
-                                className="mt-4 px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-md transition-colors duration-200"
-                            >
-                                Send Another Message
-                            </button>
-                        </div>
-                    </div>
-                )}
+                            </div>
 
-                {/* Footer Info */}
-                <div className="mt-8 text-left max-w-3xl">
-                    <p className="text-sm text-gray-500">
-                        You can also reach me directly at{" "}
-                        <a
-                            href="mailto:garvitdani@gmail.com"
-                            className="text-indigo-400 hover:text-indigo-300 hover:underline"
-                        >
-                            garvitdani@gmail.com
-                        </a>
-                    </p>
+                            {/* Sidebar / Info Card */}
+                            <div className="space-y-8 mt-5">
+                                <div className="p-5 bg-[#252526]/50 border border-[#333] rounded-lg backdrop-blur-sm">
+                                    <div className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Direct Contact</div>
+                                    <div className="space-y-4">
+                                        <a
+                                            href="mailto:garvitdani@gmail.com"
+                                            className="flex flex-col group"
+                                        >
+                                            <span className="text-[10px] text-[#858585] uppercase tracking-tighter group-hover:text-blue-400 transition-colors">Primary Email</span>
+                                            <span className="text-sm text-[#ce9178] font-mono group-hover:underline">garvitdani@gmail.com</span>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div className="p-6 border border-[#333]/50 rounded-lg">
+                                    <div className="text-[11px] text-[#858585] uppercase tracking-widest mb-3">Availability</div>
+                                    <p className="text-xs text-gray-500 leading-relaxed italic">
+                                        "Currently open for freelance projects and full-time software development roles."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="max-w-2xl bg-[#252526]/80 border border-[#333] rounded-xl p-12 text-center backdrop-blur shadow-2xl animate-in fade-in zoom-in duration-300">
+                            <div className="flex flex-col items-center justify-center space-y-6">
+                                <div className="p-5 bg-green-500/10 rounded-full border border-green-500/20">
+                                    <VscCheck size={48} className="text-green-500" />
+                                </div>
+                                <div className="space-y-2">
+                                    <h3 className="text-2xl font-bold text-white tracking-tight">
+                                        Message <span className="text-green-500">Sent!</span>
+                                    </h3>
+                                    <p className="text-gray-400 font-light leading-relaxed">
+                                        Thank you for reaching out. I've received your data and will process it shortly.
+                                        You should receive an auto-reply confirmation in your inbox.
+                                    </p>
+                                </div>
+                                <button
+                                    onClick={() => setDone(false)}
+                                    className="px-8 py-2.5 bg-transparent border border-[#3c3c3c] text-[#d4d4d4] hover:bg-[#333] hover:border-[#858585] transition-all rounded text-sm font-medium"
+                                >
+                                    Send Another
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </Scrollbars>

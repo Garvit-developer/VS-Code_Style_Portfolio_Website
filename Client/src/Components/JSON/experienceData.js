@@ -11,7 +11,7 @@ export const experiences = [
             "Added lazy loading and performance optimizations, reducing page load times by 40%.",
         ],
         tech: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "OpenAI API"],
-        logo: "/GeekTheoryIcon.webp",
+        logo: "/Banner/GeekTheoryIcon.webp",
         certificate: "https://drive.google.com/file/d/1whWxX-cHZS1GqSiOMmh7SoU55vvBqqEY/view?usp=sharing"
     },
     {
@@ -26,7 +26,7 @@ export const experiences = [
             "Received an Excellent Performance rating during the internship"
         ],
         tech: ["HTML", "CSS", "JavaScript"],
-        logo: "/download.png",
+        logo: "/Banner/download.webp",
         certificate: "https://drive.google.com/file/d/1RRVgE89ceskrWgU7olzHSJC1ccSZw0eG/view?usp=sharing"
     },
 ];
