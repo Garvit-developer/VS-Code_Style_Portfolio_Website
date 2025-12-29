@@ -86,46 +86,73 @@
 
 /* TABLET & MOBILE RESPONSIVE STYLES */
 @media screen and (max-width: 943px) {
+
+  /* New Flexbox Layout Wrapper (Mobile) */
+  .layoutWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .mainContentWrapper {
+    display: flex;
+    flex: 1;
+    /* Grow to fill space between header and bottom nav */
+    overflow: hidden;
+    /* Manage scroll internally */
+    position: relative;
+    /* For absolute children */
+    width: 100%;
+  }
+
   .navside {
-    position: fixed;
+    position: absolute;
+    /* Changed from fixed to absolute within main wrapper */
     left: 0;
-    top: 27px;
+    top: 0;
     bottom: 0;
     z-index: 100;
     background: #1e1e1e;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
     width: 260px;
-    /* Further reduced for very narrow phones */
     padding: 10px 5px !important;
-    /* Reduced padding for mobile */
   }
 
   .navsidecollapse {
     display: none;
-    /* Hide sidebar completely on mobile if collapsed */
   }
 
   .mainside,
   .mainsidecollapse {
-    width: 100vw !important;
+    width: 100% !important;
+    /* Full width of wrapper */
     margin-left: 0 !important;
-    height: calc(100dvh - 65px) !important;
-    /* Adjust for bottom nav (45px), header (27px), and status bar (22px) */
+    height: 100% !important;
+    /* Fill wrapper */
+    flex: 1;
+    overflow-y: auto;
   }
 
   /* Overlay Panels */
   .rightSidePanel {
-    width: 100vw;
-    height: calc(100dvh - 95px);
-    top: 27px;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height of wrapper */
+    top: 0;
+    left: 0;
     z-index: 101;
+    position: absolute;
+    /* Cover the main content */
+    background-color: #252526;
   }
 
   /* Bottom Navigation for Mobile */
   .bottomNav {
-    position: fixed;
-    bottom: 22px;
-    /* Positioned above the status bar */
+    position: static;
+    /* Become part of flex flow */
+    /* bottom: 22px; */
     left: 0;
     right: 0;
     height: 45px;
@@ -137,7 +164,9 @@
     border-top: 1px solid #454545;
     z-index: 1500;
     padding-bottom: env(safe-area-inset-bottom);
-    /* Support for modern phone notches */
+    flex-shrink: 0;
+    /* Don't shrink */
+    width: 100%;
   }
 
   .bottomNavItem {
@@ -243,7 +272,16 @@
 @media only screen and (max-width: 943px) {
 
   .bottomNav {
-    bottom: 0px;
+    /* Removed fixed bottom override as we use flex now */
+  }
+
+  .bottom-header {
+    position: static;
+    flex-shrink: 0;
+    z-index: 50;
+    width: 100%;
+    background: #1e1e1e;
+    /* Match footer bg */
   }
 
 }

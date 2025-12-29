@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
     const [openSideMenu, setOpenSideMenu] = useState(true);
     const [showChatbot, setShowChatbot] = useState(false);
     const [showSearch, setShowSearch] = useState(false); // New search state
-    const [mainActiveSideButton, setMainActiveSideButton] = useState("files");
+    // const [mainActiveSideButton, setMainActiveSideButton] = useState("files");
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -79,7 +79,7 @@ const Layout = ({ children }) => {
     // }, []);
 
     return (
-        <>
+        <div className={styles.layoutWrapper}>
             {/* HEADER */}
             <div className="header w-full flex items-center gap-1 sm:gap-5 md:gap-14 lg:gap-17 px-2">
                 <div className="flex items-center gap-1">
@@ -201,7 +201,7 @@ const Layout = ({ children }) => {
             </div>
 
             {/* MAIN WRAPPER */}
-            <div className="scrollbar w-full flex">
+            <div className={`${styles.mainContentWrapper} scrollbar w-full flex`}>
 
                 {/* SIDE NAVIGATION */}
                 <nav className={`${openSideMenu ? styles.navside : styles.navsidecollapse}`}>
@@ -247,41 +247,6 @@ const Layout = ({ children }) => {
                     </div>
                 )}
 
-                {/* Mobile Bottom Navigation */}
-                {isTabletOrMobile && (
-                    <div className={styles.bottomNav}>
-                        <div
-                            className={`${styles.bottomNavItem} ${openSideMenu ? styles.active : ""}`}
-                            onClick={toggleSideMainMenu}
-                        >
-                            <Files size={20} />
-                            <span>Explorer</span>
-                        </div>
-
-                        <div
-                            className={`${styles.bottomNavItem} ${showChatbot ? styles.active : ""}`}
-                            onClick={toggleChatbot}
-                        >
-                            <MessageSquare size={20} />
-                            <span>Chat</span>
-                        </div>
-                        <div
-                            className={`${styles.bottomNavItem} ${(location.pathname === "/" && !openSideMenu && !showChatbot) ? styles.active : ""}`}
-                            onClick={() => {
-                                setOpenSideMenu(false);
-                                setShowChatbot(false);
-                                setShowSearch(false);
-                                if (location.pathname !== "/") {
-                                    navigate("/");
-                                }
-                            }}
-                        >
-                            <User size={20} />
-                            <span>Profile</span>
-                        </div>
-                    </div>
-                )}
-
                 {/* Floating Search Overlay (Command Palette Style) */}
                 {showSearch && (
                     <div className={styles.commandPaletteWrapper}>
@@ -292,6 +257,41 @@ const Layout = ({ children }) => {
                     </div>
                 )}
             </div>
+
+            {/* Mobile Bottom Navigation */}
+            {isTabletOrMobile && (
+                <div className={styles.bottomNav}>
+                    <div
+                        className={`${styles.bottomNavItem} ${openSideMenu ? styles.active : ""}`}
+                        onClick={toggleSideMainMenu}
+                    >
+                        <Files size={20} />
+                        <span>Explorer</span>
+                    </div>
+
+                    <div
+                        className={`${styles.bottomNavItem} ${showChatbot ? styles.active : ""}`}
+                        onClick={toggleChatbot}
+                    >
+                        <MessageSquare size={20} />
+                        <span>Chat</span>
+                    </div>
+                    <div
+                        className={`${styles.bottomNavItem} ${(location.pathname === "/" && !openSideMenu && !showChatbot) ? styles.active : ""}`}
+                        onClick={() => {
+                            setOpenSideMenu(false);
+                            setShowChatbot(false);
+                            setShowSearch(false);
+                            if (location.pathname !== "/") {
+                                navigate("/");
+                            }
+                        }}
+                    >
+                        <User size={20} />
+                        <span>Profile</span>
+                    </div>
+                </div>
+            )}
 
             {/* FOOTER */}
             {!isTabletOrMobile ? (
@@ -323,7 +323,7 @@ const Layout = ({ children }) => {
                     </ul>
                 </div>
             ) : (
-                <div className="bottom-header fixed z-50">
+                <div className={`bottom-header z-50 ${isTabletOrMobile ? "!static flex-shrink-0 w-full bg-[#1e1e1e]" : "fixed"}`}>
                     <ul className="right pt-1" style={{ fontSize: "12px" }}>
                         <li>React.JS</li>
                         <li>JavaScript</li>
@@ -335,7 +335,7 @@ const Layout = ({ children }) => {
                     </ul>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 
