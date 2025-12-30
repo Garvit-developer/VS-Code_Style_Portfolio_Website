@@ -11,6 +11,7 @@ import { SideMainPanel } from "./SideMainPanel/SideMainPanel";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import Chatbot from "../Chatbot";
+import EditorTabBar from "../EditorTabBar";
 
 // Lazy Clock
 const Clock = lazy(() => import("../Clock"));
@@ -121,9 +122,9 @@ const Layout = ({ children }) => {
                         </button>
                     </div>
                     <div className="flex-1 w-full">
-                        {isTabletOrMobile ?(<MobileSearchBar showSearch={showSearch}/>) : (<SearchBar showSearch={showSearch} />)
+                        {isTabletOrMobile ? (<MobileSearchBar showSearch={showSearch} />) : (<SearchBar showSearch={showSearch} />)
                         }
-                        
+
                     </div>
                     <button
                         onClick={toggleChatbot}
@@ -196,6 +197,16 @@ const Layout = ({ children }) => {
 
                 {/* SIDE NAVIGATION */}
                 <nav className={`${openSideMenu ? styles.navside : styles.navsidecollapse}`}>
+                    {/* Cross Button for Mobile Sidebar */}
+                    {isTabletOrMobile && openSideMenu && (
+                        <button
+                            className={styles.closeSidebarBtn}
+                            onClick={() => setOpenSideMenu(false)}
+                        >
+                            <X size={24} />
+                        </button>
+                    )}
+
                     {/* Only show SideMainPanel on desktop, or if specifically needed on mobile */}
                     {!isTabletOrMobile && (
                         <SideMainPanel
@@ -226,9 +237,12 @@ const Layout = ({ children }) => {
 
                 {/* PAGE CONTENT */}
                 <main
-                    className={`${openSideMenu ? styles.mainside : styles.mainsidecollapse} ${showChatbot ? styles.withRightPanel : ''} scrollbar`}
+                    className={`${openSideMenu ? styles.mainside : styles.mainsidecollapse} ${showChatbot ? styles.withRightPanel : ''} flex flex-col`}
                 >
-                    {children}
+                    <EditorTabBar />
+                    <div className="flex-1 w-full overflow-hidden relative min-h-0">
+                        {children}
+                    </div>
                 </main>
 
                 {/* RIGHT SIDEBAR (CHATBOT) */}

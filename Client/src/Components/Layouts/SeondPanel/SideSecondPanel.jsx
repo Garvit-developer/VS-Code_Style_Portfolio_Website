@@ -60,8 +60,8 @@ const menuData = [
         title: "Misc",
         items: [
             { id: "GithubStreak", name: "GithubStreak.md", link: "/github-streak", icon: "icons8-github" },
-            { id: "Gaming", name: "Gaming.cs", link: "/Gaming", icon: "icons8-c-sharp" },
-            { id: "Learning", name: "Learning.js", link: "/Learning", icon: "icons8-angularjs" },
+            { id: "Gaming", name: "Gaming.cs", link: "/gaming", icon: "icons8-c-sharp" },
+            { id: "Learning", name: "Learning.js", link: "/learning", icon: "icons8-angularjs" },
         ],
     },
 ];
@@ -146,10 +146,15 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
     };
 
     return (
-        <div className="menu-option  overflow-hidden">
-            <h5 className="myweight">EXPLORER</h5>
+        <div className="relative menu-option  overflow-hidden border-l-2 border-r-2 border-[#30363d]">
+            <div
+                className="
+  w-[255px] absolute top-[26px] left-1/2 -translate-x-1/2 border-b-2 border-[#30363d] "
+            ></div>
 
-            <div className="mb-5 pb-5 z-1 scrollbar" style={{ height: "84%", overflowY: "scroll" }}>
+            <div className="headweight px-2 py-1 text-[13px]">EXPLORER</div>
+
+            <div className="mb-5 pb-5 z-1 scrollbar h-85vh overflow-y-scroll">
                 {menuData.map((section) => (
                     <MenuSection
                         key={section.key}

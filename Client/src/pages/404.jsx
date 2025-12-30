@@ -13,7 +13,7 @@ export default function Custom404() {
                         </h1>
                     </div>
                 </div>
-            </article>
+            </article> 
         );
     } else {
         return (

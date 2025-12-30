@@ -65,46 +65,49 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="relative h-full w-full bg-[#1e1e1e]">
-            {/* Grid Background */}
-            <div
-                className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
-                style={{
-                    backgroundImage:
-                        "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
-                    backgroundSize: "40px 40px"
-                }}
-            />
+        <div className="relative h-full w-full bg-[#1e1e1e] overflow-hidden">
 
-            <Scrollbars
-                autoHide
-                autoHideTimeout={1000}
-                autoHideDuration={200}
-                universal={true}
-            >
-                <div className="w-full px-6 py-10 pb-20">
-                    {/* Header */}
-                    <div className="flex flex-col gap-3 mb-8">
-                        <div className="text-5xl md:text-6xl font-thin text-white tracking-tight">
-                            My <span className="font-semibold text-blue-500">Projects</span>
+            <div className="relative h-full overflow-hidden">
+                {/* Grid Background */}
+                <div
+                    className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                        backgroundSize: "40px 40px"
+                    }}
+                />
+
+                <Scrollbars
+                    autoHide
+                    autoHideTimeout={1000}
+                    autoHideDuration={200}
+                    universal={true}
+                >
+                    <div className="w-full px-6 py-10 pb-20">
+                        {/* Header */}
+                        <div className="flex flex-col gap-3 mb-8">
+                            <div className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                                My <span className="font-semibold text-blue-500">Projects</span>
+                            </div>
+                            <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                                Internship and Side Projects for practice.
+                            </p>
                         </div>
-                        <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
-                            Internship and Side Projects for practice.
-                        </p>
-                    </div>
 
-                    {/* Unified Responsive Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                        {projects?.map((project, index) => (
-                            <ProjectCard
-                                key={index}
-                                project={project}
-                                index={index}
-                            />
-                        ))}
+                        {/* Unified Responsive Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+                            {projects?.map((project, index) => (
+                                <ProjectCard
+                                    key={index}
+                                    project={project}
+                                    index={index}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </Scrollbars>
+                </Scrollbars>
+            </div>
         </div>
     );
 };

@@ -132,46 +132,47 @@ const MyVision = () => {
                 autoHideDuration={200}
                 universal={true}
             >
-                <div className="w-full px-6 pt-3 pb-10 font-sans text-left min-h-screen">
-                    {/* Header */}
-                    <div className="flex flex-col gap-1 mb-8">
-                        <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
-                            My <span className="font-bold text-blue-500">Vision</span>
-                        </h1>
-                        <div className="max-w-3xl space-y-4 text-gray-400 leading-relaxed font-light text-lg">
-                            <p>
-                                design isn't just about making things look beautiful—it's about solving real problems that matter. <br/>
-                                I build things from existing components, refining and adding value to create something unique.
-                            </p>
+                <div className="w-full flex flex-col min-h-screen">
+                    <div className="w-full px-6 pt-3 pb-10 font-sans text-left flex-1">
+                        {/* Header */}
+                        <div className="flex flex-col gap-1 mb-8">
+                            <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                                My <span className="font-bold text-blue-500">Vision</span>
+                            </h1>
+                            <div className="max-w-3xl space-y-4 text-gray-400 leading-relaxed font-light text-lg">
+                                <p>
+                                    design isn't just about making things look beautiful—it's about solving real problems that matter. <br />
+                                    I build things from existing components, refining and adding value to create something unique.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Grid Layout */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl">
-                       {philosophies.map((item, idx) => (
-    <div
-        key={idx}
-        className="
+                        {/* Grid Layout */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl">
+                            {philosophies.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="
             group relative bg-[#1e1e1e] rounded-lg overflow-hidden
             border border-[#3c3c3c]
             hover:border-[#007acc]/50 hover:shadow-[0_0_15px_rgba(0,122,204,0.1)]
             transition-all duration-300
         "
-    >
-        {/* VS Code Title Bar */}
-        <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-[#1e1e1e]">
-            <div className="flex items-center gap-2">
-                {item.icon}
-                <span className="text-xs font-normal text-[#cccccc] group-hover:text-white transition-colors">
-                    {item.filename}
-                </span>
-            </div>
+                                >
+                                    {/* VS Code Title Bar */}
+                                    <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-[#1e1e1e]">
+                                        <div className="flex items-center gap-2">
+                                            {item.icon}
+                                            <span className="text-xs font-normal text-[#cccccc] group-hover:text-white transition-colors">
+                                                {item.filename}
+                                            </span>
+                                        </div>
 
-            {/* macOS Dots (same as learning cards) */}
-            <div className="flex items-center space-x-2">
-                {/* Close */}
-                <div
-                    className="
+                                        {/* macOS Dots (same as learning cards) */}
+                                        <div className="flex items-center space-x-2">
+                                            {/* Close */}
+                                            <div
+                                                className="
                         w-3 h-3 rounded-full
                         bg-red-500/20
                         border border-red-500/50
@@ -179,11 +180,11 @@ const MyVision = () => {
                         group-hover:bg-red-500
                         group-hover:border-red-500
                     "
-                />
+                                            />
 
-                {/* Minimize */}
-                <div
-                    className="
+                                            {/* Minimize */}
+                                            <div
+                                                className="
                         w-3 h-3 rounded-full
                         bg-yellow-500/20
                         border border-yellow-500/50
@@ -191,11 +192,11 @@ const MyVision = () => {
                         group-hover:bg-yellow-400
                         group-hover:border-yellow-400
                     "
-                />
+                                            />
 
-                {/* Maximize */}
-                <div
-                    className="
+                                            {/* Maximize */}
+                                            <div
+                                                className="
                         w-3 h-3 rounded-full
                         bg-green-500/20
                         border border-green-500/50
@@ -203,35 +204,36 @@ const MyVision = () => {
                         group-hover:bg-green-500
                         group-hover:border-green-500
                     "
-                />
-            </div>
-        </div>
+                                            />
+                                        </div>
+                                    </div>
 
-        {/* Code Area */}
-        <div className="p-1 md:p-2 bg-[#1e1e1e] overflow-x-auto">
-            <div className="min-w-max">
-                {item.code.map((line, i) => (
-                    <CodeLine key={i} text={line} index={i} />
-                ))}
-            </div>
-        </div>
+                                    {/* Code Area */}
+                                    <div className="p-1 md:p-2 bg-[#1e1e1e] overflow-x-auto">
+                                        <div className="min-w-max">
+                                            {item.code.map((line, i) => (
+                                                <CodeLine key={i} text={line} index={i} />
+                                            ))}
+                                        </div>
+                                    </div>
 
-        {/* Bottom Status Bar */}
-        <div className="h-6 bg-[#007acc] text-white flex items-center px-3 gap-4 text-[10px] font-medium">
-            <div className="flex items-center gap-1">
-                <FileCode className="w-3 h-3" />
-                {item.language.toUpperCase()}
-            </div>
-            <div className="flex items-center gap-1 ml-auto">
-                Ln {item.code.length}, Col 1
-                <div className="ml-2 flex items-center gap-1">
-                    UTF-8
-                </div>
-            </div>
-        </div>
-    </div>
-))}
+                                    {/* Bottom Status Bar */}
+                                    <div className="h-6 bg-[#007acc] text-white flex items-center px-3 gap-4 text-[10px] font-medium">
+                                        <div className="flex items-center gap-1">
+                                            <FileCode className="w-3 h-3" />
+                                            {item.language.toUpperCase()}
+                                        </div>
+                                        <div className="flex items-center gap-1 ml-auto">
+                                            Ln {item.code.length}, Col 1
+                                            <div className="ml-2 flex items-center gap-1">
+                                                UTF-8
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
 
+                        </div>
                     </div>
                 </div>
             </Scrollbars>

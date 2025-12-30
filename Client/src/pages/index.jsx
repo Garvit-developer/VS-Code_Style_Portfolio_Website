@@ -4,12 +4,13 @@ import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import TextTransition, { presets } from "react-text-transition";
 import {
-    VscNewFile,
+    VscNewFile, 
     VscFolderOpened,
     VscRepoClone,
     VscDebugAlt,
     VscCommentDiscussion,
-    VscTerminal
+    VscTerminal,
+    VscCode
 } from "react-icons/vsc";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
@@ -94,7 +95,8 @@ const Home = () => {
                 />
             </Helmet>
 
-            <main className="relative w-full h-full overflow-y-auto text-gray-300">
+            {/* Main content w/o local tab bar */}
+            <div className="relative w-full h-full text-gray-300">
 
                 {/* Grid Background */}
                 <div
@@ -359,7 +361,7 @@ const Home = () => {
                 </div>
 
 
-            </main>
+            </div>
         </>
     );
 };

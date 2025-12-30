@@ -82,14 +82,7 @@ const Email = () => {
                     }}
                 />
 
-                {/* Editor Tab Bar */}
-                <div className="relative z-10 flex bg-[#252526] h-7 border-b border-[#1e1e1e]">
-                    <div className="flex items-center gap-2 px-4 bg-[#1e1e1e] border-t border-t-[#007acc] text-sm text-[#d4d4d4] cursor-default">
-                        <VscMail size={14} className="text-[#519aba]" />
-                        <span>contact.me</span>
-                        <div className="w-2 h-2 rounded-full bg-[#d4d4d4]/20 hover:bg-[#d4d4d4]/40 transition-colors" />
-                    </div>
-                </div>
+              
 
                 <div className="relative z-10 flex-1 p-6 sm:p-10 max-w-5xl">
                     {/* Header Consistency */}

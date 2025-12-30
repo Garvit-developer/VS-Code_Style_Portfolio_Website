@@ -82,7 +82,7 @@ function App() {
                     <Suspense fallback={<PageLoader />}>
                         <Routes>
                             <Route path="/" element={<Home />} />
-                            <Route path="/MyVision" element={<MyVision />} />
+                            <Route path="/myvision" element={<MyVision />} />
                             <Route path="/experience" element={<Experience />} />
                             <Route path="/gaming" element={<Gaming />} />
                             <Route path="/github-streak" element={<GithubStreak />} />

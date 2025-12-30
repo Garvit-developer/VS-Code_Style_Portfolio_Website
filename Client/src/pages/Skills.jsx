@@ -42,32 +42,36 @@ const Skills = () => {
 
     return (
         <Scrollbars autoHide autoHideTimeout={1000} autoHideDuration={200} universal={true}>
-             <div
-                    className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
-                        backgroundSize: "40px 40px"
-                    }}
-                />
+            <div
+                className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
+                    backgroundSize: "40px 40px"
+                }}
+            />
 
-            <div className="w-full px-5 py-5">
-                {/* Header */}
 
-                <div className="flex flex-col gap-3">
-                    <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
-                        Technical <span className="font-semibold text-blue-500">Skills</span>
-                    </h1>
-                    <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
-                        A comprehensive list of technologies, frameworks, and tools I work with to build scalable applications.
-                    </p>
+
+            <div className="w-full flex flex-col min-h-screen">
+                <div className="w-full px-5 py-5">
+                    {/* Header */}
+
+                    <div className="flex flex-col gap-3">
+                        <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            Technical <span className="font-semibold text-blue-500">Skills</span>
+                        </h1>
+                        <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                            A comprehensive list of technologies, frameworks, and tools I work with to build scalable applications.
+                        </p>
+                    </div>
+
+                    <SkillSection title="Programming" skills={programming} />
+                    <SkillSection title="Full-Stack Development" skills={fullStack} />
+                    <SkillSection title="Database" skills={database} />
+                    <SkillSection title="Deployment " skills={Deployment} />
+                    <SkillSection title="Tools & Platforms" skills={tools} />
                 </div>
-
-                <SkillSection title="Programming" skills={programming} />
-                <SkillSection title="Full-Stack Development" skills={fullStack} />
-                <SkillSection title="Database" skills={database} />
-                <SkillSection title="Deployment " skills={Deployment} />
-                <SkillSection title="Tools & Platforms" skills={tools} />
             </div>
         </Scrollbars>
     );

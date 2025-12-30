@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -42,6 +51,15 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  /* Prevent double scrollbars */
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 14px;
+    /* Adjust font size for mobile */
+  }
 }
 
 *,
@@ -120,8 +138,12 @@ h6 {
     sans-serif, Geneva, Tahoma, sans-serif;
 }
 
-.myweight {
+.headweight {
   font-weight: 500;
+}
+
+.myweight {
+  font-weight: 400;
 }
 
 .topPadd {
@@ -327,7 +349,7 @@ ul.side-header-botton-menu {
 .menu-option h5 {
   margin: 10px 20px;
   color: #ccc;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -335,8 +357,8 @@ ul.side-header-botton-menu {
 .box-click i,
 .box-click span {
   color: #ccc;
-  font-size: 12px;
-  margin: 0 5px;
+  font-size: 12.5px;
+  margin: 0 7px;
   z-index: 99;
   position: relative;
 }
@@ -365,27 +387,28 @@ ul.side-header-botton-menu {
 }
 
 @media only screen and (max-width: 400px) {
- 
-  ul.header-menu {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 0px !important;
-  margin-left: 7px !important;
-}
 
-ul.header-menu li.header-menu-link {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  color: #cccccc;
-  font-weight: 300;
-  font-size: 12px;
-  margin-right: 0px !important;
-}
-.header-menu-link{
-padding-right: 7px !important;
-}
+  ul.header-menu {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0px !important;
+    margin-left: 7px !important;
+  }
+
+  ul.header-menu li.header-menu-link {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #cccccc;
+    font-weight: 300;
+    font-size: 12px;
+    margin-right: 0px !important;
+  }
+
+  .header-menu-link {
+    padding-right: 7px !important;
+  }
 }
 
 @media only screen and (max-width: 943px) {
@@ -395,10 +418,9 @@ padding-right: 7px !important;
     width: 100% !important;
     height: auto !important;
     /* Changed from 95vh */
-    min-height: calc(100vh - 45px);
-    /* Ensure it takes full space but grows */
+
     position: relative !important;
-    overflow-y: auto !important;
+    overflow-y: 95vh !important;
     /* Allow scroll */
   }
 
@@ -428,25 +450,26 @@ padding-right: 7px !important;
   }
 
   ul.header-menu {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 0px !important;
-  margin-left: 10px !important;
-}
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0px !important;
+    margin-left: 10px !important;
+  }
 
-ul.header-menu li.header-menu-link {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  color: #cccccc;
-  font-weight: 300;
-  font-size: 12px;
-  margin-right: 0px !important;
-}
-.header-menu-link{
-padding-right: 14px;
-}
+  ul.header-menu li.header-menu-link {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #cccccc;
+    font-weight: 300;
+    font-size: 12px;
+    margin-right: 0px !important;
+  }
+
+  .header-menu-link {
+    padding-right: 14px;
+  }
 }
 
 
@@ -529,10 +552,10 @@ hr {
 .menu-option .menu-drop li {
   font-size: 13px;
   color: #ccc;
-  padding: 3px;
+  padding: 1px 3px;
   position: relative;
   cursor: pointer;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
 }
 
 .menu-option .menu-drop li:before {
