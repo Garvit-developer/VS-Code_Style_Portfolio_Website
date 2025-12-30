@@ -271,10 +271,6 @@
 
 @media only screen and (max-width: 943px) {
 
-  .bottomNav {
-    /* Removed fixed bottom override as we use flex now */
-  }
-
   .bottom-header {
     position: static;
     flex-shrink: 0;

@@ -113,12 +113,12 @@ const Home = () => {
 
                         {/* HERO */}
                         <div>
-                            <h1 className="text-6xl md:text-7xl font-thin text-white tracking-tight">
+                            <div className="text-5xl sm:text-6xl md:text-7xl pt-2 md:pt-4 font-thin text-white tracking-tight">
                                 Garvit{" "}
                                 <span className="font-semibold text-blue-500">
                                     Dani
                                 </span>
-                            </h1>
+                            </div>
 
                             <div className="mt-4 flex flex-col gap-3">
                                 <div className="text-2xl text-gray-400 flex gap-2 items-center h-8">

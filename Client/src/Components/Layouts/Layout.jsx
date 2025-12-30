@@ -3,8 +3,8 @@ import React, { useEffect, useState, Suspense, lazy } from "react";
 import styles from "./Layout.module.css";
 import { SideSecondPanel } from "./SeondPanel/SideSecondPanel";
 import SearchBar from "../Search/SearchBar";
+import MobileSearchBar from "../Search/MobileSearchBar";
 import { MessageSquare, ArrowLeft, ArrowRight, Files, User, Search, X } from "lucide-react";
-
 // import countapi from "countapi-js";
 import { numberTOWords } from "../Helper/utility";
 import { SideMainPanel } from "./SideMainPanel/SideMainPanel";
@@ -16,7 +16,8 @@ import Chatbot from "../Chatbot";
 const Clock = lazy(() => import("../Clock"));
 
 const Layout = ({ children }) => {
-    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 943px)" });
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 640px)" });
+    const isTablet = useMediaQuery({ query: "(max-width: 475px)" });
 
     const [VisitorCount, setVisitorCount] = useState("");
     const [openSideMenu, setOpenSideMenu] = useState(true);
@@ -70,25 +71,13 @@ const Layout = ({ children }) => {
             setShowChatbot(false);
         }
     };
-
-    // Visitor Counter (Disabled)
-    // useEffect(() => {
-    //     countapi.visits("global").then((result) => {
-    //         setVisitorCount(numberTOWords(result.value));
-    //     });
-    // }, []);
-
     return (
         <div className={styles.layoutWrapper}>
             {/* HEADER */}
-            <div className="header w-full flex items-center gap-1 sm:gap-5 md:gap-14 lg:gap-17 px-2">
-                <div className="flex items-center gap-1">
-                    <div className={` ${isTabletOrMobile ? "p-0 display-block" : "display-block pl-2.5"}`}>
-                        <img
-                            src="https://img.icons8.com/color/96/000000/visual-studio-code-2019.png"
-                            alt="Visual Studio Code Styled Portfolio Icon"
-                            className={`${isTabletOrMobile ? "h-5 w-5" : "h-5 w-5"}`}
-                        />
+            <div className="header w-full flex items-center gap-1 sm:gap-5 md:gap-14 lg:gap-17 px-0">
+                <div className="flex items-center gap-0">
+                    <div className={` ${isTabletOrMobile ? "display-block ml-0.5 w-7 h-7 bg-[url('/mobile_logo.webp')] bg-cover bg-center h-5" : "display-block ml-2  w-5 h-5 bg-[url('/visual-studio-code.webp')] bg-cover bg-center"}`}>
+
                     </div>
 
                     <ul className="header-menu hidden md:flex">
@@ -114,29 +103,31 @@ const Layout = ({ children }) => {
                 </div>
 
                 {/* SEARCH BAR (CENTERED) */}
-                <div className="flex-1 max-w-xl flex items-center justify-center gap-1">
-                    <div className="flex items-center gap-1">
+                <div className="flex-1 max-w-xl flex items-center justify-center gap-1 ">
+                    <div className="flex items-center gap-1 ">
                         <button
                             onClick={() => navigate(-1)}
-                            className="p-1 rounded hover:bg-[#37373d] text-gray-400 hover:text-white transition-colors"
+                            className="p-1 rounded hover:bg-[#37373d] text-gray-400 hover:text-white transition-colors hidden md:block"
                             title="Go Back"
                         >
                             <ArrowLeft className="w-4 h-4" />
                         </button>
                         <button
                             onClick={() => navigate(1)}
-                            className="p-1 rounded hover:bg-[#37373d] text-gray-400 hover:text-white transition-colors"
+                            className="p-1 rounded hover:bg-[#37373d] text-gray-400 hover:text-white transition-colors hidden md:block"
                             title="Go Forward"
                         >
                             <ArrowRight className="w-4 h-4" />
                         </button>
                     </div>
                     <div className="flex-1 w-full">
-                        <SearchBar showSearch={showSearch} />
+                        {isTabletOrMobile ?(<MobileSearchBar showSearch={showSearch}/>) : (<SearchBar showSearch={showSearch} />)
+                        }
+                        
                     </div>
                     <button
                         onClick={toggleChatbot}
-                        className={`p-1 rounded-md transition-all duration-200 border border-transparent
+                        className={`pr-16 sm:pr-15 lg:pr-5 p-1 rounded-md transition-all duration-200 border border-transparent hidden sm:block
                             ${showChatbot
                                 ? " text-white border-[#454545]"
                                 : "text-gray-400 hover:bg-[#37373d] hover:text-white"
@@ -149,14 +140,14 @@ const Layout = ({ children }) => {
 
 
                 {/* Desktop Menu Buttons */}
-                {!isTabletOrMobile ? (
+                {!isTablet ? (
                     <div className="header-app-icons">
-                        <div className="flex flex-row items-center">
+                        <div className="flex flex-row items-center ">
 
                             {/* Back Button */}
                             <button
                                 onClick={() => navigate(-1)}
-                                className="flex flex-col justify-center items-center p-[1px] m-1 rounded-full 
+                                className="flex flex-col justify-center items-center p-[1px]  m-1 rounded-full 
                                 text-gray-400 transition-color hover:bg-gray-500 hover:bg-opacity-60 focus:outline-none "
                             >
                                 <svg

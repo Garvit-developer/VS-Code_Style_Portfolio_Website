@@ -89,7 +89,7 @@ const MyVision = () => {
     ];
 
     const CodeLine = ({ text, index }) => (
-        <div className="flex font-mono text-sm leading-6 hover:bg-[#2a2d2e] transition-colors">
+        <div className="flex font-mono text-[13.5px] md:text-[14px] leading-6 hover:bg-[#2a2d2e] transition-colors">
             <span className="w-8 flex-none text-right select-none text-[#858585] mr-4 opacity-50">
                 {index + 1}
             </span>
@@ -208,7 +208,7 @@ const MyVision = () => {
         </div>
 
         {/* Code Area */}
-        <div className="p-4 bg-[#1e1e1e] overflow-x-auto">
+        <div className="p-1 md:p-2 bg-[#1e1e1e] overflow-x-auto">
             <div className="min-w-max">
                 {item.code.map((line, i) => (
                     <CodeLine key={i} text={line} index={i} />
