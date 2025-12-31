@@ -148,11 +148,11 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
 
     return (
         <div className="relative menu-option overflow-hidden border-l-2 border-r-2 border-[#30363d] flex flex-col h-full">
-            <div className="w-full absolute top-[25px] left-1/2 -translate-x-1/2 border-b-2 border-[#30363d] "></div>
+            <div className="w-full absolute top-[28px] md:top-[25px] left-1/2 -translate-x-1/2 border-b-2 border-[#30363d] "></div>
 
-            <div className="headweight pl-5 pt-1 pb-1 text-[12px] shrink-0">EXPLORER</div>
+            <div className="headweight pl-2 md:pl-5 pt-1 pb-1 text-[14px] md:text-[12px] shrink-0">EXPLORER</div>
 
-            <div className="flex-1 overflow-y-auto force-vs-scrollbar mb-3 pb-5">
+            <div className="flex-1 overflow-y-auto force-vs-scrollbar pt-3 md:pt-1 mb-3 pb-5">
                 {menuData.map((section) => (
                     <MenuSection
                         key={section.key}

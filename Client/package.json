@@ -12,6 +12,7 @@
     "dependencies": {
         "@emailjs/browser": "^4.4.1",
         "aws-sdk": "^2.1264.0",
+        "framer-motion": "^12.23.26",
         "lucide-react": "^0.555.0",
         "marked": "^17.0.1",
         "moment": "^2.30.1",

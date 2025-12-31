@@ -147,7 +147,7 @@
   /* Close Sidebar Button */
   .closeSidebarBtn {
     position: absolute;
-    top: 10px;
+    top: 2px;
     right: 10px;
     background: transparent;
     border: none;
@@ -187,7 +187,7 @@
     /* bottom: 22px; */
     left: 0;
     right: 0;
-    height: 45px;
+    height: 46px;
     /* Slightly taller for better touch targets */
     background: #333333;
     display: flex;

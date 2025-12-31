@@ -5,10 +5,13 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import { Briefcase, Calendar } from "lucide-react";
 import { experiences } from "../Components/JSON/experienceData";
 
 const MyWork = () => {
+    const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
     useEffect(() => {
         document.title = "Professional Experience | Garvit Dani";
     }, []);
@@ -17,7 +20,7 @@ const MyWork = () => {
         <div className="relative h-full w-full bg-[#1e1e1e]">
             {/* Grid Background */}
             <div
-                className="absolute inset-0 opacity-[0.02] pointer-events-none fixed"
+                className="absolute inset-0 opacity-[0.02] pointer-events-none"
                 style={{
                     backgroundImage:
                         "linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)",
@@ -32,7 +35,7 @@ const MyWork = () => {
                 universal={true}
             >
                 <div className="w-full flex flex-col min-h-screen">
-                    <div className="w-full px-5 py-5 pb-20 text-left">
+                    <div className={`w-full ${isMobile ? 'px-2' : 'px-5'} py-5 pb-20 text-left`}>
                         {/* Header matching Projects/Skills pages */}
                         <div className="flex flex-col gap-3 mb-10">
                             <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
@@ -56,7 +59,7 @@ const MyWork = () => {
                                             border: "1px solid #3c3c3c",
                                             boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
                                             borderRadius: "0.5rem",
-                                            padding: "1.5rem",
+                                            padding: isMobile ? "0.8rem" : "1.5rem",
                                             textAlign: "left",
                                         }}
                                         contentArrowStyle={{

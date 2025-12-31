@@ -86,10 +86,14 @@ const Layout = ({ children }) => {
             {/* HEADER */}
             <div className="header w-full flex items-center gap-1 border-b border-[#30363d] sm:gap-5 md:gap-14 lg:gap-17 px-0">
                 <div className="flex items-center gap-0">
-                    <div className={` ${isTabletOrMobile ? "display-block ml-0.5 w-7 h-7 bg-[url('/mobile_logo.webp')] bg-cover bg-center h-5" : "display-block ml-2  w-5 h-5 bg-[url('/visual-studio-code.webp')] bg-cover bg-center"}`}>
-
-                    </div>
-
+                  <div
+    onClick={() => navigate("/")}
+    className={`cursor-pointer
+        ${isTabletOrMobile
+            ? "ml-0.5 w-8 h-8 bg-[url('/mobile_logo.webp')] bg-cover bg-center"
+            : "ml-2 w-5 h-5 bg-[url('/visual-studio-code.webp')] bg-cover bg-center"
+        }
+    `}/>
                     <ul className="header-menu hidden md:flex">
                         <li className="header-menu-link">
                             <Link to="/">About</Link>
@@ -250,7 +254,7 @@ const Layout = ({ children }) => {
                     className={`${openSideMenu ? styles.mainside : styles.mainsidecollapse} ${showChatbot ? styles.withRightPanel : ''} flex flex-col`}
                 >
                     <EditorTabBar />
-                    <div className="flex-1 w-full overflow-hidden relative min-h-0">
+                    <div className="flex-1 w-full relative min-h-0">
                         {children}
                     </div>
                 </main>

@@ -23,14 +23,14 @@ const TabItem = ({ tab, isActive, onClick, onClose }) => {
     return (
         <div
             className={`
-                flex items-center gap-2 px-3
+                flex items-center gap-2 px-2
                 cursor-pointer 
                 min-w-fit
                 h-[26px]
                 transition-colors
                 border-r border-[#30363d]
                 ${isActive
-                    ? "bg-[#1e1e1e] text-white border-t border-t-[#3b82f6] "
+                    ? "bg-[#252526] text-white border-t border-t-[#3b82f6] "
                     : "bg-[#181818] text-[#969696] hover:bg-[#2a2d2e] border-t border-t-transparent border-b border-[#30363d]"
                 }
             `}
@@ -162,7 +162,7 @@ const EditorTabBar = () => {
     return (
         <div
             ref={scrollRef}
-            className="hidden md:flex bg-[#252526] h-[27px] overflow-x-auto w-full items-end select-none scrollbar-none  p-0"
+            className="hidden md:flex bg-[#181818] h-[27px] overflow-x-auto w-full items-end select-none scrollbar-none  p-0"
         >
             {openTabs.map((tab) => {
                 const currentPath = location.pathname.toLowerCase().replace(/\/$/, "");
