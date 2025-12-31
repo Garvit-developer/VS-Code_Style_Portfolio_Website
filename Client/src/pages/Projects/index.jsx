@@ -84,10 +84,10 @@ const Projects = () => {
                     autoHideDuration={200}
                     universal={true}
                 >
-                    <div className="w-full px-6 py-10 pb-20">
+                    <div className="w-full px-6 pt-5 md:py-5 pb-10 ">
                         {/* Header */}
                         <div className="flex flex-col gap-3 mb-8">
-                            <div className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            <div className="text-4xl md:text-5xl font-thin text-white tracking-tight">
                                 My <span className="font-semibold text-blue-500">Projects</span>
                             </div>
                             <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">

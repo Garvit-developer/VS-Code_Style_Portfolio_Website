@@ -30,7 +30,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
             autoHideDuration={200}
             universal={true}
         >
-            <div className="relative h-full w-full bg-[#1e1e1e]">
+            <div className="relative h-full w-full bg-[#1e1e1e] px-5">
                 {/* Grid Background */}
                 <div
                     className="absolute inset-0 opacity-[0.04] pointer-events-none fixed"
@@ -53,11 +53,11 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                             backgroundSize: "cover",
                         }}
                     ></div>
-                    <div className="  pb-6  maincontainerprofileprojects w-full">
-                        <div className="mx-auto boxprojectdetails shadow-lg sm:px-6 lg:px-8">
+                    <div className="  maincontainerprofileprojects w-full">
+                        <div className="mx-auto boxprojectdetails shadow-lg sm:px-6 md:px-10">
                             <div className="overflow-hidden shadow-xl bg-[#252526] border border-[#3c3c3c] rounded-xl sm:rounded-lg">
                                 <div>
-                                    <div className=" p-8 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
+                                    <div className=" p-2 md:p-8 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
                                         <div className="flex items-center justify-between">
                                             <img
                                                 className="h-14 w-14 rounded-3xl bg-[#1e1e1e] border border-[#3c3c3c] p-1 shadow-inner"
@@ -166,10 +166,10 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className=" pl-5 pr-5 mt-3 ml-5 mr-5 mb-3">
-                            <div className="mt-6 pb-2 text-gray-400 font-semibold text-2xl dark:text-gray-400">
+                        <div className=" pl-5 pr-5 mt-5 md:mt-10 ml-5 mr-5 mb-3">
+                            <h2 className="text-2xl pl-3  text-blue-500 font-semibold uppercase">
                                 Snapshots
-                            </div>
+                            </h2>
                             <div className="w-full mt-2 mb-5 pb-5 grid grid-cols-1  xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 xs:grid-cols-1 ">
                                 {projectDetails?.snapshots?.map((shot, index) => (
                                     <div
@@ -190,10 +190,10 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                 )) || []}
                             </div>
                         </div>
-                        <h2 className="text-3xl pl-3 pt-2 pb-1 text-blue-500 font-semibold tracking-wide uppercase">
+                        <h2 className="text-2xl pl-3  text-blue-500 font-semibold uppercase">
                             Other Projects
                         </h2>
-                        <p className=" font-medium pl-3 pb-2 text-gray-400 text-sm pt-1 w-4/5 ">
+                        <p className=" font-medium pl-4 text-gray-400 text-sm  w-4/5 ">
                             Based to the current project you are watching.
                         </p>
                         <div className="w-full mt-5 mb-5 pb-5  grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 ">
@@ -242,23 +242,83 @@ const ProjectDetails = ({ projectDetails, altt }) => {
             </div>
         </Scrollbars>
     ) : (
-        <div className="pb-40 mb-40 w-full pl-4 pr-2">
+        <div className="mb-0 md:mb-40 w-full">
             <img
                 src={projectDetails?.detailBanner || projectDetails?.banner || ""}
                 alt={projectDetails?.title || "Project Banner"}
-                className="w-full h-auto rounded-xl shadow-lg object-contain"
+                className="w-full h-[170px] object-cover border-b border-[#3c3c3c]"
             />
-            <div className=" ml-2 mr-2 mt-2 shadow-lg ">
+            <div className="relative mx-4 -mt-8 md:mx-4 mt-2 md:mt-6 shadow-lg z-50 ">
                 <div className="overflow-hidden  shadow-xl dark:bg-gray-800 rounded-xl sm:rounded-lg">
                     <div>
-                        <div className="p-3 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
+                        <div className="px-5 py-3 bg-[#252526] border-t border-[#3c3c3c] sm:px-20">
+                          <div className="flex flex-row justify-between items-center ">
+
                             <img
-                                className="h-10 w-10 inline-block rounded-lg bg-[#1e1e1e] border border-[#3c3c3c] p-1"
+                                className="h-12 w-12 mt-4 inline-block rounded-xl bg-[#1e1e1e] border border-[#3c3c3c] p-1"
                                 src={projectDetails?.logo || ""}
                                 alt={altt || "Project logo"}
-                                width="65"
-                                height="65"
-                            />
+                              
+                                />
+
+                            {/* Action Buttons - Mobile */}
+{(projectDetails?.link || projectDetails?.github) && (
+    <div className="mt-4 flex flex-row gap-2 items-center">
+        {projectDetails?.link && (
+            <a
+                href={
+                    projectDetails.link.startsWith("http")
+                        ? projectDetails.link
+                        : `https://${projectDetails.link.replace(/^\/+/, "")}`
+                }
+                target="_blank"
+                rel="noreferrer"
+                className="
+                    flex items-center justify-center gap-1
+                    px-2.5 py-1.5
+                    text-[12px] font-medium
+                    bg-[#007acc] hover:bg-[#0098ff]
+                    text-white
+                    rounded-md
+                    border border-[#007acc] hover:border-[#0098ff]
+                    transition-all duration-200
+                    whitespace-nowrap
+                    active:scale-[0.97]
+                "
+            >
+                <VscLinkExternal className="text-sm" />
+                <span>Live</span>
+            </a>
+        )}
+
+        {projectDetails?.github && (
+            <a
+                href={projectDetails.github}
+                target="_blank"
+                rel="noreferrer"
+                className="
+                    flex items-center justify-center gap-1
+                    px-2.5 py-1.5
+                    text-[12px] font-medium
+                    bg-[#1e1e1e] hover:bg-[#2d2d30]
+                    text-gray-300 hover:text-white
+                    rounded-md
+                    border border-[#3c3c3c] hover:border-[#007acc]
+                    transition-all duration-200
+                    whitespace-nowrap
+                    active:scale-[0.97]
+                "
+            >
+                <VscGithub className="text-sm" />
+                <span>Code</span>
+            </a>
+        )}
+    </div>
+)}
+
+
+                                </div>
+
 
                             <div className="mt-5 text-xl text-[#cccccc]">
                                 <span className="font-bold">{projectDetails?.name || ""}</span> -{" "}
@@ -268,37 +328,7 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                                 {projectDetails?.description || ""}
                             </div>
 
-                            {/* Action Buttons - Mobile */}
-                            {(projectDetails?.link || projectDetails?.github) && (
-                                <div className="mt-6 flex flex-col gap-3">
-                                    {projectDetails?.link && (
-                                        <a
-                                            href={
-                                                projectDetails.link.startsWith("http")
-                                                    ? projectDetails.link
-                                                    : `https://${projectDetails.link.replace(/^\/+/, "")}`
-                                            }
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="group flex items-center justify-center gap-2 px-4 py-3 bg-[#007acc] hover:bg-[#0098ff] text-white font-medium text-sm rounded border border-[#007acc] hover:border-[#0098ff] transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,122,204,0.5)]"
-                                        >
-                                            <VscLinkExternal className="text-lg" />
-                                            <span>Live Demo</span>
-                                        </a>
-                                    )}
-                                    {projectDetails?.github && (
-                                        <a
-                                            href={projectDetails.github}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="group flex items-center justify-center gap-2 px-4 py-3 bg-[#1e1e1e] hover:bg-[#2d2d30] text-gray-300 hover:text-white font-medium text-sm rounded border border-[#3c3c3c] hover:border-[#007acc] transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,122,204,0.3)]"
-                                        >
-                                            <VscGithub className="text-lg" />
-                                            <span>View Code</span>
-                                        </a>
-                                    )}
-                                </div>
-                            )}
+                           
 
                             <div className="mt-6 text-gray-400 font-semibold text-md dark:text-gray-400">
                                 Key Features
@@ -330,10 +360,10 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                     </div>
                 </div>
             </div>
-            <div className="  mt-3 pl-2 pr-2  mb-36 pb-20">
-                <div className="mt-6 pb-2 text-gray-400 font-semibold text-xl dark:text-gray-400">
-                    Snapshots
-                </div>
+            <div className="  mt-3 px-6  md:mb-16 md:pb-10">
+                <h2 className="text-2xl pl-0 text-blue-500 font-semibold uppercase underline underline-offset-8 decoration-blue-500/30">
+                        Snapshots
+                    </h2>
                 <div className="w-full mt-2 mb-5 pb-5 grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 xs:grid-cols-1 ">
                     {projectDetails?.snapshots?.map((shot, index) => (
                         <div
@@ -353,9 +383,59 @@ const ProjectDetails = ({ projectDetails, altt }) => {
                         </div>
                     )) || []}
                 </div>
+                <div className="mt-0 mb-10 pb-10">
+                    <h2 className="text-2xl pl-0 text-blue-500 font-semibold uppercase underline underline-offset-8 decoration-blue-500/30">
+                        Other Projects
+                    </h2>
+                    <p className="font-medium pl-0 text-gray-400 text-sm mt-3 w-full">
+                        Explore more projects based on your current view.
+                    </p>
+                    <div className="w-full mt-6 grid grid-cols-1 gap-6">
+                        {projectDetails?.others?.map((project, index) => (
+                            <div
+                                key={`other-project-mobile-${index}`}
+                                className="group relative"
+                            >
+                                <a
+                                    href={project?.link || "#"}
+                                    className="block rounded-xl overflow-hidden bg-[#252526] border border-[#3c3c3c] active:scale-[0.98] transition-all duration-200"
+                                >
+                                    <div className="p-2">
+                                        <img
+                                            className="w-full aspect-[2/1] rounded-lg object-cover border-b border-[#3c3c3c]/50"
+                                            src={project?.thumbnail || ""}
+                                            alt={project?.title || "Project"}
+                                            width="500"
+                                            height="250"
+                                        />
+                                    </div>
+                                    <div className="px-4 pb-4 pt-2">
+                                        <div className="flex items-center gap-3">
+                                            <img
+                                                className="h-10 w-10 rounded-full bg-[#1e1e1e] border border-[#3c3c3c] shadow-inner"
+                                                src={project?.logo || ""}
+                                                alt={project?.title || "Logo"}
+                                                width="40"
+                                                height="40"
+                                            />
+                                            <div>
+                                                <h3 className="text-lg text-gray-100 font-bold leading-tight">
+                                                    {project?.title || ""}
+                                                </h3>
+                                                <p className="text-gray-400 text-xs mt-1 line-clamp-2">
+                                                    {project?.description || ""}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        )) || []}
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+            </div>
+            );
 };
 
 export default ProjectDetails;

@@ -84,7 +84,7 @@ const Layout = ({ children }) => {
     return (
         <div className={styles.layoutWrapper}>
             {/* HEADER */}
-            <div className="header w-full flex items-center gap-1 border-b border-[#30363d] sm:gap-5 md:gap-14 lg:gap-17 px-0">
+            <div className="header w-full flex items-center border-b border-[#30363d] gap-0 sm:gap-5 md:gap-14 lg:gap-17 px-0">
                 <div className="flex items-center gap-0">
                   <div
     onClick={() => navigate("/")}

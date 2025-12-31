@@ -84,13 +84,13 @@ const Email = () => {
 
               
 
-                <div className="relative z-10 flex-1 p-6 sm:p-10 max-w-5xl">
+                <div className="relative z-10 flex-1 px-6 pb-5 md:px-6 md:py-0 max-w-5xl">
                     {/* Header Consistency */}
                     <div className="mb-10">
-                        <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-thin text-white tracking-tight">
                             Get in <span className="font-semibold text-blue-500">Touch</span>
                         </h1>
-                        <p className="mt-4 text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
+                        <p className=" text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
                             Have a question, a project idea, or just want to say hi?
                             My inbox is always open for new opportunities and collaborations.
                         </p>

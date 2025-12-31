@@ -158,10 +158,10 @@ const GithubStats = () => {
                     autoHideDuration={200}
                     universal={true}
                 >
-                    <div className="text-white w-full flex flex-col items-center p-6 py-10 gap-4 animate-fade-in-up transition-all duration-500">
+                    <div className="text-white w-full flex flex-col items-center px-6 py-8 gap-4 animate-fade-in-up transition-all duration-500">
                         {/* Heading */}
-                        <div className="flex flex-col gap-3 mb-6">
-                            <div className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                        <div className="flex flex-col gap-3 mb-3">
+                            <div className="text-4xl md:text-5xl font-thin text-white tracking-tight">
                                 GitHub <span className="font-semibold text-blue-500">Activity</span>
                             </div>
                             <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">
@@ -170,7 +170,7 @@ const GithubStats = () => {
                         </div>
 
                         {/* Dashboard Stats Card */}
-                        <div className="w-full max-w-4xl bg-[#181818] border border-[#3c3c3c] rounded-2xl py-8 px-5 flex flex-wrap items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-visible group transition-all duration-300 hover:border-[#007acc]/80 hover:shadow-[0_8px_32px_rgba(0,122,204,0.2)]">
+                        <div className="w-full max-w-[250px] sm:max-w-[350px] md:max-w-4xl bg-[#181818] border border-[#3c3c3c] rounded-2xl py-8 px-5 flex flex-wrap items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-visible group transition-all duration-300 hover:border-[#007acc]/80 hover:shadow-[0_8px_32px_rgba(0,122,204,0.2)]">
 
                             {/* Background Glow */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#007acc]/10 via-transparent to-[#007acc]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
@@ -287,9 +287,9 @@ const GithubStats = () => {
                                         <p className="text-sm mt-2">Make sure the backend server is running and configured.</p>
                                     </div>
                                 ) : (
-                                    <div className="flex flex-col text-xs">
+                                    <div className="flex flex-col text-xs ">
                                         {/* Month Labels */}
-                                        <div className="flex mb-2 ml-8 relative h-4">
+                                        <div className="flex mb-2 ml-8 relative h-4 ">
                                             {getMonthLabels().map((month, i) => (
                                                 <span
                                                     key={i}
@@ -310,9 +310,9 @@ const GithubStats = () => {
                                             </div>
 
                                             {/* Grid */}
-                                            <div className="flex gap-[3px]">
+                                            <div className="flex gap-[3px] pr-8 md:pr-12">
                                                 {weeks.map((week, wIndex) => (
-                                                    <div key={wIndex} className="flex flex-col gap-[3px]">
+                                                    <div key={wIndex} className="flex flex-col gap-[3px] ">
                                                         {week.contributionDays.map((day) => (
                                                             <div
                                                                 key={day.date}
@@ -350,7 +350,7 @@ const GithubStats = () => {
                         </div>
 
                         {/* Footer Text */}
-                        <p className="text-gray-400 text-sm max-w-2xl md:max-w-3xl text-center leading-relaxed pb-20">
+                        <p className="text-gray-400 text-sm max-w-2xl md:max-w-3xl text-center leading-relaxed md: pb-5 pb-10">
                             This section dynamically syncs with my <a href="https://github.com/Garvit-developer" target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">GitHub profile</a>, showing near real-time
                             contributions and coding consistency.
                         </p>

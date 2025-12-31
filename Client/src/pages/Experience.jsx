@@ -35,10 +35,10 @@ const MyWork = () => {
                 universal={true}
             >
                 <div className="w-full flex flex-col min-h-screen">
-                    <div className={`w-full ${isMobile ? 'px-2' : 'px-5'} py-5 pb-20 text-left`}>
+                    <div className={`w-full ${isMobile ? 'px-2' : 'px-5'} pb-2 md:pb-5 text-left`}>
                         {/* Header matching Projects/Skills pages */}
-                        <div className="flex flex-col gap-3 mb-10">
-                            <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                        <div className="flex flex-col gap-3 mb-6">
+                            <h1 className="text-4xl md:text-5xl font-thin text-white tracking-tight">
                                 Work <span className="font-semibold text-blue-500">Experience</span>
                             </h1>
                             <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">

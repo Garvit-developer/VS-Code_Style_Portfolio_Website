@@ -98,15 +98,12 @@ const Skills = () => {
                     backgroundSize: "40px 40px"
                 }}
             />
-
-
-
             <div className="w-full flex flex-col min-h-screen">
-                <div className="w-full px-5 py-5">
+                <div className="w-full px-5 pb-2 md:pb-5">
                     {/* Header */}
 
                     <div className="flex flex-col gap-3">
-                        <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-thin text-white tracking-tight">
                             Technical <span className="font-semibold text-blue-500">Skills</span>
                         </h1>
                         <p className="text-gray-400 max-w-2xl text-lg font-light leading-relaxed">

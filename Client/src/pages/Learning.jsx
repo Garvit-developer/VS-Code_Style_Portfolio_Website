@@ -17,7 +17,7 @@ const Learning = () => {
                     universal={true}
                 >
 
-                    <div className="w-full px-2 pt-8 ml-1 text-left">
+                    <div className="w-full md:px-2 pt-5 md:ml-1 text-left">
                         <div
                             className="absolute inset-0 h-full opacity-[0.09] pointer-events-none fixed"
                             style={{
@@ -26,7 +26,7 @@ const Learning = () => {
                                 backgroundSize: "40px 40px"
                             }}
                         />
-                        <p className="text-5xl md:text-6xl ml-5 font-thin text-white tracking-tight">
+                        <p className="text-4xl md:text-5xl ml-5 font-thin text-white tracking-tight">
                             Learning <span className="font-semibold text-blue-500">Logs</span>
                         </p>
                         <p className="font-medium pl-5 pb-5 text-gray-400 text-md pt-1 w-4/5">
@@ -34,7 +34,7 @@ const Learning = () => {
                             Current active learning processes and milestones.
                         </p>
 
-                        <div className="w-full mt-3 mb-5 pb-20 grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-6 px-5">
+                        <div className="w-full mt-3 pb-10 grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-6 px-5">
                             {learningData.map((item) => (
                                 <div key={item.id} className="relative group">
                                     <div className="group absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl opacity-20 group-hover:opacity-60 transition duration-500 blur-sm"></div>

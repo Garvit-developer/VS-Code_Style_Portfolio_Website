@@ -28,7 +28,7 @@ const Gaming = () => {
     };
 
     return (
-        <div className="h-full w-full overflow-hidden bg-[#1e1e1e]">
+        <div className=" h-full w-full overflow-hidden bg-[#1e1e1e]">
             <div className="relative h-full overflow-hidden">
                 <Scrollbars
                     autoHide
@@ -104,7 +104,7 @@ const Gaming = () => {
                             </section>
                         </article>
                     ) : (
-                        <article className="scrollbar pb-40 text-left bg-app bg-center bg-no-repeat bg-cover ">
+                        <article className="scrollbar pb-60 text-left bg-app bg-center bg-no-repeat bg-cover ">
                             <section className="  pt-10">
                                 <div className="animeplayer pr-3 pt-3">
                                     {play ? (

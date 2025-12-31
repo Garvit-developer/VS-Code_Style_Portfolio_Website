@@ -133,12 +133,12 @@ const MyVision = () => {
                 universal={true}
             >
                 <div className="w-full flex flex-col min-h-screen">
-                    <div className="w-full px-6 pt-3 pb-10 font-sans text-left flex-1">
+                    <div className="w-full px-6 pt-4 pb-10 font-sans text-left flex-1">
                         {/* Header */}
                         <div className="flex flex-col gap-1 mb-8">
-                            <h1 className="text-5xl md:text-6xl font-thin text-white tracking-tight">
+                            <div className="text-4xl md:text-5xl font-thin text-white tracking-tight">
                                 My <span className="font-bold text-blue-500">Vision</span>
-                            </h1>
+                            </div>
                             <div className="max-w-3xl space-y-4 text-gray-400 leading-relaxed font-light text-lg">
                                 <p>
                                     design isn't just about making things look beautiful—it's about solving real problems that matter. <br />

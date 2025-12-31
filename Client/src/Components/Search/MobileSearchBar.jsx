@@ -120,10 +120,8 @@ const MobileSearchBar = () => {
                 className="
                     w-6 h-6 flex items-center justify-center
                     rounded-md
-                    border border-[#3c3c3c]
                     hover:border-[#007acc]
-                    transition
-                "
+                    transition"
             >
                 <Search className="w-4 h-4 text-[#cccccc]" />
             </button>

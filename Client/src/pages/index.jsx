@@ -412,7 +412,7 @@ const Home = () => {
                 <meta name="description" content="Premium VS Code styled portfolio of a full stack developer" />
             </Helmet>
 
-            <div className="relative w-full min-h-screen text-gray-300 overflow-x-hidden scrollbar-none">
+            <div className="relative w-full min-h-[90vh] text-gray-300 overflow-x-hidden scrollbar-none">
                 <AntigravityBackground />
 
                 <div
@@ -554,7 +554,7 @@ const Home = () => {
                     {/* RIGHT PANEL */}
                     <div className="flex flex-col gap-6 md:pt-4">
                         {/* TERMINAL ENHANCED */}
-                        <motion.div variants={itemVariants} className="flex flex-col gap-4">
+                        <motion.div variants={itemVariants} className="flex flex-col gap-4 hidden md:block">
                             <h3 className="flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-[#858585] font-bold">
                                 <VscTerminal className="text-blue-500" /> Executive Console
                             </h3>
@@ -608,7 +608,7 @@ const Home = () => {
                         </motion.div>
 
                         {/* SOCIAL & CONNECT */}
-                        <motion.div variants={itemVariants} className="flex flex-col gap-4 pb-6 md:0">
+                        <motion.div variants={itemVariants} className="flex flex-col gap-4 pmd:pb-6 ">
                             <div className="flex flex-col gap-3">
                                 <h3 className="text-[11px] text-[#858585] font-medium uppercase tracking-widest">
                                     Help & Connect
