@@ -3,6 +3,7 @@ import { DownIcon, RightIcon } from "../../SVG/IconsSVG";
 import SidePanelSubLink from "./SidePanelSubLink";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate, useLocation } from "react-router-dom";
+
 // Route filename mapping
 const routeMap = {
     experience: "experience.js",
@@ -146,15 +147,12 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
     };
 
     return (
-        <div className="relative menu-option  overflow-hidden border-l-2 border-r-2 border-[#30363d]">
-            <div
-                className="
-  w-[255px] absolute top-[26px] left-1/2 -translate-x-1/2 border-b-2 border-[#30363d] "
-            ></div>
+        <div className="relative menu-option overflow-hidden border-l-2 border-r-2 border-[#30363d] flex flex-col h-full">
+            <div className="w-full absolute top-[25px] left-1/2 -translate-x-1/2 border-b-2 border-[#30363d] "></div>
 
-            <div className="headweight px-2 py-1 text-[13px]">EXPLORER</div>
+            <div className="headweight pl-5 pt-1 pb-1 text-[12px] shrink-0">EXPLORER</div>
 
-            <div className="mb-5 pb-5 z-1 scrollbar h-85vh overflow-y-scroll">
+            <div className="flex-1 overflow-y-auto force-vs-scrollbar mb-3 pb-5">
                 {menuData.map((section) => (
                     <MenuSection
                         key={section.key}
@@ -167,16 +165,18 @@ export const SideSecondPanel = ({ closeSideMenu }) => {
                 ))}
             </div>
 
-            {!isTabletOrMobile && (
-                <ul className="bottom-links ">
-                    <li className="  border-b border-gray-500">
-                        <div className="text-[12.5px] text-gray-400">All Rights Reserved.</div>
-                    </li>
-                    <li>
-                        <div className="text-[12.5px] text-gray-400">Ⓒ Copyright 2025.</div>
-                    </li>
-                </ul>
-            )}
-        </div>
+            {
+                !isTabletOrMobile && (
+                    <ul className="bottom-links shrink-0 !static !relative ">
+                        <li className="border-b border-[#30363d] border-t border-[#30363d] py-[0.5px]">
+                            <div className="text-[12.5px] text-gray-400">All Rights Reserved.</div>
+                        </li>
+                        <li>
+                            <div className="text-[12.5px] text-gray-400 py-[1px]">Ⓒ Copyright 2025.</div>
+                        </li>
+                    </ul>
+                )
+            }
+        </div >
     );
 };

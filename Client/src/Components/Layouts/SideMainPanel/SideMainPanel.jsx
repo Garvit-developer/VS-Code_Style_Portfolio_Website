@@ -8,18 +8,14 @@ export const SideMainPanel = (props) => {
 
     return (
         <div className="side-header text-center">
-            <ul className="side-header-menu text-center relative h-full">
+            <ul className="side-header-menu text-center relative h-full overflow-y-auto vscode-scroll">
 
                 {/* Main Sidebar Toggle Button */}
                 <li
-                    className={`${props.mainActiveSideButton && selectedSideTab === "main"
-                        ? "active"
-                        : ""
-                        } ${styles.faicons}`}
-                    title="Sidebar"
+                    className={`${styles.faicons} ${props.openSideMenu ? styles.active : ""}`}
+                    title="Explorer"
                     onClick={() => {
                         props.toggleSideMainMenu();
-                        setselectedSideTab("main");
                     }}
                 >
                     <Copyicon width={25} height={25} />
@@ -27,14 +23,10 @@ export const SideMainPanel = (props) => {
 
                 {/* Chatbot Toggle Button */}
                 <li
-                    className={`${props.showChatbot && selectedSideTab === "chatbot"
-                        ? "active"
-                        : ""
-                        } ${styles.faicons}`}
+                    className={`${styles.faicons} ${props.showChatbot ? styles.active : ""}`}
                     title="Copilot Chat"
                     onClick={() => {
                         props.toggleChatbot();
-                        setselectedSideTab("chatbot");
                     }}
                 >
                     <ChatbotIcon width={25} height={25} />

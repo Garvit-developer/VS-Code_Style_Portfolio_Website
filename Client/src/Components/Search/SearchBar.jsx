@@ -107,7 +107,6 @@ const SearchBar = () => {
     };
 
     return (
-        /*  HIDDEN ON MOBILE, SAME ON DESKTOP */
         <div
             ref={searchRef}
             className="relative w-full max-w-[50px] sm:max-w-[160px] md:max-w-[270px] lg:max-w-lg mx-auto hidden sm:block"
@@ -121,7 +120,7 @@ const SearchBar = () => {
                 <input
                     type="text"
                     className="
-                        w-xl sm:w-full  h-6
+                        w-xl sm:w-full  h-[21px]
                         pl-6 pr-2
                         bg-[#1e1e1e]
                         border border-[#3c3c3c]

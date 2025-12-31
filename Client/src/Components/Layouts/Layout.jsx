@@ -52,16 +52,25 @@ const Layout = ({ children }) => {
 
     // Toggle side menu
     const toggleSideMainMenu = () => {
-        setOpenSideMenu(!openSideMenu);
-        setShowChatbot(false);
-        setShowSearch(false);
+        const nextOpenSideMenu = !openSideMenu;
+        setOpenSideMenu(nextOpenSideMenu);
+        if (nextOpenSideMenu) {
+            setShowChatbot(false);
+            setShowSearch(false);
+        }
     };
 
     const toggleChatbot = () => {
-        setShowChatbot(!showChatbot);
-        if (!showChatbot) {
+        const nextShowChatbot = !showChatbot;
+        setShowChatbot(nextShowChatbot);
+        if (nextShowChatbot) {
             setOpenSideMenu(false);
             setShowSearch(false);
+        } else {
+            // If closing chatbot in desktop, open sidebar
+            if (!isTabletOrMobile) {
+                setOpenSideMenu(true);
+            }
         }
     };
 
@@ -75,7 +84,7 @@ const Layout = ({ children }) => {
     return (
         <div className={styles.layoutWrapper}>
             {/* HEADER */}
-            <div className="header w-full flex items-center gap-1 sm:gap-5 md:gap-14 lg:gap-17 px-0">
+            <div className="header w-full flex items-center gap-1 border-b border-[#30363d] sm:gap-5 md:gap-14 lg:gap-17 px-0">
                 <div className="flex items-center gap-0">
                     <div className={` ${isTabletOrMobile ? "display-block ml-0.5 w-7 h-7 bg-[url('/mobile_logo.webp')] bg-cover bg-center h-5" : "display-block ml-2  w-5 h-5 bg-[url('/visual-studio-code.webp')] bg-cover bg-center"}`}>
 
@@ -215,6 +224,7 @@ const Layout = ({ children }) => {
                             showSearch={showSearch}
                             toggleChatbot={toggleChatbot}
                             showChatbot={showChatbot}
+                            openSideMenu={openSideMenu}
                         />
                     )}
 
@@ -248,7 +258,7 @@ const Layout = ({ children }) => {
                 {/* RIGHT SIDEBAR (CHATBOT) */}
                 {showChatbot && (
                     <div className={styles.rightSidePanel}>
-                        <Chatbot isOpen={showChatbot} onClose={() => setShowChatbot(false)} />
+                        <Chatbot isOpen={showChatbot} onClose={toggleChatbot} />
                     </div>
                 )}
 

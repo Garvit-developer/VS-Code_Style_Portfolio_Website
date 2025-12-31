@@ -24,15 +24,14 @@ const TabItem = ({ tab, isActive, onClick, onClose }) => {
         <div
             className={`
                 flex items-center gap-2 px-3
-                border-2 border-[#30363d] 
                 cursor-pointer 
                 min-w-fit
-                h-[27px]
+                h-[26px]
                 transition-colors
-                border-r border-[#252526]
+                border-r border-[#30363d]
                 ${isActive
-                    ? "bg-[#1e1e1e] text-white border-t border-t-[#e8ab53]"
-                    : "bg-[#252526] text-[#969696] hover:bg-[#2a2d2e] border-t border-t-transparent"
+                    ? "bg-[#1e1e1e] text-white border-t border-t-[#3b82f6] "
+                    : "bg-[#181818] text-[#969696] hover:bg-[#2a2d2e] border-t border-t-transparent border-b border-[#30363d]"
                 }
             `}
             onClick={onClick}
@@ -50,7 +49,7 @@ const TabItem = ({ tab, isActive, onClick, onClose }) => {
             {/* Close Button / Dot Logic */}
             <div
                 className={`
-                    w-6 h-6 flex items-center justify-center rounded-md ml-1 z-10
+                    w-6 h-6 flex items-center justify-center rounded-md  z-10
                     ${isHovered ? "hover:bg-[#464646]" : ""} 
                     transition-all
                 `}
@@ -63,7 +62,7 @@ const TabItem = ({ tab, isActive, onClick, onClose }) => {
                 {isActive || isHovered ? (
                     <VscClose size={12} className={isActive ? "text-[#e8eaed]" : "text-[#cccccc]"} />
                 ) : (
-                    <div className="w-0 h-0" />
+                    <div className="w-0 h-0" ></div>
                 )}
             </div>
         </div>
@@ -163,7 +162,7 @@ const EditorTabBar = () => {
     return (
         <div
             ref={scrollRef}
-            className="hidden md:flex bg-[#252526] h-[27px] overflow-x-auto w-full items-end select-none scrollbar-none"
+            className="hidden md:flex bg-[#252526] h-[27px] overflow-x-auto w-full items-end select-none scrollbar-none  p-0"
         >
             {openTabs.map((tab) => {
                 const currentPath = location.pathname.toLowerCase().replace(/\/$/, "");

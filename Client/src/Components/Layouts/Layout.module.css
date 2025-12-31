@@ -4,20 +4,28 @@
   padding-left: 0.65rem;
   padding-right: 0px;
   cursor: pointer;
+  /* default transparent border */
+  transition: all 0.2s ease;
+}
+
+.active {
+  border-left: 3px solid #3b82f6 !important;
+  color: white;
 }
 
 .navside {
-  width: 320px;
+  width: 287px;
   height: 100%;
   display: inline-flex;
   overflow-x: hidden;
+  background-color: #181818;
 }
 
 .mainside {
-  width: calc(100vw - 320px);
+  width: calc(100vw - 287px);
   height: calc(100vh - 47px);
   margin-top: 0px;
-  margin-left: -17px;
+  margin-left: 0px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -26,7 +34,7 @@
 }
 
 .mainside.withRightPanel {
-  width: calc(100vw - 320px - 320px);
+  width: calc(100vw - 287px - 320px);
   /* Left sidebar + Right sidebar */
 }
 
