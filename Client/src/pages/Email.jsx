@@ -82,7 +82,7 @@ const Email = () => {
                     }}
                 />
 
-              
+
 
                 <div className="relative z-10 flex-1 px-6 pb-5 md:px-6 md:py-0 max-w-5xl">
                     {/* Header Consistency */}
