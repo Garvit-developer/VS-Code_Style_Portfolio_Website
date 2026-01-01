@@ -71,7 +71,7 @@ const Email = () => {
             autoHideDuration={200}
             universal={true}
         >
-            <div className="relative min-h-screen bg-[#1e1e1e] text-[#d4d4d4] flex flex-col">
+            <div className="relative min-h-screen bg-[#1e1e1e] text-[#d4d4d4] flex flex-col pb-10 md:pb-12">
                 {/* Grid Background */}
                 <div
                     className="absolute inset-0 opacity-[0.03] pointer-events-none fixed"
@@ -162,7 +162,7 @@ const Email = () => {
                                                 }}
                                                 className="group flex items-center gap-2 px-8 py-3 bg-[#007acc] hover:bg-[#0090f1] text-white rounded font-medium transition-all shadow-lg shadow-[#007acc]/10"
                                             >
-                                                <VscSend size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                                <VscSend size={18} className="transform transition-transform duration-300 group-hover:-rotate-45 group-hover:mb-1" />
                                                 Send Message
                                             </button>
                                         ) : (
@@ -176,7 +176,7 @@ const Email = () => {
                             </div>
 
                             {/* Sidebar / Info Card */}
-                            <div className="space-y-8 mt-5">
+                            <div className="space-y-8 md:mt-5">
                                 <div className="p-5 bg-[#252526]/50 border border-[#333] rounded-lg backdrop-blur-sm">
                                     <div className="text-sm font-semibold text-white uppercase tracking-widest mb-4">Direct Contact</div>
                                     <div className="space-y-4">
@@ -191,9 +191,9 @@ const Email = () => {
 
                                 </div>
 
-                                <div className="p-6 border border-[#333]/50 rounded-lg">
-                                    <div className="text-[11px] text-[#858585] uppercase tracking-widest mb-3">Availability</div>
-                                    <p className="text-xs text-gray-500 leading-relaxed italic">
+                                <div className="p-6 border border-[#333]/50 rounded-lg bg-[#252526]/50">
+                                    <div className="text-sm font-semibold text-white uppercase tracking-widest mb-2">Availability</div>
+                                    <p className="text-xs text-gray-400 leading-relaxed italic">
                                         "Currently open for freelance projects and full-time software development roles."
                                     </p>
                                 </div>
