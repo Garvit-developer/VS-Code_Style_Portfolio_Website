@@ -126,13 +126,15 @@ const Resume = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <button
-                onClick={toggleExpand}
-                className="flex items-center justify-center gap-2 px-4 py-2 bg-[#252526] hover:bg-[#37373d] text-white rounded font-medium transition-colors border border-[#454545] text-sm md:text-base"
-              >
-                <VscExpandAll className="text-lg" />
-                {isExpanded ? "Collapse" : "Full View"}
-              </button>
+              {!isMobile && (
+                <button
+                  onClick={toggleExpand}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-[#252526] hover:bg-[#37373d] text-white rounded font-medium transition-colors border border-[#454545] text-sm md:text-base"
+                >
+                  <VscExpandAll className="text-lg" />
+                  {isExpanded ? "Collapse" : "Full View"}
+                </button>
+              )}
 
               <motion.a
                 whileHover={{ scale: 1.05 }}
@@ -151,8 +153,8 @@ const Resume = () => {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 0.9, y: 0 }}
-            className={`w-full max-w-3xl bg-[#1e1e1e] border border-[#454545] rounded-lg overflow-hidden shadow-2xl flex flex-col mb-10 cursor-pointer ${isExpanded ? 'hidden' : ''}`}
-            onClick={toggleExpand}
+            className={`w-full max-w-3xl bg-[#1e1e1e] border border-[#454545] rounded-lg overflow-hidden shadow-2xl flex flex-col mb-10 ${!isMobile ? "cursor-pointer" : ""} ${isExpanded ? 'hidden' : ''}`}
+            onClick={() => !isMobile && toggleExpand()}
           >
             {/* PDF Rendering Area */}
             <div className="flex justify-center p-2 md:p-10 overflow-x-auto scrollbar-none bg-[#1e1e1e]">
