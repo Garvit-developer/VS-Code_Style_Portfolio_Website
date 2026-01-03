@@ -108,7 +108,7 @@ const Layout = ({ children }) => {
                             <Link to="/Projects">Projects</Link>
                         </li>
                         <li className="header-menu-link">
-                            <Link to="/MyVision">Vision</Link>
+                            <Link to="/resume">Resume</Link>
                         </li>
                         <li className="header-menu-link">
                             <Link to="/Email">Contact</Link>

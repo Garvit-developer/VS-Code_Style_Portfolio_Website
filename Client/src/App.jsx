@@ -15,6 +15,7 @@ const Learning = lazy(() => import("./pages/Learning"));
 const Projects = lazy(() => import("./pages/Projects/index"));
 const ProjectPage = lazy(() => import("./pages/Projects/ProjectPage"));
 const NotFound = lazy(() => import("./pages/404"));
+const Resume = lazy(() => import("./pages/Resume"))
 
 const PageLoader = () => {
     return (
@@ -83,6 +84,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/myvision" element={<MyVision />} />
+                            <Route path="/resume" element={<Resume/>} />
                             <Route path="/experience" element={<Experience />} />
                             <Route path="/gaming" element={<Gaming />} />
                             <Route path="/github-streak" element={<GithubStreak />} />

@@ -8,13 +8,14 @@ import { FaReact } from "react-icons/fa";
 const TABS = [
     { path: "/", title: "index.jsx" },
     { path: "/skills", title: "Skills.jsx" },
-    { path: "/projects", title: "Projects.jsx" },
     { path: "/experience", title: "Experience.jsx" },
+    { path: "/projects", title: "Projects.jsx" },
+    { path: "/resume", title: "Resume.jsx" },
     { path: "/myvision", title: "MyVision.jsx" },
+    { path: "/email", title: "Email.jsx" },
     { path: "/github-streak", title: "GithubStreak.jsx" },
     { path: "/gaming", title: "Gaming.jsx" },
     { path: "/learning", title: "Learning.jsx" },
-    { path: "/email", title: "Email.jsx" },
 ];
 
 const TabItem = ({ tab, isActive, onClick, onClose }) => {

@@ -34,6 +34,7 @@ const menuData = [
             { name: "skills.css", link: "/skills", icon: "icons8-css3" },
             { name: "experience.js", link: "/experience", icon: "icons8-javascript" },
             { name: "projects.ts", link: "/projects", icon: "icons8-typescript" },
+            { name: "resume.jsx", link: "/resume", icon: "icons8-react" },
             { name: "vision.md", link: "/myvision", icon: "icons8-readme" },
         ],
     },
@@ -69,7 +70,7 @@ const menuData = [
 
 const MenuSection = ({ section, isOpen, onToggle, navigate, activeCurrentSubLink }) => {
     return (
-        <div className="menu-drop pt-1">
+        <div className="menu-drop pt-0.5">
             <div className="box-click">
                 <div
                     className="flex pl-1 cursor-pointer"
